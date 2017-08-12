@@ -1,0 +1,125 @@
+<nav class="navbar navbar-toggleable-md navbar-light login-navbar">
+	<div class="container">
+		<a routerLink="/administrator/dashboard" class="sc-logo clearfix"><span>School</span>Cloudy</a>
+	</div>
+</nav>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-xlg-6 col-xl-6 col-lg-12 col-sm-12 col-12">
+			<div id="carouselExampleControls" class="carousel slide"
+				data-ride="carousel">
+				<div class="carousel-inner" role="listbox">
+					<div class="carousel-item active">
+						<img class="d-block img-fluid" src="assets/images/4.jpg"
+							alt="First slide">
+					</div>
+					<div class="carousel-item">
+						<img class="d-block img-fluid" src="assets/images/345.jpg"
+							alt="Second slide">
+					</div>
+				</div>
+				<a class="carousel-control-prev" href="#carouselExampleControls"
+					role="button" data-slide="prev"> <span
+					class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+					class="sr-only">Previous</span>
+				</a> <a class="carousel-control-next" href="#carouselExampleControls"
+					role="button" data-slide="next"> <span
+					class="carousel-control-next-icon" aria-hidden="true"></span> <span
+					class="sr-only">Next</span>
+				</a>
+			</div>
+		</div>
+
+		<div class="col-md-4 offset-md-2 col-xlg-3 col-xl-3 col-lg-3 col-sm-12">
+			<div class="card text-center login-box">
+				<div class="card-header">
+					<h3 translate>{{'login.title'}}</h3>
+				</div>
+				<div class="card-block">
+					<div class="auth-main">
+						<div class="auth-block">
+							<form class="form-horizontal" role="form" #userForm="ngForm"
+								(ngSubmit)="(submitUserForm(userForm.value,$event))">
+								<div class="field input-group">
+									<span class="input-group-addon"><i class="ion-person"></i></span>
+									<input type="text" id="fieldUser" class="input" required
+										pattern=.*\S.* name="username" ngModel /> <label
+										for="fieldUser" class="label" translate>{{'login.username'}}</label>
+								</div>
+
+								<div class="field input-group">
+									<span class="input-group-addon"> <i class="ion-locked"></i>
+									</span> <input type="password" id="fieldPassword" class="input"
+										required pattern=.*\S.* name="password" ngModel /> <label
+										for="fieldPassword" class="label" translate>{{'login.password'}}</label>
+								</div>
+								<div class="row">
+									<div class="col-sm-10 offset-sm-4">
+										<button [disabled]="!userForm.valid">
+											<div class="button login color">
+												<div class="center" translate>{{'login.login_btn'}}</div>
+												<i class="spinner"></i>
+											</div>
+										</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer class="row">
+	<nav
+		class="navbar fixed-bottom navbar-toggleable-xl navbar-inverse login-footer">
+		<!-- Brand -->
+		<div class="">
+			&copy; <a href="http://regosnet.com" translate>{{'general.school_cloudy'}}</a>
+			2017
+		</div>
+	</nav>
+</footer>
+
+<button class="button" (click)="myBtn($event)">click</button>
+
+
+<!-- 
+
+<div class="form-group row">
+					<div >
+						<button [disabled]="!form.valid" type="submit"
+							class="btn btn-default btn-auth" translate>{{'login.sign_in'}}</button>
+						<a routerLink="/login" class="forgot-pass" translate>{{'login.forgot_password'}}</a>
+					</div>
+				</div>
+				
+				
+				
+				
+				
+				<div class="row">
+		<div class="col-md-6">
+			<div class="jumbotron">
+				<h1 class="display-3">SVG WORK HERE</h1>
+				<p class="lead">This is a simple hero unit, a simple
+					jumbotron-style component for calling extra attention to featured
+					content or information.</p>
+				<hr class="my-4">
+				<p>It uses utility classes for typography and spacing to space
+					content out within the larger container.</p>
+				<p class="lead">
+					<a class="btn btn-primary btn-lg" href="#" role="button">Learn
+						more</a>
+				</p>
+			</div>
+		</div>
+		<div class="login-box col-md-4">
+			<h3 translate>{{'login.title'}}</h3>
+			
+		</div>
+	</div>
+
+ -->

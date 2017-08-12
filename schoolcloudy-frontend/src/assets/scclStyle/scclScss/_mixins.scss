@@ -1,0 +1,146 @@
+/// Slightly lighten a color
+/// @access public
+/// @param {Color} $color - color to tint
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+/// Slightly darken a color
+/// @access public
+/// @param {Color} $color - color to shade
+/// @param {Number} $percentage - percentage of `$color` in returned color
+/// @return {Color}
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white, 50%)) {
+  ::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+    cursor: pointer;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+
+  // For Internet Explorer
+  body {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+@mixin bg-nr($relativeUrl) {
+  background: url($images-root + $relativeUrl) no-repeat 0 0;
+}
+@mixin bg($relativeUrl) {
+  background: url($images-root + $relativeUrl);
+}
+
+@mixin bg-image($relativeUrl) {
+  background-image: url($assets-root + $images-root + $relativeUrl);
+}
+
+
+@mixin bg-translucent-dark($opacity) { // maybe deleted..........
+  background: rgba(0, 0, 0, $opacity);
+}
+
+@mixin placeholderStyle($color, $opacity) {
+  &::-webkit-input-placeholder {
+    color: $color;
+    opacity: $opacity;
+  }
+  &:-moz-placeholder {
+    /* Firefox 18- */
+    color: $color;
+    opacity: $opacity;
+  }
+  &::-moz-placeholder {
+    /* Firefox 19+ */
+    color: $color;
+    opacity: $opacity;
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+    opacity: $opacity;
+  }
+}
+
+@mixin overrideColors($color) {
+  p,
+  h1,h2,h3,h4,h5,h6,
+  .pie-chart-item,
+  .panel-heading>.dropdown .dropdown-toggle,
+  .panel-title,
+  ol.blur span,
+  ul.blur,
+  .popular-app-cost,
+  .popular-app-info,
+  .panel-title>.small,
+  .panel-title>.small>a,
+  .panel-title>a,
+  .panel-title>small,
+  .panel-title>small>a,
+  .traffic-text span,
+  .form-group label,
+  .help-block{
+    color: $color;
+  }
+  .feed-message .message-time, .text-muted {
+    color: darken($color, 20);
+  }
+}
+
+@mixin gradient($color-1, $color-2, $color-3) {
+  background: $color-2; /* Old browsers */
+  background: -moz-radial-gradient(bottom, ellipse cover,  $color-1 0%, $color-2 45%, $color-3 100%); /* FF3.6-15 */
+  background: -webkit-radial-gradient(bottom, ellipse cover,  $color-1 0%,$color-2 45%,$color-3 100%); /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(ellipse at bottom,  $color-1 0%,$color-2 45%,$color-3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$color-1', endColorstr='$color-3',GradientType=1); /* IE6-9 fallback on horizontal gradient */
+}
+
+@mixin topbar() {
+	color: $sidebar-text;
+    display: block;
+    font-size: 24px;
+    font-family: $font-family;
+    white-space: nowrap;
+    float: left;
+    outline: none !important;
+    line-height: 60px;
+    span {
+    	color: $primary;
+    }
+}
+
+@mixin login-spinner($position) {
+border-radius: 0;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  height: 20px;
+  animation: none;
+  transform: rotateZ(-45deg);
+  display: inline-block;
+  width:20px;
+  height: 20px;
+  position: absolute;
+  border: 1.5px solid #ffffff;
+  border-top-color: rgba(255, 255, 255, 0.3);
+  border-radius: 100%;
+  opacity: 1;
+  top:10px;
+  right:$position;
+  animation: spinner 0.6s infinite linear;
+  transition: top 0.3s 0.3s ease, opacity 0.3s 0.3s ease, border-radius 0.3s ease;
+  box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
+}
+

@@ -7,4 +7,11 @@
   </parent>
   <artifactId>sccl-web</artifactId>
   <packaging>war</packaging>
+  <dependencies>
+  	<dependency>
+  		<groupId>com.schoolcloudy.backend</groupId>
+  		<artifactId>sccl-service</artifactId>
+  		<version>0.0.1</version>
+  	</dependency>
+  </dependencies>
 </project>

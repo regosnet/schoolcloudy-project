@@ -6,4 +6,11 @@
     <version>0.0.1</version>
   </parent>
   <artifactId>sccl-service</artifactId>
+  <dependencies>
+  	<dependency>
+  		<groupId>com.schoolcloudy.backend</groupId>
+  		<artifactId>sccl-repository</artifactId>
+  		<version>0.0.1</version>
+  	</dependency>
+  </dependencies>
 </project>
