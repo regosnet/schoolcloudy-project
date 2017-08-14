@@ -21,7 +21,7 @@
       "prefix": "sccl",
       "styles": [
 		"../node_modules/bootstrap/scss/bootstrap.scss",
-        "styles.css"
+        "scclStyles.scss"
       ],
       "scripts": [
 		"../node_modules/jquery/dist/jquery.min.js",

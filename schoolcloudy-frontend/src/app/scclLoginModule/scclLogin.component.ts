@@ -1,26 +1,27 @@
 import {Component} from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from 'app/login/login.service';
-import { UserImpl } from 'app/model/absract/user-impl';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
-import { ScclService } from 'app/theme/services/sccl-service/sccl-service';
+import { UserImpl } from '../model/absract/user-impl';
+import { ScclLoginService } from './scclLogin.service';
+import * as $ from 'jquery';
+import { TranslateService } from '@ngx-translate/core';
+
 
 
 @Component({
-    selector: 'login',
-    templateUrl: './login.html',
-    styleUrls: ['./login.scss']
+    selector: 'sccl-login',
+    templateUrl: './scclLogin.html',
+    styleUrls: ['./scclLogin.scss']
 })
 export class ScclLoginComponent {
     private _user: UserImpl;
-private isWorking = false;
-private _status_code;
 
 
-constructor(private _route: Router, private _scclUserAuthentication: ScclService) {
+
+constructor(private _route: Router, private _scclUserAuthentication: ScclLoginService, private translate: TranslateService) {
 }
-
+/*
 submitUserForm(userFormData, event) {
     event.preventDefault();
     const loginBtn = $('.center');
@@ -28,16 +29,16 @@ submitUserForm(userFormData, event) {
     const spinner = $('.spinner');
     this._scclUserAuthentication.getUserByCredential(userFormData).subscribe(
             response => {
-                if (response.status === 204){
+                if (response.status === 204) {
                     loginBtn.html('Login');
                     button.removeClass('ok loading');
                     spinner.removeClass('spin');
                 }else {
-                    if (response.status === 202){
+                    if (response.status === 202) {
                         button.addClass('loading');
                         loginBtn.html('Authenticating');
                         spinner.addClass('spin');
-                        if (response.json().user === 'Administrator'){
+                        if (response.json().user === 'Administrator') {
                             this._route.navigate(['/administrator']);
                         }
                     }
@@ -47,5 +48,8 @@ submitUserForm(userFormData, event) {
                 console.log(error);
             }
     );
+}*/
+changeLang(language: string) {
+    this.translate.use(language);
 }
 }

@@ -5,7 +5,7 @@ export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
       path: 'login',
-      loadChildren: 'app/login/login.module#LoginModule'
+      loadChildren: './scclLoginModule/scclLogin.module#ScclLoginModule'
     },
   { path: '**', redirectTo: 'not-found' },
   {path: 'not-found', loadChildren: './not-found/not-found.module#NotFoundModule'}

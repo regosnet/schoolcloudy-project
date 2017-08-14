@@ -6,17 +6,16 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class ScclLoginService {
-
+/*
     constructor(private http: Http) {
 
     }
 
     public getUserByCredential(data) {
-            const body = JSON.stringify(data);
-            const headers = new Headers();
-            headers.append('Content-Type', 'application/json' );
-            return this.
-            http.post('http://localhost:8080/schoolutils/login/check-get-user-by/credential', body, {headers: headers})
-            .map(res => console.log(res.status));
+        const body = JSON.stringify(data);
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json' );
+        return this.http.post('http://localhost:8080/schoolutils/login/check-get-user-by/credential', body, {headers: headers});
     }
+    */
 }

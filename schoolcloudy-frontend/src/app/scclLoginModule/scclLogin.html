@@ -2,35 +2,25 @@
 	<div class="container">
 		<a routerLink="/administrator/dashboard" class="sc-logo clearfix"><span>School</span>Cloudy</a>
 	</div>
+
+	<div class="dropdown">
+		<button class="btn btn-secondary dropdown-toggle" type="button"
+			id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+			aria-expanded="false">Language</button>
+		<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+			<a class="dropdown-item" href="javascript:void(0)"
+				(click)="changeLang('en')">English</a> <a class="dropdown-item"
+				href="javascript:void(0)" (click)="changeLang('lv')">Latvia</a> <a
+				class="dropdown-item" href="javascript:void(0)"
+				(click)="changeLang('fr')">French</a>
+		</div>
+	</div>
 </nav>
 <div class="container">
 	<div class="row">
-		<div class="col-md-6 col-xlg-6 col-xl-6 col-lg-12 col-sm-12 col-12">
-			<div id="carouselExampleControls" class="carousel slide"
-				data-ride="carousel">
-				<div class="carousel-inner" role="listbox">
-					<div class="carousel-item active">
-						<img class="d-block img-fluid" src="assets/images/4.jpg"
-							alt="First slide">
-					</div>
-					<div class="carousel-item">
-						<img class="d-block img-fluid" src="assets/images/345.jpg"
-							alt="Second slide">
-					</div>
-				</div>
-				<a class="carousel-control-prev" href="#carouselExampleControls"
-					role="button" data-slide="prev"> <span
-					class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-					class="sr-only">Previous</span>
-				</a> <a class="carousel-control-next" href="#carouselExampleControls"
-					role="button" data-slide="next"> <span
-					class="carousel-control-next-icon" aria-hidden="true"></span> <span
-					class="sr-only">Next</span>
-				</a>
-			</div>
-		</div>
 
-		<div class="col-md-4 offset-md-2 col-xlg-3 col-xl-3 col-lg-3 col-sm-12">
+		<div
+			class="col-md-4 offset-md-2 col-xlg-3 col-xl-3 col-lg-3 col-sm-12">
 			<div class="card text-center login-box">
 				<div class="card-header">
 					<h3 translate>{{'login.title'}}</h3>
@@ -44,7 +34,7 @@
 									<span class="input-group-addon"><i class="ion-person"></i></span>
 									<input type="text" id="fieldUser" class="input" required
 										pattern=.*\S.* name="username" ngModel /> <label
-										for="fieldUser" class="label" translate>{{'login.username'}}</label>
+										for="fieldUser" class="label" translate>{{'login.email'}}</label>
 								</div>
 
 								<div class="field input-group">
@@ -57,7 +47,7 @@
 									<div class="col-sm-10 offset-sm-4">
 										<button [disabled]="!userForm.valid">
 											<div class="button login color">
-												<div class="center" translate>{{'login.login_btn'}}</div>
+												<div class="center" translate>{{'login.sign_in'}}</div>
 												<i class="spinner"></i>
 											</div>
 										</button>

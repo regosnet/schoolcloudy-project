@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ScclLoginRouting } from './scclLogin.routing';
 import { ScclLoginService } from './scclLogin.service';
 import { ScclLoginComponent } from './scclLogin.component';
+import { AppTranslationModule } from '../scclTranslatingModule';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { ScclLoginComponent } from './scclLogin.component';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    ScclLoginRouting
+    ScclLoginRouting,
+    AppTranslationModule
   ],
   declarations: [
     ScclLoginComponent
