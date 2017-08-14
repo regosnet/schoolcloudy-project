@@ -1,10 +1,11 @@
 {
-  "login": {
+  "sccl": {
+  	"login": {
     "title": "virsraksts",
-    "signup_link": "New to ng2-admin? Sign up!",
     "email": "E-pasts",
     "password": "Parole",
     "sign_in": "Ielogoties",
     "forgot_password": "Forgot password?"
     } 
+  }
 }

@@ -23,7 +23,7 @@
 			class="col-md-4 offset-md-2 col-xlg-3 col-xl-3 col-lg-3 col-sm-12">
 			<div class="card text-center login-box">
 				<div class="card-header">
-					<h3 translate>{{'login.title'}}</h3>
+					<h3 translate>{{'sccl.login.title'}}</h3>
 				</div>
 				<div class="card-block">
 					<div class="auth-main">
@@ -34,20 +34,20 @@
 									<span class="input-group-addon"><i class="ion-person"></i></span>
 									<input type="text" id="fieldUser" class="input" required
 										pattern=.*\S.* name="username" ngModel /> <label
-										for="fieldUser" class="label" translate>{{'login.email'}}</label>
+										for="fieldUser" class="label" translate>{{'sccl.login.email'}}</label>
 								</div>
 
 								<div class="field input-group">
 									<span class="input-group-addon"> <i class="ion-locked"></i>
 									</span> <input type="password" id="fieldPassword" class="input"
 										required pattern=.*\S.* name="password" ngModel /> <label
-										for="fieldPassword" class="label" translate>{{'login.password'}}</label>
+										for="fieldPassword" class="label" translate>{{'sccl.login.password'}}</label>
 								</div>
 								<div class="row">
 									<div class="col-sm-10 offset-sm-4">
 										<button [disabled]="!userForm.valid">
 											<div class="button login color">
-												<div class="center" translate>{{'login.sign_in'}}</div>
+												<div class="center" translate>{{'sccl.login.sign_in'}}</div>
 												<i class="spinner"></i>
 											</div>
 										</button>
