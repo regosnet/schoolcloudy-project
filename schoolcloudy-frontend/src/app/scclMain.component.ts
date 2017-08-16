@@ -1,5 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { ScclPreloaderService } from './scclService/scclPreloaderService/scclPreloader';
+import { ScclPreloaderService } from './scclShared/scclSharedService/scclPreloaderService/scclPreloader';
+
 
 @Component({
   selector: 'sccl-main',

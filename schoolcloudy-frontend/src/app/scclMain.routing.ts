@@ -5,10 +5,10 @@ export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
       path: 'login',
-      loadChildren: './scclLoginModule/scclLogin.module#ScclLoginModule'
+      loadChildren: './scclShared/scclSharedModule/scclLoginModule/scclLogin.module#ScclLoginModule'
     },
   { path: '**', redirectTo: 'not-found' },
-  {path: 'not-found', loadChildren: './not-found/not-found.module#NotFoundModule'}
+  {path: 'not-found', loadChildren: './scclShared/scclSharedModules/scclNotFoundModule/scclNotFound.module#ScclNotFoundModule'}
 ];
 
 export const ScclMainRouting: ModuleWithProviders = RouterModule.forRoot(routes, { useHash: true });

@@ -1,0 +1,145 @@
+@import '../../../../scclStyles';
+
+.container {
+   width: 150%;
+}
+.login-box {
+	background:$sccl-dark-gray;
+	border:1px solid #F4F4F4;	
+	-moz-box-shadow:0 0 10px #C4C4C4;
+	-webkit-box-shadow:0 0 10px #C4C4C4;
+	box-shadow:0 0 10px #C4C4C4;
+	margin-top: 15em;
+}
+
+.login-navbar {
+	background-color: $sccl-dark-gray;
+	height: 66px;
+	a.sc-logo {
+    @include topbar();
+  }
+
+  a.sc-logo:hover {
+    color: $primary;
+  }
+}
+
+.field {
+  position: relative;
+  margin-bottom: 2.5em;
+}
+.label {
+  position: absolute;
+  height: 1rem;
+  line-height: 1rem;
+  bottom: 0;
+  color: #999;
+  font-size: 1em;
+  transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+  left: 3em;
+}
+.input {
+  width: 100%;
+  font-size: 100%;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  height: 2rem;
+  line-height: 1rem;
+  border-bottom: 1px solid #eee;
+  color: #777;
+  transition: all .2s ease-in;
+}
+.input:focus {
+  outline: 0;
+  border-color: #35444F;
+}
+
+
+.input:focus + .label,
+input:valid + .label {
+  transform: translateY(-100%);
+  font-size: 0.7rem;
+  color: #35444F;
+  left: 4em;
+}
+
+.input-group-addon {
+	height: 2rem;
+	width:2rem;
+}
+
+
+ /* Intro animation */
+@keyframes intro {
+  from {
+    opacity: 0;
+    top: 0;
+  }
+  to {
+    opacity: 1;
+    top: 50%;
+  }
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(359deg);
+  }
+}
+button {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+}
+.button.color {
+  background-color: $sccl-dark-gray;
+  color: $sccl-bright-white;
+}
+  
+.button.login {
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.2s;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.button.login:active {
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+  transition-delay: 0s;
+}
+.button {
+  display: inline-block;
+  position: relative;
+  width: 6em;
+  border-radius: 5px;
+  height: 35px;
+  line-height: 35px;
+  border-radius: 5px;
+  font-size: 1.2em;
+  background-color: $sccl-bright-white;
+  color: #646464;
+}
+
+.center {
+  text-align: center;
+}
+
+.loading {
+	width: 10em;
+ 	background-color: $sccl-dark-gray;
+ 	text-align: left;
+}
+	
+
+.spin {
+  @include login-spinner(3px);
+}
+
+.login-footer {
+	background-color: $sccl-dark-gray;
+	height: 150px;
+}

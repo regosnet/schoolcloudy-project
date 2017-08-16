@@ -1,3 +1,5 @@
-@import 'variables';
+@import 'bootstrap/scss/bootstrap';
 @import 'scclColorScheme';
-@import 'mixins'
+@import 'bootstrap_overrides/bootstrap_overrides';
+@import 'scclVariables';
+@import 'mixins';

@@ -2,7 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ScclMainComponent } from './scclMain.component';
 import { ScclMainRouting } from './scclMain.routing';
-import { ScclPreloaderService } from './scclService/scclPreloaderService/scclPreloader';
+import { ScclGlobalState } from './scclGlobalState';
+import { ScclSharedModule } from './scclShared/scclShared.module';
+
+
+
+
 
 
 
@@ -12,9 +17,10 @@ import { ScclPreloaderService } from './scclService/scclPreloaderService/scclPre
   ],
   imports: [
     BrowserModule,
+    ScclSharedModule,
     ScclMainRouting
   ],
-  providers: [ScclPreloaderService],
+  providers: [ScclGlobalState],
   bootstrap: [ScclMainComponent]
 })
 export class ScclMainModule { }
