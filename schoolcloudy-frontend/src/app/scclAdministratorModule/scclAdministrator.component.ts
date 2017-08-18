@@ -12,7 +12,8 @@ export class ScclAdministratorComponent {
     }
 
     ngOnInit() {
-        this._menuService.updateMenuByRoutes(<Routes>SCCL_ADMINISTRATOR_MENU)
+        this._menuService.updateMenuByRoutes(<Routes>SCCL_ADMINISTRATOR_MENU);
+        console.log(SCCL_ADMINISTRATOR_MENU);
     }
 }
 

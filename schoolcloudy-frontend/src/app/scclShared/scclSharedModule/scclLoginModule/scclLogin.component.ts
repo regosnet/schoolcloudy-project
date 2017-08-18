@@ -21,6 +21,8 @@ export class ScclLoginComponent {
 
 
 constructor(private _route: Router, private _scclUserAuthentication: ScclLoginService, private translate: TranslateService) {
+    this._route.navigate(['/administrator']);
+    console.log('Routed to administrator');
 }
 /*
 submitUserForm(userFormData, event) {

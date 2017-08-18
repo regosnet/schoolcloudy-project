@@ -8,7 +8,7 @@ export const routes: Routes = [
       loadChildren: './scclShared/scclSharedModule/scclLoginModule/scclLogin.module#ScclLoginModule'
     },
   { path: '**', redirectTo: 'not-found' },
-  {path: 'not-found', loadChildren: './scclShared/scclSharedModules/scclNotFoundModule/scclNotFound.module#ScclNotFoundModule'}
+  {path: 'not-found', loadChildren: './scclShared/scclSharedModule/scclNotFoundModule/scclNotFound.module#ScclNotFoundModule'}
 ];
 
-export const ScclMainRouting: ModuleWithProviders = RouterModule.forRoot(routes, { useHash: true });
+export const ScclMainRouter: ModuleWithProviders = RouterModule.forRoot(routes, { useHash: true });

@@ -1,23 +1,23 @@
-import {Component, Input, Output, EventEmitter} from '@angular/core';
+import {Component, Input, Output, EventEmitter, AfterViewInit} from '@angular/core';
 
 @Component({
-  selector: 'ba-menu-item',
-  templateUrl: './baMenuItem.html',
-  styleUrls: ['./baMenuItem.scss']
+  selector: 'sccl-menu-item',
+  templateUrl: './scclMenuItem.html',
+  styleUrls: ['./scclMenuItem.scss']
 })
-export class BaMenuItem {
+export class ScclMenuItemComponent {
 
-  @Input() menuItem:any;
-  @Input() child:boolean = false;
+  @Input() menuItem: any;
+  @Input() child = false;
 
   @Output() itemHover = new EventEmitter<any>();
   @Output() toggleSubMenu = new EventEmitter<any>();
 
-  public onHoverItem($event):void {
+  public onHoverItem($event): void {
     this.itemHover.emit($event);
   }
 
-  public onToggleSubMenu($event, item):boolean {
+  public onToggleSubMenu($event, item): boolean {
     $event.item = item;
     this.toggleSubMenu.emit($event);
     return false;

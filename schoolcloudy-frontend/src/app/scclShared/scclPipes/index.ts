@@ -1,0 +1,1 @@
+export * from './scclProfilePhoto.pipe';

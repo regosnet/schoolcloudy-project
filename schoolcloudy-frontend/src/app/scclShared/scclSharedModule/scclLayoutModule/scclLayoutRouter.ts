@@ -10,4 +10,4 @@ export const routes: Routes = [
   }
 ];
 
-export const ScclLoginRouter: ModuleWithProviders = RouterModule.forChild(routes);
+export const ScclLayoutRouter: ModuleWithProviders = RouterModule.forChild(routes);
