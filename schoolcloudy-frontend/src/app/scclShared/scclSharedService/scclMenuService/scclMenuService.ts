@@ -7,6 +7,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 @Injectable()
 export class ScclMenuService {
   public menuItems = new BehaviorSubject<any[]>([]);
+  public scclHeaderMenuItems = new BehaviorSubject<any[]>([]);
 
   protected _currentMenuItem = {};
 
@@ -20,6 +21,10 @@ export class ScclMenuService {
   public updateMenuByRoutes(routes: Routes) {
     const convertedRoutes = this.convertRoutesToMenus(_.cloneDeep(routes));
     this.menuItems.next(convertedRoutes);
+  }
+  
+  public updateHeaderMenu(routes: Routes) {
+      this.scclHeaderMenuItems.next(routes);
   }
 
   public convertRoutesToMenus(routes: Routes): any[] {
@@ -48,7 +53,7 @@ export class ScclMenuService {
     return items;
   }
 
-  protected _skipEmpty(items: any[]): any[] {
+  protected _skipEmpty(items:any[]):any[] {
     const menu = [];
     items.forEach((item) => {
       let menuItem;
@@ -68,7 +73,7 @@ export class ScclMenuService {
     return [].concat.apply([], menu);
   }
 
-  protected _convertArrayToItems(routes: any[], parent?: any): any[] {
+  protected _convertArrayToItems(routes:any[], parent?:any):any[] {
     const items = [];
     routes.forEach((route) => {
       items.push(this._convertObjectToItem(route, parent));
@@ -100,7 +105,7 @@ export class ScclMenuService {
       item.children = this._convertArrayToItems(object.children, item);
     }
 
-    const prepared = this._prepareItem(item);
+    let prepared = this._prepareItem(item);
 
     // if current item is selected or expanded - then parent is expanded too
     if ((prepared.selected || prepared.expanded) && parent) {
@@ -110,7 +115,7 @@ export class ScclMenuService {
     return prepared;
   }
 
-  protected _prepareItem(object: any): any {
+  protected _prepareItem(object:any):any {
     if (!object.skip) {
       object.target = object.target || '';
       object.pathMatch = object.pathMatch  || 'full';
@@ -120,7 +125,7 @@ export class ScclMenuService {
     return object;
   }
 
-  protected _selectItem(object: any): any {
+  protected _selectItem(object:any):any {
     object.selected = this._router.isActive(this._router.createUrlTree(object.route.paths), object.pathMatch === 'full');
     return object;
   }

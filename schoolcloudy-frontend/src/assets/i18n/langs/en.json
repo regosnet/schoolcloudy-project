@@ -6,12 +6,33 @@
     "password": "Password",
     "sign_in": "Sign in",
     "forgot_password": "Forgot password?"
-    }
-  },
-  "general": {
+    },
+    
   	"menu": {
-  		"dashboard": "Dashboard"
+  		"left_side_bar": {
+  			"dashboard": "Dashboard",
+  			"academics": "Academics"	
+  		},
+  		"header": {
+  			"top_header": {
+  				"week": "Week",
+  				"semester": "Semester",
+  				"last_login": {
+  					"last_login": "Last Login",
+  					"icon": "ion-ios-clock-outline"
+  				}
+  			},
+  			"main_header": {
+  				"logoSc":"School",
+  				"logoCl": "Cloudy", 
+  				"status": "Admin",
+  				"search": "Search"
+  			},
+  			"content_top": {
+  				"home": "Home",
+  				"welcome": "Welcome"
+  			}
+  		}
   	}
   }
-  
 }

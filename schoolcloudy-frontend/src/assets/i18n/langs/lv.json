@@ -6,6 +6,29 @@
     "password": "Parole",
     "sign_in": "Ielogoties",
     "forgot_password": "Forgot password?"
-    } 
+    },
+    "menu": {
+  		"left_side_bar": {
+  			"dashboard": "Informācijas Panelis",
+  			"academics": "Akadēmiķi"	
+  		},
+  		"header": {
+  			"top_header": {
+  				"week": "Nedēļa",
+  				"semester": "Semestris",
+  				"last_login": {
+  					"last_login": "Pēdējā pierakstīšanās"
+  				}
+  			},
+  			"main_header": {
+  				"status": "Ierēdnis",
+  				"search": "Meklēt"
+  			},
+  			"content_top": {
+  				"home": "Mājas",
+  				"welcome": "Laipni lūdzam"
+  			}
+  		}
+  	}
   }
 }

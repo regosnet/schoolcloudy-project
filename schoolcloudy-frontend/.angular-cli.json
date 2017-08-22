@@ -22,6 +22,7 @@
       "styles": [
 		"../node_modules/bootstrap/scss/bootstrap.scss",
 		"../node_modules/ionicons-2.0.1/scss/ionicons.scss",
+		"../src/assets/scclStyle/scclSass/fonts/style.css",
         "scclStyles.scss"
       ],
       "scripts": [

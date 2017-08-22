@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ScclAdministratorComponent } from './scclAdministrator.component';
 import { ScclAdministratorRouter } from './scclAdministrator.routing';
 import { ScclSharedModule } from '../scclShared/scclShared.module';
+import { AppTranslationModule } from '../scclTranslatingModule';
 
 
 
@@ -10,9 +11,9 @@ import { ScclSharedModule } from '../scclShared/scclShared.module';
 
 @NgModule({
     imports: [
+              ScclAdministratorRouter,
               ScclSharedModule.forRoot(),
-       CommonModule,
-       ScclAdministratorRouter
+              CommonModule, AppTranslationModule,
     ],
     declarations: [ScclAdministratorComponent],
     providers: []

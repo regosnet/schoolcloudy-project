@@ -1,62 +1,83 @@
-<div class="sccl-header-div clearfix" scclScrollPosition maxHeight="50" 
-	(scrollChange)="scrolledChanged($event)" [ngClass]="{scrolled: isScrolled}">
-   <div class="sccl-header-leftside">
-   	<a href (click)="toggleMenu()" class="collapse-menu-link-mobile ion-navicon"></a>  
-  	<a routerLink="/administrator/dashboard" class="sccl-logo clearfix"><span>School</span>Cloudy</a>
-  	<a href (click)="toggleMenu()" class="collapse-menu-link ion-navicon"></a>		
-   </div>
-  <div class="search">
-    <i class="ion-ios-search-strong" ng-click="startSearch()"></i>
-    <input id="searchInput" type="text" placeholder="Search...">
-  </div>
+<div class="topHeader clearfix">
+	<div class="session">
+		<span translate> {{'sccl.menu.header.top_header.week'}}</span>
+		<span>1 </span>
+		<span translate> {{'sccl.menu.header.top_header.semester'}} </span><span> 2 </span>
+	</div>
+	<div class="currentDay">
+		<i class="ion-ios-calendar-outline"></i> <span translate> {{ menuItems.scclHeader.topHeader.currentDay.day }} </span>
+	</div>
 
-  <div class="user-profile clearfix">
-  <a href="#" class="collapse-right-sidebar ion-navicon" toggleRightSidebar></a>
-    <div class="dropdown al-user-profile">
-      <a href="#" class="profile-toggle-link dropdown-toggle" id="user-profile-dd" data-toggle="dropdown" aria-expanded="false">
-        <img src="{{ ( 'Nasta' | scclProfilePhoto ) }}">
-        <span>Admin</span><i class="ion-arrow-down-b"></i>
-      </a>
-      <ul class="dropdown-menu top-dropdown-menu profile-dropdown" aria-labelledby="user-profile-dd">
-      	<li class="dropdown-item"><a href><i class="fa fa-user"></i>Updates <span class="badge badge-info">42</span></a></li>
-      	<li class="dropdown-item"><a href><i class="fa fa-user"></i>Messages <span class="badge badge-danger">42</span></a></li>
-      	<li class="dropdown-item"><a href><i class="fa fa-user"></i>Tasks</a></li>
-      	<li class="dropdown-item"><a href><i class="fa fa-user"></i>Comments</a></li>
-      	<li class="dropdown-item"><a href><i class="fa fa-user"></i>Projects</a></li>
-        <li class="dropdown-item"><a href><i class="fa fa-user"></i>Profile</a></li>
-        <li class="dropdown-item"><a href><i class="fa fa-cog"></i>Settings</a></li>
-        <li class="dropdown-item"><a href class="signout"><i class="fa fa-power-off"></i>Sign out</a></li>
-      </ul>
-    </div>
-    
-    <div class="msg-notification-box"></div>
-  </div>
-  
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
+	<div class="lastLogin">
+		<i class="ion-ios-clock-outline"></i>
+		<span translate>{{'sccl.menu.header.top_header.last_login.last_login'}}</span> 
+		<span>{{menuItems.scclHeader.topHeader.lastLogin}}</span>
+	</div>
 </div>
+<div class="sccl-header-div clearfix" scclScrollPosition maxHeight="50"
+	(scrollChange)="scrolledChanged($event)"
+	[ngClass]="{scrolled: isScrolled}">
+	<div class="sccl-header-leftside">
+		<a href (click)="toggleMenu()"
+			class="collapse-menu-link-mobile ion-navicon"></a> <a
+			routerLink="{{menuItems.scclHeader.mainHeader.route}}"
+			class="sccl-logo clearfix"> <span>School</span>Cloudy
+		</a> <a href (click)="toggleMenu()" class="collapse-menu-link ion-navicon"></a>
+	</div>
+	<div class="search">
+		<i class="ion-ios-search-strong" ng-click="startSearch()"></i> <input
+			id="searchInput" type="text" placeholder="Search...">
+	</div>
+
+	<div class="user-profile clearfix">
+		<a href="#" class="collapse-right-sidebar ion-navicon"
+			toggleRightSidebar></a>
+		<div class="dropdown al-user-profile">
+			<a href="#" class="profile-toggle-link dropdown-toggle"
+				id="user-profile-dd" data-toggle="dropdown" aria-expanded="false">
+				<img src="{{ ( 'Nasta' | scclProfilePhoto ) }}"> <span translate>{{menuItems.scclHeader.mainHeader.status}}</span><i
+				class="ion-arrow-down-b"></i>
+			</a>
+			<ul class="dropdown-menu top-dropdown-menu profile-dropdown"
+				aria-labelledby="user-profile-dd">
+				<li class="dropdown-item"><a href><i class="fa fa-user"></i>Updates
+						<span class="badge badge-info">42</span></a></li>
+				<li class="dropdown-item"><a href><i class="fa fa-user"></i>Messages
+						<span class="badge badge-danger">42</span></a></li>
+				<li class="dropdown-item"><a href><i class="fa fa-user"></i>Tasks</a></li>
+				<li class="dropdown-item"><a href><i class="fa fa-user"></i>Comments</a></li>
+				<li class="dropdown-item"><a href><i class="fa fa-user"></i>Projects</a></li>
+				<li class="dropdown-item"><a href><i class="fa fa-user"></i>Profile</a></li>
+				<li class="dropdown-item"><a href><i class="fa fa-cog"></i>Settings</a></li>
+				<li class="dropdown-item"><a href class="signout"><i
+						class="fa fa-power-off"></i>Sign out</a></li>
+			</ul>
+		</div>
+
+		<div class="msg-notification-box"></div>
+	</div>
 </div>
-
-
+<div class="contentTop clearfix">
+	<div class="navigationInfo">
+		<span translate>{{'sccl.menu.header.content_top.home'}}</span>
+		<span>/</span>
+		<span translate>{{'sccl.menu.left_side_bar.dashboard'}}</span>
+	</div>
+	<div class="languageSelect dropdown">
+		<a href="#" class="profile-toggle-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+			<span>English</span>
+		</a>
+		<ul class="dropdown-menu" aria-labelledby="user-profile-dd">
+			<li class="dropdown-item"><a href="javascript:void(0)" (click)="changeLang('en')"><i class="fa fa-user"></i>English</a></li>
+			<li class="dropdown-item"><a href="javascript:void(0)" (click)="changeLang('lv')"><i class="fa fa-user"></i>Latvia</a></li>
+			<li class="dropdown-item"><a href="javascript:void(0)" (click)="changeLang('fr')"><i class="fa fa-user"></i>French</a></li>
+			<li class="dropdown-item"><a href="javascript:void(0)" (click)="changeLang('Es')"><i class="fa fa-user"></i>Estonia</a></li>
+			<li class="dropdown-item"><a href="javascript:void(0)" (click)="changeLang('De')"><i class="fa fa-user"></i>German</a></li>
+			<li class="dropdown-item"><a href="javascript:void(0)" (click)="changeLang('Ar')"><i class="fa fa-user"></i>Arabic</a></li>
+		</ul>
+	</div>
+	<div class="userGreeting">
+		<span translate> {{'sccl.menu.header.content_top.welcome'}}</span>
+		<span> Ihechukwudere Okoroego</span>
+	</div>
+</div>

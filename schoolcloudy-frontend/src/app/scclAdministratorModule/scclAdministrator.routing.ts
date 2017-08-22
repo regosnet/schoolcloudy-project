@@ -15,7 +15,8 @@ export const routes: Routes = [
     component: ScclAdministratorComponent,
     children: [
       {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
-      {path: 'dashboard', loadChildren: './scclAdministratorDashboard/scclAdministratorDashboard.module#ScclAdministratorDashboardModule'}
+      {path: 'dashboard', loadChildren: './scclAdminDashboard/scclAdminDashboard.module#ScclAdminDashboardModule'},
+      {path: 'academics', loadChildren: './scclAdminAcademics/scclAdminAcademics.module#ScclAdminAcademicsModule'}
     ]
   }
 ];

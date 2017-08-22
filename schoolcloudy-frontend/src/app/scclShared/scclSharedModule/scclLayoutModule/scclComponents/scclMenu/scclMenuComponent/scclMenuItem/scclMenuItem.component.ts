@@ -5,13 +5,14 @@ import {Component, Input, Output, EventEmitter, AfterViewInit} from '@angular/co
   templateUrl: './scclMenuItem.html',
   styleUrls: ['./scclMenuItem.scss']
 })
-export class ScclMenuItemComponent {
+export class ScclMenuItemComponent implements AfterViewInit {
 
   @Input() menuItem: any;
   @Input() child = false;
 
   @Output() itemHover = new EventEmitter<any>();
   @Output() toggleSubMenu = new EventEmitter<any>();
+
 
   public onHoverItem($event): void {
     this.itemHover.emit($event);
@@ -21,5 +22,9 @@ export class ScclMenuItemComponent {
     $event.item = item;
     this.toggleSubMenu.emit($event);
     return false;
+  }
+
+  ngAfterViewInit() {
+
   }
 }

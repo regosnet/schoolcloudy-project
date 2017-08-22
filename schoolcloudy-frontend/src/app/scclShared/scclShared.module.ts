@@ -21,6 +21,7 @@ import {
     } from './scclSharedModule/scclLayoutModule/scclComponents/scclAside/scclLeftSideBar/scclLeftSidebar.component';
 import { ScclSlimScrollDirective } from './scclDirectives/scclSlimScroll/scclSlimScroll.directive';
 import { ScclScrollPositionDirective } from './scclDirectives/scclScrollPosition/scclScrollPosition.directive';
+import { TranslateService } from '@ngx-translate/core';
 
 const SCCL_SHARED_SERVICE = [
     ScclMenuService,
@@ -70,6 +71,7 @@ export class ScclSharedModule {
         return <ModuleWithProviders> {
           ngModule: ScclSharedModule,
           providers: [
+                      TranslateService
           ],
         };
       }

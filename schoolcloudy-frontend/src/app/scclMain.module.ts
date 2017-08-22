@@ -7,6 +7,10 @@ import { ScclAdministratorComponent } from './scclAdministratorModule/scclAdmini
 import { ScclMainRouter } from './scclMain.router';
 import { ScclAdministratorModule } from './scclAdministratorModule/scclAdministrator.module';
 import { ScclLayoutModule } from './scclShared/scclSharedModule/scclLayoutModule/scclLayout.module';
+import { CommonModule } from '@angular/common';
+import { AppTranslationModule } from './scclTranslatingModule';
+import { ScclLoginModule } from './scclShared/scclSharedModule/scclLoginModule/scclLogin.module';
+
 
 
 
@@ -20,8 +24,8 @@ import { ScclLayoutModule } from './scclShared/scclSharedModule/scclLayoutModule
   ],
   imports: [
     BrowserModule,
-    ScclMainRouter,
     ScclSharedModule.forRoot(),
+    ScclMainRouter,
     ScclAdministratorModule
   ],
   providers: [ScclGlobalState],
