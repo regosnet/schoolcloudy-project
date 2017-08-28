@@ -1,6 +1,7 @@
 import {Component, ElementRef, HostListener, OnInit, AfterViewInit} from '@angular/core';
 import { ScclGlobalState } from '../../../../../../scclGlobalState';
 import { scclLayoutSizes } from "../../../scclLayout.constants";
+import { ISlimScrollOptions } from 'ng2-slimscroll';
 
 
 @Component({
@@ -12,6 +13,7 @@ export class ScclLeftSidebarComponent implements OnInit, AfterViewInit{
     public menuHeight: number;
     public isMenuCollapsed: boolean = false;
     public isMenuShouldCollapsed: boolean = false;
+    opts: ISlimScrollOptions;
 
 constructor(private _elementRef: ElementRef, private _state: ScclGlobalState) {
 

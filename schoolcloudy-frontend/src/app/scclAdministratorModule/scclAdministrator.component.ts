@@ -6,11 +6,13 @@ import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'sccl-administrator',
-    templateUrl: './scclAdministrator.html'
+    templateUrl: './scclAdministrator.html',
+    styleUrls: ['./scclAdministrator.scss']
 })
 export class ScclAdministratorComponent implements OnInit {
     constructor(private _menuService: ScclMenuService, private translate: TranslateService) {
-    } 
+        
+    }
 
     ngOnInit() {
         this._menuService.updateMenuByRoutes(<Routes>SCCL_ADMINISTRATOR_MENU);
@@ -18,7 +20,7 @@ export class ScclAdministratorComponent implements OnInit {
     }
 
     changeLanguage(event) {
-        this.translate.use(event);
+
     }
 }
 

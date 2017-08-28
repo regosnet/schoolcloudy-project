@@ -1,5 +1,4 @@
 import {Directive, Input, Output, ElementRef, EventEmitter, OnChanges} from '@angular/core';
-import * as jQuery from 'jquery';
 import 'jquery-slimscroll';
 
 @Directive({
@@ -22,10 +21,10 @@ export class ScclSlimScrollDirective implements OnChanges {
   }
 
   private _init() {
-     // jQuery(this._elementRef.nativeElement).slimScroll(this.scclSlimScrollOptions);
+     jQuery(this._elementRef.nativeElement).slimScroll(this.scclSlimScrollOptions);
   }
 
   private _destroy() {
-    //jQuery(this._elementRef.nativeElement).slimScroll({ destroy: true });
+    jQuery(this._elementRef.nativeElement).slimScroll({ destroy: true });
   }
 }

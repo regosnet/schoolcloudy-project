@@ -1,17 +1,35 @@
 {
   "sccl": {
+  	"languages": {
+  		"en": "English",
+  		"lv": "Latviešu",
+  		"fr": "Français",
+  		"de": "Deutsche",
+  		"es": "Eesti keel",
+  		"ar": "عربى"
+  	},
   	"login": {
-    "title": "Login",
-    "email": "Email",
-    "password": "Password",
-    "sign_in": "Sign in",
-    "forgot_password": "Forgot password?"
-    },
+    	"title": "Login",
+    	"email": "Email",
+    	"password": "Password",
+    	"sign_in": "Sign in",
+    	"forgot_password": "Forgot password?"
+    	},
     
   	"menu": {
   		"left_side_bar": {
   			"dashboard": "Dashboard",
-  			"academics": "Academics"	
+  			"academics": "Academics",
+  			"programmes": "Programmes",
+  			"courses": "Courses",
+  			"masters": "Masters",
+  			"bachelors": "Bachelors",
+  			"students" : "Students",
+  			"staffs": "Staffs",
+  			"parents": "Parents",
+  			"utilities": "Utilities",
+  			"settings": "Setting",
+  			"project": "Project"	
   		},
   		"header": {
   			"top_header": {

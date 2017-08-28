@@ -20,7 +20,7 @@
   	height: 20px;
   	width: 100%;
   	color: $sccl-light-gray;
-  	font-size: 11px;
+  	font-size: 12px;
   	padding: 0 2.5%;
   	.session, .currentDay {
   		float:left;
@@ -48,13 +48,13 @@
     	display: block;
     	text-decoration: none;
     	line-height: 42px;
-    	color: $sccl-bright-white;
+    	color: $sccl-light-gray; 
     	padding: 0;
     	float: left;
-    	margin: 0 0 0 25px;
+    	margin: 0 0 0 65px;
     	&:hover {
       		text-decoration: none;
-      		color: $sccl-light-gray;
+      		color: $sccl-bright-white;
     	}
   	}
   	.collapse-menu-link-mobile {
@@ -62,10 +62,13 @@
   	}
   	.sccl-logo {
     	@include topbar();
-    	span {
-      		color: $sccl-light-gray;
-      		font-weight: bold;
+    	.logoSc, .logoCl {
+      		color: $sccl-sky-blue;
+      		font-family: 'Anton', sans-serif;
       		text-decoration: none;
+    	}
+    	.logoCl {
+    		color: $sccl-bright-white;
     	}
     	&:hover {
     		color: $sccl-light-gray;
@@ -73,6 +76,11 @@
   		}
   		&:link {
 			text-decoration: none;
+		}
+		img {
+			width: 35px;
+			position: absolute;
+			right: 74px;
 		}
   	}
   	
@@ -100,9 +108,16 @@
   			text-decoration: none;
   		}
   		.dropdown-menu {
-  			left: -30px;
+  			left: -50px;
   			top: 30px;
   			min-width:40px;
+  			li > a {
+  				color: $sccl-light-gray;
+  				i, span{
+  					margin-right: 10px;
+  					color: $sccl-light-gray;
+  				}
+  			}
   		}
   	}
   }
@@ -195,6 +210,11 @@
       		text-decoration: none;
       		color: $warning;
     	}
+   	}
+   	.profile-dropdown {
+   		background-color: red;
+   		right: 300px;
+   		top: 47px;
    	}
    	
   }
@@ -312,6 +332,8 @@
       	right: 30px;
     }
   } 
+  
+
 }
 
 

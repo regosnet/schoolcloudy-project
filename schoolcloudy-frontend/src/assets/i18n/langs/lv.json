@@ -1,5 +1,6 @@
 {
   "sccl": {
+  	"language": "Latviešu",
   	"login": {
     "title": "virsraksts",
     "email": "E-pasts",
@@ -10,7 +11,17 @@
     "menu": {
   		"left_side_bar": {
   			"dashboard": "Informācijas Panelis",
-  			"academics": "Akadēmiķi"	
+  			"academics": "Akadēmiķi",
+  			"programmes": "Programmas",
+  			"courses": "Kursi",
+  			"masters": "Meistari",
+  			"bachelors": "Bakalauri",
+  			"students" : "Studenti",
+  			"staffs": "Personāls",
+  			"parents": "Vecāki",
+  			"utilities": "Komunālie",
+  			"settings": "Iestatījums",
+  			"project": "Projekts"	
   		},
   		"header": {
   			"top_header": {

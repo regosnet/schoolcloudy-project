@@ -7,9 +7,6 @@ export const scclLayoutSizes = {
 
 export const scclLayoutPaths = {
         images: {
-          root: IMAGES_ROOT,
-          profile: IMAGES_ROOT + 'profile/',
-          amMap: 'assets/img/theme/vendor/ammap/',
-          amChart: 'assets/img/theme/vendor/amcharts/dist/amcharts/images/'
+          root: IMAGES_ROOT
         }
       };

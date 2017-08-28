@@ -71,6 +71,9 @@ public class User {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date endDate;
 	
+	@Column(name="LANGUAGE")
+	private String language;
+	
 	/*
 	@ElementCollection
 	private List<String> hobbies;
@@ -181,5 +184,13 @@ public class User {
 
 	public void setUser(User user) {
 		this.user = user.getClass().getSimpleName();
+	}
+
+	public String getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
 	}
 }

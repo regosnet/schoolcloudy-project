@@ -6,7 +6,6 @@ import { ScclSharedModule } from './scclShared/scclShared.module';
 import { ScclAdministratorComponent } from './scclAdministratorModule/scclAdministrator.component';
 import { ScclMainRouter } from './scclMain.router';
 import { ScclAdministratorModule } from './scclAdministratorModule/scclAdministrator.module';
-import { ScclLayoutModule } from './scclShared/scclSharedModule/scclLayoutModule/scclLayout.module';
 import { CommonModule } from '@angular/common';
 import { AppTranslationModule } from './scclTranslatingModule';
 import { ScclLoginModule } from './scclShared/scclSharedModule/scclLoginModule/scclLogin.module';

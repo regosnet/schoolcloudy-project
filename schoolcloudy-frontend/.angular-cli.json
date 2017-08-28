@@ -22,14 +22,17 @@
       "styles": [
 		"../node_modules/bootstrap/scss/bootstrap.scss",
 		"../node_modules/ionicons-2.0.1/scss/ionicons.scss",
-		"../src/assets/scclStyle/scclSass/fonts/style.css",
+		"../src/assets/scclStyle/scclCss/icomoon/style.css",
+		"../node_modules/flag-icon-css/sass/_flag-icon.scss",
+		"../node_modules/font-awesome/css/font-awesome.min.css",
         "scclStyles.scss"
       ],
       "scripts": [
 		"../node_modules/jquery/dist/jquery.min.js",
+		"../node_modules/jquery-slimscroll/jquery.slimscroll.js",
 		"../node_modules/tether/dist/js/tether.min.js",
-		"../node_modules/bootstrap/dist/js/bootstrap.min.js",
-		"../node_modules/jquery-slimscroll/jquery.slimscroll.js"
+		"../node_modules/bootstrap/dist/js/bootstrap.min.js"
+		
 	  ],
       "environmentSource": "environments/environment.ts",
       "environments": {

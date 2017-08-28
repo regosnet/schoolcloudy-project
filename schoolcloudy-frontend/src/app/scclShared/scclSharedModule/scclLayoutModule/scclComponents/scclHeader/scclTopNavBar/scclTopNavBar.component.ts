@@ -12,6 +12,7 @@ export class ScclTopNavBarComponent implements OnInit {
 
     @Output()
     private chooseLanguage = new EventEmitter<any>();
+    private selectedLanguage = {name: 'English', icon: 'gb'};
 
     private menuItems: any;
 
@@ -34,7 +35,17 @@ export class ScclTopNavBarComponent implements OnInit {
       }
 
     changeLang(language: string) {
+        switch (language) {
+            case 'lv':
+                this.selectedLanguage = {name: 'sccl.languages.lv', icon: 'lv'};
+            break;
+            case 'en':
+                this.selectedLanguage = {name: 'sccl.languages.en', icon: 'gb'};
+            break;
+
+            default:
+            break;
+}
         this.translate.use(language);
-        this.chooseLanguage.emit(language);
     }
 }

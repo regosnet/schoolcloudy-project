@@ -1,4 +1,6 @@
-/*@import '../../../sass/conf/conf';
+@import '../../../../../../../scclStyles';
+$sidebar-width: 230px;
+$top-height: 100px;
 
 $sidebar-scroll-width: 4px;
 $angle-left: '\f100';
@@ -12,7 +14,7 @@ $angle-right: '\f101';
   &.expanded {
     display: block;
   }
-  > ba-menu-item > li {
+  > sccl-menu-item > li {
     display: block;
     float: none;
     padding: 0;
@@ -21,20 +23,20 @@ $angle-right: '\f101';
     a {
       display: block;
       text-shadow: none;
-      font-size: 13px;
+      font-size: 14px;
       text-decoration: none;
-      color: $sidebar-text;
-      padding-left: 62px;
+      color: $sccl-bright-white;
+      padding-left: 40px;
       margin-top: -15px;
       &:hover {
-        color: $primary; 
+        color: $sccl-sky-blue; 
       }
     }
     &.selected:not(.with-sub-menu) > a {
       border: none;
-      background-color: $primary;
+      background-color: $sccl-sky-blue;
       &:hover {
-        color: $sidebar-text;
+        color: $sccl-bright-white;
       }
     }
 
@@ -49,7 +51,7 @@ $angle-right: '\f101';
     z-index: 1001;
     display: block;
     min-height: 100%;
-    background-color: $sidebar;
+    background-color: $sccl-dark-gray;
     height: 100%;
     position: fixed;
   }
@@ -57,7 +59,7 @@ $angle-right: '\f101';
   .al-sidebar-list {
     margin: 0;
     overflow: hidden;
-    padding: 18px 0 0 0;
+    padding: 2px 0 0 0;
     list-style: none;
   }
 
@@ -77,11 +79,12 @@ $angle-right: '\f101';
     float: none;
     padding: 0;
     &.selected:not(.with-sub-menu) {
-      background-color: $primary;
+      background-color: $sccl-sky-blue;
       a.al-sidebar-list-link {
-        color: $sidebar-text;
+        color: $sccl-dark-gray;
+        font-weight: bold;
         b {
-          color: $sidebar-text;
+          color: $sccl-bright-white;
         }
       }
     }
@@ -115,15 +118,15 @@ $angle-right: '\f101';
     text-shadow: none;
     font-size: 16px;
     text-decoration: none;
-    color: $sidebar-text;
+    color:$sccl-bright-white;
     line-height: 42px;
     white-space: nowrap;
     overflow: hidden;
     cursor: pointer;
     &:hover {
-      color: $primary;
+      color: $sccl-sky-blue;
       b {
-        color: $primary;
+        color: $sccl-sky-blue;
       }
     }
     i {
@@ -144,7 +147,7 @@ $angle-right: '\f101';
       top: 12px;
       padding: 0;
       text-align: center;
-      color: $sidebar-text;
+      color: $sccl-bright-white;
       transition: transform 0.2s linear;
     }
   }
@@ -156,14 +159,15 @@ $angle-right: '\f101';
   }
 
   .al-sidebar-sublist {
-    @include default-sublist();
+   	@include default-sublist();
   }
 
   .sidebar-hover-elem {
     width: $sidebar-scroll-width;
-    background: $primary;
+    background: $sccl-sky-blue;
     position: absolute;
     top: -150px;
+    margin-top: -34px;
     left: $sidebar-width - $sidebar-scroll-width;
     transition: all 0.5s ease;
     transition-property: top, height;
@@ -182,4 +186,3 @@ $angle-right: '\f101';
     }
   }
 }
-*/

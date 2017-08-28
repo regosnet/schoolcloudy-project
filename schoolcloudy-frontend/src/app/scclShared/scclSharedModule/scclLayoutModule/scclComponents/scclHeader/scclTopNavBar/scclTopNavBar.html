@@ -21,7 +21,8 @@
 		<a href (click)="toggleMenu()"
 			class="collapse-menu-link-mobile ion-navicon"></a> <a
 			routerLink="{{menuItems.scclHeader.mainHeader.route}}"
-			class="sccl-logo clearfix"> <span>School</span>Cloudy
+			class="sccl-logo clearfix"> <span class="logoSc">School</span><span class="logoCl">Cloudy</span>
+			<img src="{{ ( 'scclLogo/sccl_logo' | scclPngExt ) }}"> 
 		</a> <a href (click)="toggleMenu()" class="collapse-menu-link ion-navicon"></a>
 	</div>
 	<div class="search">
@@ -35,7 +36,7 @@
 		<div class="dropdown al-user-profile">
 			<a href="#" class="profile-toggle-link dropdown-toggle"
 				id="user-profile-dd" data-toggle="dropdown" aria-expanded="false">
-				<img src="{{ ( 'Nasta' | scclProfilePhoto ) }}"> <span translate>{{menuItems.scclHeader.mainHeader.status}}</span><i
+				<img src="{{ ( 'profile/Nasta' | scclPngExt ) }}"> <span translate>{{menuItems.scclHeader.mainHeader.status}}</span><i
 				class="ion-arrow-down-b"></i>
 			</a>
 			<ul class="dropdown-menu top-dropdown-menu profile-dropdown"
@@ -65,15 +66,41 @@
 	</div>
 	<div class="languageSelect dropdown">
 		<a href="#" class="profile-toggle-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-			<span>English</span>
+			<i class="flag-icon flag-icon-{{selectedLanguage.icon}} flag-icon"></i>
+			<span translate>{{selectedLanguage.name}}</span>
 		</a>
-		<ul class="dropdown-menu" aria-labelledby="user-profile-dd">
-			<li class="dropdown-item"><a href="javascript:void(0)" (click)="changeLang('en')"><i class="fa fa-user"></i>English</a></li>
-			<li class="dropdown-item"><a href="javascript:void(0)" (click)="changeLang('lv')"><i class="fa fa-user"></i>Latvia</a></li>
-			<li class="dropdown-item"><a href="javascript:void(0)" (click)="changeLang('fr')"><i class="fa fa-user"></i>French</a></li>
-			<li class="dropdown-item"><a href="javascript:void(0)" (click)="changeLang('Es')"><i class="fa fa-user"></i>Estonia</a></li>
-			<li class="dropdown-item"><a href="javascript:void(0)" (click)="changeLang('De')"><i class="fa fa-user"></i>German</a></li>
-			<li class="dropdown-item"><a href="javascript:void(0)" (click)="changeLang('Ar')"><i class="fa fa-user"></i>Arabic</a></li>
+		<ul class="dropdown-menu" aria-labelledby="languages">
+		
+			<li class="dropdown-item">
+				<a href="javascript:void(0)" (click)="changeLang('en')">
+					<i class="flag-icon flag-icon-gb flag-icon"></i><span translate>{{'sccl.languages.en'}}</span>
+				</a>
+			</li>
+			<li class="dropdown-item">
+				<a href="javascript:void(0)" (click)="changeLang('lv')">
+					<i class="flag-icon flag-icon-lv flag-icon"></i><span translate>{{'sccl.languages.lv'}}</span>
+				</a>
+			</li>
+			<li class="dropdown-item">
+				<a href="javascript:void(0)" (click)="changeLang('fr')">
+					<i class="flag-icon flag-icon-fr flag-icon"></i><span translate>{{'sccl.languages.fr'}}</span>
+				</a>
+			</li>
+			<li class="dropdown-item">
+				<a href="javascript:void(0)" (click)="changeLang('Es')">
+					<i class="flag-icon flag-icon-es flag-icon"></i><span translate>{{'sccl.languages.es'}}</span>
+				</a>
+			</li>
+			<li class="dropdown-item">
+				<a href="javascript:void(0)" (click)="changeLang('De')">
+					<i class="flag-icon flag-icon-de flag-icon"></i><span translate>{{'sccl.languages.de'}}</span>
+				</a>
+			</li>
+			<li class="dropdown-item">
+				<a href="javascript:void(0)" (click)="changeLang('Ar')">
+					<i class="flag-icon flag-icon-eg flag-icon"></i><span translate>{{'sccl.languages.ar'}}</span>
+				</a>
+			</li>
 		</ul>
 	</div>
 	<div class="userGreeting">
@@ -81,3 +108,5 @@
 		<span> Ihechukwudere Okoroego</span>
 	</div>
 </div>
+
+
