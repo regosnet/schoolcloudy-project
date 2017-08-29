@@ -1,0 +1,37 @@
+@import '../../../../../../../scclStyles';
+
+ div.contentTop {
+  	height: 30px;
+  	background-color: $sccl-light-gray;
+  	width:100%;
+  	color: white;
+  	font-weight: 20px;
+  	padding-right: 3%;
+  	.navigationInfo {
+  		float:left
+  	}
+  	.userGreeting {
+  		margin-right: 5%;
+  	}
+  	.languageSelect, .userGreeting {
+  		float: right;
+  		a > span, .dropdown-toggle{
+  			color: #fff;
+  		}
+  		a:hover, a:link {
+  			text-decoration: none;
+  		}
+  		.dropdown-menu {
+  			left: -50px;
+  			top: 30px;
+  			min-width:40px;
+  			li > a {
+  				color: $sccl-light-gray;
+  				i, span{
+  					margin-right: 10px;
+  					color: $sccl-light-gray;
+  				}
+  			}
+  		}
+  	}
+  }

@@ -5,7 +5,6 @@ import { Directive, HostListener, ElementRef } from '@angular/core';
 })
 export class ScclRightSidebarDirective {
     constructor(private _elementRef: ElementRef) {
-        console.log(_elementRef.nativeElement);
     }
 
     @HostListener('click')

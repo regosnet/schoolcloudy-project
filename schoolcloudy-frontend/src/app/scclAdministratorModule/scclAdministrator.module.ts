@@ -5,10 +5,6 @@ import { ScclAdministratorRouter } from './scclAdministrator.routing';
 import { ScclSharedModule } from '../scclShared/scclShared.module';
 import { AppTranslationModule } from '../scclTranslatingModule';
 
-
-
-
-
 @NgModule({
     imports: [
               ScclAdministratorRouter,

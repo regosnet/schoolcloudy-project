@@ -12,12 +12,13 @@ export class ScclLeftSidebarComponent implements OnInit, AfterViewInit{
     public menuHeight: number;
     public isMenuCollapsed: boolean = false;
     public isMenuShouldCollapsed: boolean = false;
+private activePageTitle = '';
 
-constructor(private _elementRef: ElementRef, private _state: ScclGlobalState) {
+constructor(private _elementRef: ElementRef, private _scclState: ScclGlobalState) {
     // subscribes to Subject Observable Map array data stream 
-    this._state.subscribe('menu.isCollapsed', (isCollapsed) => {
+    this._scclState.subscribe('menu.isCollapsed', (isCollapsed) => {
         this.isMenuCollapsed = isCollapsed;
-    });
+    })
 }
 
 public ngOnInit(): void {
@@ -50,7 +51,7 @@ public menuCollapse(): void {
 
 public menuCollapseStateChange(isCollapsed: boolean): void {
     this.isMenuCollapsed = isCollapsed;
-    this._state.notifyDataChanged('menu.isCollapsed', this.isMenuCollapsed);
+    this._scclState.notifyDataChanged('menu.isCollapsed', this.isMenuCollapsed);
 }
 
 public updateSidebarHeight(): void {

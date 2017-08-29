@@ -12,18 +12,12 @@ import { ScclLoginModule } from './scclShared/scclSharedModule/scclLoginModule/s
 
 
 
-
-
-
-
-
 @NgModule({
   declarations: [
     ScclMainComponent
   ],
   imports: [
     BrowserModule,
-    ScclSharedModule.forRoot(),
     ScclMainRouter,
     ScclAdministratorModule
   ],

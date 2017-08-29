@@ -26,6 +26,10 @@ import { ScclRightSidebarDirective } from './scclDirectives/scclSidebarDirective
 import {
     ScclRightSidebarComponent
     } from './scclSharedModule/scclLayoutModule/scclComponents/scclAside/scclRightSideBar/scclRightSidebar.component';
+import {
+    ScclPageContentTopComponent
+    } from './scclSharedModule/scclLayoutModule/scclComponents/scclHeader/scclPageContentTop/scclContentTop.component';
+
 
 const SCCL_SHARED_SERVICE = [
     ScclMenuService,
@@ -43,7 +47,8 @@ const SCCL_COMPONENTS = [
     ScclMenuItemComponent,
     ScclMenuComponent,
     ScclLeftSidebarComponent,
-    ScclRightSidebarComponent
+    ScclRightSidebarComponent,
+    ScclPageContentTopComponent
 ];
 
 const SCCL_PIPES = [

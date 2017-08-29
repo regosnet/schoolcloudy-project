@@ -1,4 +1,4 @@
-import { Component, Input, AfterViewInit, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, Input, AfterViewInit, OnInit, EventEmitter, Output, ChangeDetectorRef } from '@angular/core';
 import { ScclGlobalState } from '../../../../../../scclGlobalState';
 import { ScclMenuService } from '../../../../../scclSharedService/scclMenuService/scclMenuService';
 import { TranslateService } from '@ngx-translate/core';
@@ -16,9 +16,10 @@ export class ScclTopNavBarComponent implements OnInit {
 
     public isScrolled = false;
     public isMenuCollapsed = false;
-    headMenu = true;
 
-    constructor(private _menuService: ScclMenuService, private translate: TranslateService, private _state: ScclGlobalState) {
+    constructor(private _menuService: ScclMenuService,
+            private translate: TranslateService,
+            private _state: ScclGlobalState) {
         this._state.subscribe('menu.isCollapsed', (isCollapsed) => {
             this.isMenuCollapsed = isCollapsed;
           });

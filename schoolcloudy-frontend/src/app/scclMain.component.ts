@@ -13,7 +13,6 @@ export class ScclMainComponent implements AfterViewInit {
 
   constructor(private _scclSpinner: ScclPreloaderService, private _scclState: ScclGlobalState) {
       this._scclState.subscribe('menu.isCollapsed', (isCollapsed) => {
-          console.log(isCollapsed)
           this.isMenuCollapsed = isCollapsed;
         });
   }
