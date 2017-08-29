@@ -17,6 +17,18 @@ export const SCCL_ADMINISTRATOR_MENU =
                      }
                  },
                  {
+                     path: 'mailbox',
+                     data: {
+                         menu: {
+                             title: 'sccl.menu.left_side_bar.mailbox',
+                             icon: 'ion-email',
+                             selected: false,
+                             expanded: false,
+                             order: 0
+                         }
+                     }
+                 },
+                 {
                      path: 'academics',
                      data: {
                          menu: {
@@ -74,6 +86,18 @@ export const SCCL_ADMINISTRATOR_MENU =
                                                 selected: false,
                                                 expanded: false,
                                                 order: 1.3
+                                            }
+                                        }
+                                    },
+                                    {
+                                        path: 'exams',
+                                        data: {
+                                            menu: {
+                                                title: 'sccl.menu.left_side_bar.exams',
+                                                icon: 'ion-university',
+                                                selected: false,
+                                                expanded: false,
+                                                order: 1.2
                                             }
                                         }
                                     },

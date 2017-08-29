@@ -29,6 +29,7 @@ import {
 import {
     ScclPageContentTopComponent
     } from './scclSharedModule/scclLayoutModule/scclComponents/scclHeader/scclPageContentTop/scclContentTop.component';
+import { ScclMsgCenterComponent } from './scclSharedModule/scclLayoutModule/scclComponents/scclMsgCenter/scclMsgCenter.component';
 
 
 const SCCL_SHARED_SERVICE = [
@@ -48,7 +49,8 @@ const SCCL_COMPONENTS = [
     ScclMenuComponent,
     ScclLeftSidebarComponent,
     ScclRightSidebarComponent,
-    ScclPageContentTopComponent
+    ScclPageContentTopComponent,
+    ScclMsgCenterComponent
 ];
 
 const SCCL_PIPES = [

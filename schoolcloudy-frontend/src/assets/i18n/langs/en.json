@@ -19,6 +19,8 @@
   	"menu": {
   		"left_side_bar": {
   			"dashboard": "Dashboard",
+  			"mailbox": "Mailbox",
+  			"exams": "Examinations",
   			"academics": "Academics",
   			"programmes": "Programmes",
   			"courses": "Courses",
