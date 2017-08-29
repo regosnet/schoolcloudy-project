@@ -17,7 +17,6 @@ export class ScclGlobalState {
     const current = this._data[event];
     if (current !== value) {
       this._data[event] = value;
-
       this._data.next({
         event: event,
         data: this._data[event]
@@ -34,7 +33,6 @@ export class ScclGlobalState {
 
   public _onEvent(data: any) {
     const subscribers = this._subscriptions.get(data['event']) || [];
-
     subscribers.forEach((callback) => {
       callback.call(null, data['data']);
     });

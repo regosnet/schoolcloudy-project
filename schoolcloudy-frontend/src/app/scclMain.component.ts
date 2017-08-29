@@ -1,5 +1,6 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { ScclPreloaderService } from './scclShared/scclSharedService/scclPreloaderService/scclPreloader';
+import { ScclGlobalState } from './scclGlobalState';
 
 
 @Component({
@@ -8,9 +9,13 @@ import { ScclPreloaderService } from './scclShared/scclSharedService/scclPreload
   styleUrls: ['./scclMain.scss']
 })
 export class ScclMainComponent implements AfterViewInit {
-  title = 'app';
+    isMenuCollapsed: boolean = false;
 
-  constructor(private _scclSpinner: ScclPreloaderService) {
+  constructor(private _scclSpinner: ScclPreloaderService, private _scclState: ScclGlobalState) {
+      this._scclState.subscribe('menu.isCollapsed', (isCollapsed) => {
+          console.log(isCollapsed)
+          this.isMenuCollapsed = isCollapsed;
+        });
   }
 
   public ngAfterViewInit(): void {

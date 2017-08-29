@@ -1,7 +1,6 @@
 import {Component, ElementRef, HostListener, OnInit, AfterViewInit} from '@angular/core';
 import { ScclGlobalState } from '../../../../../../scclGlobalState';
 import { scclLayoutSizes } from "../../../scclLayout.constants";
-import { ISlimScrollOptions } from 'ng2-slimscroll';
 
 
 @Component({
@@ -13,10 +12,9 @@ export class ScclLeftSidebarComponent implements OnInit, AfterViewInit{
     public menuHeight: number;
     public isMenuCollapsed: boolean = false;
     public isMenuShouldCollapsed: boolean = false;
-    opts: ISlimScrollOptions;
 
 constructor(private _elementRef: ElementRef, private _state: ScclGlobalState) {
-
+    // subscribes to Subject Observable Map array data stream 
     this._state.subscribe('menu.isCollapsed', (isCollapsed) => {
         this.isMenuCollapsed = isCollapsed;
     });
@@ -28,15 +26,13 @@ public ngOnInit(): void {
     }
 }
 
-public ngAfterViewInit(): void {
+public ngAfterViewInit(): void { 
     setTimeout(() => this.updateSidebarHeight());
 }
 
 @HostListener('window:resize')
 public onWindowResize(): void {
-
     const isMenuShouldCollapsed = this._shouldMenuCollapse();
-
     if (this.isMenuShouldCollapsed !== isMenuShouldCollapsed) {
         this.menuCollapseStateChange(isMenuShouldCollapsed);
     }
@@ -64,5 +60,5 @@ public updateSidebarHeight(): void {
 
 private _shouldMenuCollapse(): boolean {
     return window.innerWidth <= scclLayoutSizes.resWidthCollapseSidebar;
-}
+    }
 }

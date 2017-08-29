@@ -10,28 +10,33 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class ScclTopNavBarComponent implements OnInit {
 
-    @Output()
-    private chooseLanguage = new EventEmitter<any>();
     private selectedLanguage = {name: 'English', icon: 'gb'};
 
     private menuItems: any;
 
     public isScrolled = false;
     public isMenuCollapsed = false;
+    headMenu = true;
 
-    constructor(private _menuService: ScclMenuService, private translate: TranslateService) {
-        this.menuItems = {status: 'Admin'};
+    constructor(private _menuService: ScclMenuService, private translate: TranslateService, private _state: ScclGlobalState) {
+        this._state.subscribe('menu.isCollapsed', (isCollapsed) => {
+            this.isMenuCollapsed = isCollapsed;
+          });
     }
 
     public scrolledChanged(isScrolled) {
         this.isScrolled = isScrolled;
     }
 
+    // initializes the menu data from the user in sccl header
     public ngOnInit(): void {
        this._menuService.scclHeaderMenuItems.subscribe(res => this.menuItems = res[0]);
-       setTimeout(() => {
-           console.log(this.menuItems);
-       }, 1000);
+      }
+
+    public toggleMenu() {
+        this.isMenuCollapsed = !this.isMenuCollapsed;
+        this._state.notifyDataChanged('menu.isCollapsed', this.isMenuCollapsed);
+        return false;
       }
 
     changeLang(language: string) {
