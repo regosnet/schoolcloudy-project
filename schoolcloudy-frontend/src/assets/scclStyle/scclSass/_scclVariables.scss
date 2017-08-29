@@ -9,9 +9,6 @@ $resXS: 500px;
 $resXXS: 435px;
 $resMin: 320px;
 
-$sidebar-width: 230px;
-$top-height: 100px;
-
 $small-card-height: 114px;
 $xsmall-card-height: 187px;
 $medium-card-height: 400px;
@@ -47,6 +44,12 @@ $xsm-d: 25%;
 $xxsm-d:12.5%;
 $xxxsm-d:6.25%;
 $xxxxsm-d: 3.125%;
+
+$sidebar-width: 190px;
+$top-height: 100px;
+$sidebar-scroll-width: 4px;
+$angle-left: '\f100';
+$angle-right: '\f101';
 
 $border-color:                        $gray-200 !default;
 $layout-transition-speed:             .25s !default;

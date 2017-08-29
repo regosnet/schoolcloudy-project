@@ -1,45 +1,4 @@
-@import '../../../sass/conf/conf';
-
-$sidebar-scroll-width: 4px;
-$angle-left: '\f100';
-$angle-right: '\f101';
-
-@mixin default-sublist() {
-  padding: 0;
-  list-style: none;
-  position: relative;
-  display: none;
-  &.expanded {
-    display: block;
-  }
-  > ba-menu-item > li {
-    display: block;
-    float: none;
-    padding: 0;
-    border-bottom: none;
-    position: relative;
-    a {
-      display: block;
-      text-shadow: none;
-      font-size: 14px;
-      text-decoration: none;
-      color: $sidebar-text;
-      padding-left: 52px;
-      height: auto;
-      line-height: 29px;
-      &:hover {
-        color: $primary; 
-      }
-    }
-    &.selected:not(.with-sub-menu) > a {
-      border: none;
-      background-color: $primary;
-      &:hover {
-        color: $sidebar-text;
-      }
-    }
-  }
-}
+@import '../../../../../../../scclStyles';
 
 :host /deep/ {
   .sccl-right-sidebar-hidden {
@@ -50,7 +9,7 @@ $angle-right: '\f101';
     top: $top-height;
     display: block;
     min-height: 100%;
-    background-color: $sidebar;
+    background-color: $sccl-dark-gray;
     height: 100%;
     position: fixed;
   }
@@ -63,7 +22,7 @@ $angle-right: '\f101';
     right: 0;
     display: block;
     min-height: 100%;
-    background-color: $sidebar;
+    background-color: $sccl-dark-gray;
     height: 100%;
     position: fixed;
   }
@@ -73,14 +32,14 @@ $angle-right: '\f101';
 .nav.nav-tabs {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  border-right: $sidebar solid 11px;
-  border-left: $sidebar solid 11px;
-  border-bottom: $default solid 1px;
-  border-top: $default solid 1px;
-  background-color: $sidebar;
+  border-right: $sccl-dark-gray solid 11px;
+  border-left: $sccl-dark-gray solid 11px;
+  border-bottom: $sccl-bright-white solid 1px;
+  border-top: $sccl-bright-white solid 1px;
+  background-color: $sccl-dark-gray;
   
   & > li > a {
-  	color: $default;
+  	color: $sccl-bright-white;
     text-align: center;
     font-size: 1.2rem;
     margin-right: 0;
@@ -88,11 +47,11 @@ $angle-right: '\f101';
     border-radius: 0;
     border: none;
     &:hover {
-      background-color: $primary;
-      color:$sidebar;
+      background-color: $sccl-bright-white;
+      color:$sccl-bright-white;
     }
     :active {
-    	background-color: $primary;
+    	background-color: $sccl-bright-white;
     }
   }
 }

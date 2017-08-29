@@ -22,6 +22,10 @@ import { ScclScrollPositionDirective } from './scclDirectives/scclScrollPosition
 import { TranslateService } from '@ngx-translate/core';
 import { ScclPngExtPipe } from './scclPipes/scclPngExt.pipe';
 import { SlimScrollModule } from 'ng2-slimscroll';
+import { ScclRightSidebarDirective } from './scclDirectives/scclSidebarDirectives/scclRightSidebar.directive';
+import {
+    ScclRightSidebarComponent
+    } from './scclSharedModule/scclLayoutModule/scclComponents/scclAside/scclRightSideBar/scclRightSidebar.component';
 
 const SCCL_SHARED_SERVICE = [
     ScclMenuService,
@@ -30,14 +34,16 @@ const SCCL_SHARED_SERVICE = [
 
 const SCCL_DIRECTIVES = [
     ScclScrollPositionDirective,
-    ScclSlimScrollDirective
+    ScclSlimScrollDirective,
+    ScclRightSidebarDirective
 ];
 
 const SCCL_COMPONENTS = [
     ScclTopNavBarComponent,
     ScclMenuItemComponent,
     ScclMenuComponent,
-    ScclLeftSidebarComponent
+    ScclLeftSidebarComponent,
+    ScclRightSidebarComponent
 ];
 
 const SCCL_PIPES = [

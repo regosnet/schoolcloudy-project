@@ -16,6 +16,43 @@
   @return mix(black, $color, $percentage);
 }
 
+@mixin default-sublist() {
+  padding: 0;
+  list-style: none;
+  position: relative;
+  display: none;
+  &.expanded {
+    display: block;
+  }
+  > sccl-menu-item > li {
+    display: block;
+    float: none;
+    padding: 0;
+    border-bottom: none;
+    position: relative;
+    a {
+      display: block;
+      text-shadow: none;
+      font-size: 14px;
+      text-decoration: none;
+      color: $sccl-bright-white;
+      padding-left: 40px;
+      margin-top: -15px;
+      &:hover {
+        color: $sccl-sky-blue; 
+      }
+    }
+    &.selected:not(.with-sub-menu) > a {
+      border: none;
+      background-color: $sccl-sky-blue;
+      &:hover {
+        color: $sccl-bright-white;
+      }
+    }
+
+  }
+}
+
 @mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white, 50%)) {
   ::-webkit-scrollbar {
     width: $size;
