@@ -15,7 +15,7 @@ export class ScclMsgCenterService {
       time: '2 hrs ago'
     },
     {
-      image: 'assets/img/shopping-cart.svg',
+      image: 'assets/scclImages/svgs/shopping-cart.svg',
       text: 'New orders received.',
       time: '5 hrs ago'
     },
@@ -30,7 +30,7 @@ export class ScclMsgCenterService {
       time: '2 days ago'
     },
     {
-      image: 'assets/img/comments.svg',
+      image: 'assets/scclImages/svgs/comments.svg',
       text: 'New comments on your post.',
       time: '3 days ago'
     },
@@ -79,11 +79,11 @@ export class ScclMsgCenterService {
     }
   ];
 
-  public getMessages():Array<Object> {
+  public getMessages(): Array<Object> {
     return this._messages;
   }
 
-  public getNotifications():Array<Object> {
+  public getNotifications(): Array<Object> {
     return this._notifications;
   }
 }

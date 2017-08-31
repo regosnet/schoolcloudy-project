@@ -1,7 +1,6 @@
-/*@import '../../sass/conf/conf';*/
+@import '../../../../../../scclStyles';
 
 /* msg center */
-/*
 @-webkit-keyframes pulsate {
   30% {
     -webkit-transform: scale(0.1, 0.1);
@@ -24,57 +23,46 @@
   li {
     list-style: none;
     float: left;
-    margin-left: 20px;
+    margin-left: 20px; // expands space between msg notif icons
     &:first-child {
       margin-left: 0;
     }
     & > a {
-      color: $sidebar-text;
+      color: $sccl-light-gray;
       text-decoration: none;
-      font-size: 13px;
+      font-size: 17px;
       position: relative;
       span {
         display: inline-block;
         min-width: 10px;
         padding: 2px 4px 2px 4px;
-        color: $sidebar-text;
+        color: $sccl-bright-white;
         vertical-align: baseline;
         white-space: nowrap;
         text-align: center;
         border-radius: 13px;
         text-shadow: none;
         line-height: 11px;
-        background-color: $danger;
+        background-color: red;
         position: absolute;
         top: -7px;
         right: -9px;
         font-size: 11px;
       }
-      .notification-ring {
-        border: 1px solid $danger;
-        border-radius: 100px;
-        height: 40px;
-        width: 40px;
-        position: absolute;
-        top: -18px;
-        right: -27px;
-        animation: pulsate 8s ease-out;
-        animation-iteration-count: infinite;
-        opacity: 0.0
-      }
+      
 
       &:hover {
-        color: $danger;
+        color: $sccl-off-white;
         &.msg {
-          color: $primary;
+          color: $sccl-off-white;
         }
       }
       &.msg {
         span {
-          background-color: $primary;
+          background-color: $sccl-normal-red;
         }
         .notification-ring {
-          border-color: $primary;
+          border-color: red;
         }
       }
     }
@@ -82,7 +70,7 @@
       & > a {
         color: $danger;
         &.msg {
-          color: $primary;
+          color: $sccl-normal-red;
         }
       }
     }
@@ -109,25 +97,26 @@
 }
 
 .top-dropdown-menu {
-  width: 316px;
+  width: 400px;
   left: auto;
-  right: -47px;
-  top: 26px;
+  right: -17px;
+  top: 35px;
   @include scrollbars(.4em, rgba(0,0,0,0.5), #fff);
   .header {
     padding: 10px 12px;
-    border-bottom: 1px solid $default;
+    border-bottom: 1px solid $sccl-bright-white;
     font-size: 12px;
     strong {
       float: left;
-      color: $dropdown-text;
+      color: $sccl-darken-blue;
     }
     & > a {
       float: right;
       margin-left: 12px;
       text-decoration: none;
+      color: $sccl-darken-blue;
       &:hover {
-        color: $dropdown-text;
+        color: red;
       }
     }
   }
@@ -136,15 +125,13 @@
     overflow: scroll;
     overflow-x: hidden;
     & > a {
-      border-top: 1px solid $default;
+      border-top: 1px solid $sccl-light-gray;
       padding: 10px 12px;
       display: block;
       text-decoration: none;
-      color: $dropdown-text;
+      color: $sccl-light-gray;
       font-size: 12px;
-      &:first-child {
-        border-top: none;
-      }
+      
       .img-area {
         float: left;
         width: 36px;
@@ -194,14 +181,14 @@
     }
   }
   & > a {
-    border-top: 1px solid $default;
+    border-top: 1px solid $sccl-bright-white;
     display: block;
     text-align: center;
     padding: 10px;
     font-size: 12px;
     text-decoration: none;
     &:hover {
-      color: $dropdown-text;
+      color: $sccl-bright-white;
     }
   }
 
@@ -213,10 +200,10 @@
       text-align: left;
       border: none;
       text-decoration: none;
-      color: $dropdown-text;
+      color: $sccl-bright-white;
       padding: 4px 16px 4px 20px;
       &.signout {
-        border-top: 1px solid $default;
+        border-top: 1px solid $sccl-bright-white;
       }
       i {
         margin-right: 10px;
@@ -233,7 +220,7 @@
   i.dropdown-arr {
     position: absolute;
     top: -22px;
-    right: 42px;
+    right: 14px;
     display: block;
     width: 0;
     height: 0;
@@ -249,7 +236,7 @@
       width: 0;
       height: 0;
       border: 10px solid transparent;
-      border-bottom-color: $default;
+      border-bottom-color: $sccl-bright-white;
     }
   }
 }
@@ -262,4 +249,3 @@
     }
   }
 }
-*/

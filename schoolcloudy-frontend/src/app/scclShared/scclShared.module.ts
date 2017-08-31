@@ -21,7 +21,6 @@ import { ScclSlimScrollDirective } from './scclDirectives/scclSlimScroll/scclSli
 import { ScclScrollPositionDirective } from './scclDirectives/scclScrollPosition/scclScrollPosition.directive';
 import { TranslateService } from '@ngx-translate/core';
 import { ScclPngExtPipe } from './scclPipes/scclPngExt.pipe';
-import { SlimScrollModule } from 'ng2-slimscroll';
 import { ScclRightSidebarDirective } from './scclDirectives/scclSidebarDirectives/scclRightSidebar.directive';
 import {
     ScclRightSidebarComponent
@@ -30,11 +29,13 @@ import {
     ScclPageContentTopComponent
     } from './scclSharedModule/scclLayoutModule/scclComponents/scclHeader/scclPageContentTop/scclContentTop.component';
 import { ScclMsgCenterComponent } from './scclSharedModule/scclLayoutModule/scclComponents/scclMsgCenter/scclMsgCenter.component';
+import { ScclMsgCenterService } from './scclSharedModule/scclLayoutModule/scclComponents/scclMsgCenter/scclMsgCenter.service';
 
 
 const SCCL_SHARED_SERVICE = [
     ScclMenuService,
-    ScclPreloaderService
+    ScclPreloaderService,
+    ScclMsgCenterService
 ];
 
 const SCCL_DIRECTIVES = [
@@ -63,8 +64,7 @@ const SCCL_PIPES = [
       ReactiveFormsModule,
       FormsModule,
       RouterModule,
-      AppTranslationModule,
-      SlimScrollModule
+      AppTranslationModule
     ],
     declarations: [
       ...SCCL_PIPES,
@@ -85,7 +85,8 @@ export class ScclSharedModule {
         return <ModuleWithProviders> {
           ngModule: ScclSharedModule,
           providers: [
-                      TranslateService
+                      TranslateService,
+                      SCCL_SHARED_SERVICE
           ],
         };
       }

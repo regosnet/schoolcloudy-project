@@ -10,7 +10,7 @@
     },
     "menu": {
   		"left_side_bar": {
-  			"dashboard": "Informācijas Panelis",
+  			"dashboard": "Informācija",
   			"academics": "Akadēmiķi",
   			"programmes": "Programmas",
   			"courses": "Kursi",
@@ -20,7 +20,7 @@
   			"staffs": "Personāls",
   			"parents": "Vecāki",
   			"utilities": "Komunālie",
-  			"settings": "Iestatījums",
+  			"settings": "Iestatījumi",
   			"project": "Projekts"	
   		},
   		"header": {
