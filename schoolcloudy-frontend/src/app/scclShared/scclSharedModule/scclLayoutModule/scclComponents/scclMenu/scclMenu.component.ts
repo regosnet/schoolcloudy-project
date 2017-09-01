@@ -42,7 +42,6 @@ export class ScclMenuComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this._onRouteChange = this._router.events.subscribe((event) => {
-
       if (event instanceof NavigationEnd) {
         if (this.menuItems) {
           this.selectMenuAndNotify();
@@ -52,7 +51,7 @@ export class ScclMenuComponent implements OnInit, OnDestroy {
         }
       }
     });
-
+    //this._menuItemsSub = this._service.menuItems.subscribe(res => this.updateMenu(res));
     this._menuItemsSub = this._service.menuItems.subscribe(this.updateMenu.bind(this));
   }
 

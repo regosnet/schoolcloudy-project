@@ -11,7 +11,6 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class ScclAdministratorComponent implements OnInit {
     constructor(private _menuService: ScclMenuService, private translate: TranslateService) {
-        
     }
 
     ngOnInit() {

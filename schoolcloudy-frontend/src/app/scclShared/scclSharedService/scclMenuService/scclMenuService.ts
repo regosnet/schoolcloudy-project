@@ -22,9 +22,25 @@ export class ScclMenuService {
     const convertedRoutes = this.convertRoutesToMenus(_.cloneDeep(routes));
     this.menuItems.next(convertedRoutes);
   }
-  
+
   public updateHeaderMenu(routes: Routes) {
-      this.scclHeaderMenuItems.next(routes);
+      const arrangeditems = [];
+      const topHeader = [];
+      const mainHeader = [];
+      const contentTop = [];
+      const convertedRoutes = this.convertRoutesToMenus(_.cloneDeep(routes));
+      convertedRoutes.forEach((converted) => {
+             if (converted.route.data.header === 'top') {
+                 topHeader.push(converted);
+             }else if (converted.route.data.header === 'main') {
+                 mainHeader.push(converted);
+             }else if (converted.route.data.header === 'contentTop') {
+                 contentTop.push(converted);
+             }
+      });
+      arrangeditems.push(topHeader, mainHeader, contentTop);
+      console.log(arrangeditems)
+      this.scclHeaderMenuItems.next(arrangeditems);
   }
 
   public convertRoutesToMenus(routes: Routes): any[] {
@@ -53,7 +69,7 @@ export class ScclMenuService {
     return items;
   }
 
-  protected _skipEmpty(items:any[]):any[] {
+  protected _skipEmpty(items: any[]): any[] {
     const menu = [];
     items.forEach((item) => {
       let menuItem;
@@ -73,10 +89,14 @@ export class ScclMenuService {
     return [].concat.apply([], menu);
   }
 
-  protected _convertArrayToItems(routes:any[], parent?:any):any[] {
+  protected _convertArrayToItems(routes: any[], parent?: any): any[] {
     const items = [];
+    const topHeader = [];
+    const mainHeader = [];
+    const contentTop = [];
     routes.forEach((route) => {
-      items.push(this._convertObjectToItem(route, parent));
+        const convertedItem = this._convertObjectToItem(route, parent);
+        items.push(convertedItem);
     });
     return items;
   }
@@ -88,7 +108,7 @@ export class ScclMenuService {
       item = object.data.menu;
       item.route = object;
       delete item.route.data.menu;
-    } else {
+    }else {
       item.route = object;
       item.skip = true;
     }
@@ -98,14 +118,16 @@ export class ScclMenuService {
       item.route.paths = item.route.path;
     } else {
       item.route.paths = parent && parent.route && parent.route.paths ? parent.route.paths.slice(0) : ['/'];
-      if (!!item.route.path) item.route.paths.push(item.route.path);
+      if (!!item.route.path) {
+          item.route.paths.push(item.route.path);
+      }
     }
 
     if (object.children && object.children.length > 0) {
       item.children = this._convertArrayToItems(object.children, item);
     }
 
-    let prepared = this._prepareItem(item);
+    const prepared = this._prepareItem(item);
 
     // if current item is selected or expanded - then parent is expanded too
     if ((prepared.selected || prepared.expanded) && parent) {
@@ -115,17 +137,16 @@ export class ScclMenuService {
     return prepared;
   }
 
-  protected _prepareItem(object:any):any {
+  protected _prepareItem(object: any): any {
     if (!object.skip) {
       object.target = object.target || '';
       object.pathMatch = object.pathMatch  || 'full';
       return this._selectItem(object);
     }
-
     return object;
   }
 
-  protected _selectItem(object:any):any {
+  protected _selectItem(object: any): any {
     object.selected = this._router.isActive(this._router.createUrlTree(object.route.paths), object.pathMatch === 'full');
     return object;
   }

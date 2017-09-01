@@ -16,7 +16,8 @@ export const routes: Routes = [
     children: [
       {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
       {path: 'dashboard', loadChildren: './scclAdminDashboard/scclAdminDashboard.module#ScclAdminDashboardModule'},
-      {path: 'academics', loadChildren: './scclAdminAcademics/scclAdminAcademics.module#ScclAdminAcademicsModule'}
+      {path: 'academics', loadChildren: './scclAdminAcademics/scclAdminAcademics.module#ScclAdminAcademicsModule'},
+      {path: 'students', loadChildren: './scclAdminStudent/scclAdminStudent.module#ScclAdminStudentModule'}
     ]
   }
 ];

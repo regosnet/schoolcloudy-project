@@ -31,7 +31,7 @@ export class ScclTopNavBarComponent implements OnInit {
 
     // initializes the menu data from the user in sccl header
     public ngOnInit(): void {
-       this._menuService.scclHeaderMenuItems.subscribe(res => this.menuItems = res[0]);
+       this._menuService.scclHeaderMenuItems.subscribe(res => this.menuItems = res);
       }
 
     public toggleMenu() {

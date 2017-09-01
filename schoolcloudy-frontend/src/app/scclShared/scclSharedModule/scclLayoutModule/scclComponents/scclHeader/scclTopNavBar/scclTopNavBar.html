@@ -5,42 +5,44 @@
 		<span translate> {{'sccl.menu.header.top_header.semester'}} </span><span> 2 </span>
 	</div>
 	<div class="currentDay">
-		<i class="ion-ios-calendar-outline"></i> <span translate> {{ menuItems.scclHeader.topHeader.currentDay.day }} </span>
+		<i class="ion-ios-calendar-outline"></i> 
+		<span translate> Friday 2 August 2017</span>
 	</div>
 
 	<div class="lastLogin">
 		<i class="ion-ios-clock-outline"></i>
 		<span translate>{{'sccl.menu.header.top_header.last_login.last_login'}}</span> 
-		<span>{{menuItems.scclHeader.topHeader.lastLogin}}</span>
+		<span>02/12/2017</span>
 	</div>
 </div>
+
 <div class="sccl-header-div clearfix" scclScrollPosition maxHeight="50"
 	(scrollChange)="scrolledChanged($event)"
 	[ngClass]="{scrolled: isScrolled}">
 	<div class="sccl-header-leftside">
-		<a href (click)="toggleMenu()"
-			class="collapse-menu-link-mobile ion-navicon"></a> <a
-			routerLink="{{menuItems.scclHeader.mainHeader.route}}"
-			class="sccl-logo clearfix"> <span class="logoSc">School</span><span class="logoCl">Cloudy</span>
+		<a href (click)="toggleMenu()" class="collapse-menu-link-mobile ion-navicon"></a> 
+		<a routerLink="home/dashboard" class="sccl-logo clearfix">
 			<img src="{{ ( 'scclLogo/sccl_logo' | scclPngExt ) }}"> 
 		</a> <a href (click)="toggleMenu()" class="collapse-menu-link ion-navicon"></a>
 	</div>
+	
 	<div class="search">
 		<i class="ion-ios-search-strong" ng-click="startSearch()"></i> <input
 			id="searchInput" type="text" placeholder="Search...">
 	</div>
 
 	<div class="user-profile clearfix">
-		<a href="javascript:void(0)" class="collapse-right-sidebar ion-navicon"
-			scclToggleRightSidebar></a>
+		<div class="">
+			<a href="javascript:void(0)" class="collapse-right-sidebar ion-navicon" scclToggleRightSidebar></a>
+		</div>
+		
 		<div class="dropdown al-user-profile">
 			<a href="#" class="profile-toggle-link dropdown-toggle"
 				id="user-profile-dd" data-toggle="dropdown" aria-expanded="false">
-				<img src="{{ ( 'profile/eric' | scclPngExt ) }}"> <span translate>{{menuItems.scclHeader.mainHeader.status}}</span><i
+				<img src="{{ ( 'profile/eric' | scclPngExt ) }}"> <span translate>admin</span><i
 				class="ion-arrow-down-b"></i>
 			</a>
-			<ul class="dropdown-menu top-dropdown-menu profile-dropdown"
-				aria-labelledby="user-profile-dd">
+			<ul class="dropdown-menu top-dropdown-menu profile-dropdown" aria-labelledby="user-profile-dd">
 				<li class="dropdown-item"><a href><i class="fa fa-user"></i>Updates
 						<span class="badge badge-info">42</span></a></li>
 				<li class="dropdown-item"><a href><i class="fa fa-user"></i>Messages
@@ -60,4 +62,8 @@
 		</div>
 	</div>
 </div>
-<sccl-content-top></sccl-content-top>
+
+<div>
+	<sccl-content-top></sccl-content-top>
+</div>
+
