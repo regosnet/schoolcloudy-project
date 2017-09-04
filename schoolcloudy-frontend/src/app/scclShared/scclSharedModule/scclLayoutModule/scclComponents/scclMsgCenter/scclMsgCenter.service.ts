@@ -38,7 +38,12 @@ export class ScclMsgCenterService {
       name: 'Kostya',
       text: 'Kostya invited you to join the event.',
       time: '1 week ago'
-    }
+    },
+    {
+        name: 'Kostya',
+        text: 'Kostya invited you to join the event.',
+        time: '1 week ago'
+      }
   ];
 
   private _messages = [

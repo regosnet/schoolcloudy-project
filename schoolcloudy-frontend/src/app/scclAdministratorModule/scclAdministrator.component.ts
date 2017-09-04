@@ -18,8 +18,5 @@ export class ScclAdministratorComponent implements OnInit {
         this._menuService.updateHeaderMenu(<Routes> SCCL_HEADER_MENU);
     }
 
-    changeLanguage(event) {
-
-    }
 }
 

@@ -24,23 +24,8 @@ export class ScclMenuService {
   }
 
   public updateHeaderMenu(routes: Routes) {
-      const arrangeditems = [];
-      const topHeader = [];
-      const mainHeader = [];
-      const contentTop = [];
       const convertedRoutes = this.convertRoutesToMenus(_.cloneDeep(routes));
-      convertedRoutes.forEach((converted) => {
-             if (converted.route.data.header === 'top') {
-                 topHeader.push(converted);
-             }else if (converted.route.data.header === 'main') {
-                 mainHeader.push(converted);
-             }else if (converted.route.data.header === 'contentTop') {
-                 contentTop.push(converted);
-             }
-      });
-      arrangeditems.push(topHeader, mainHeader, contentTop);
-      console.log(arrangeditems)
-      this.scclHeaderMenuItems.next(arrangeditems);
+      this.scclHeaderMenuItems.next(convertedRoutes);
   }
 
   public convertRoutesToMenus(routes: Routes): any[] {

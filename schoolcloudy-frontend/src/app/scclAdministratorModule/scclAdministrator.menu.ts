@@ -1,3 +1,5 @@
+
+
 export const SCCL_ADMINISTRATOR_MENU =
     [
          {
@@ -341,56 +343,196 @@ export const SCCL_HEADER_MENU =
            children:
                [
                     {
-                        path: 'calendar/school_calendar',
+                        path: 'calendar',
                         data: {
-                            header: 'top',
-                            class: 'topHeader',
                             menu: {
-                                title: 'Week 1, Semester 2',
-                                icon: 'ion-ios-book-outline',
-                                selected: false,
-                                expanded: false,
-                                class: 'session'
+                                top:
+                                    [
+                                         {
+                                             firstTitle: 'Week 11; Semester 2',
+                                             selected: false,
+                                             expanded: false,
+                                             class: 'session',
+                                             route: {
+                                                 path: '/school_calendar',
+                                                 alinks:
+                                                     [
+                                                          {
+                                                              class: 'session',
+                                                              functons: {
+                                                                  methodOne: ''
+                                                              },
+                                                              icon: 'ion-ios-book-outline'
+                                                          }
+                                                      ]
+                                             }
+                                         },
+                                         {divClass: 'topHeader'}
+                                     ]
                             }
                         }
                     },
                     {
-                        path: 'calendar/today',
+                        path: 'calendar',
                         data: {
-                            header: 'top',
-                            class: 'currentDay',
                             menu: {
-                                title: currentDay,
-                                icon: 'ion-calendar',
-                                selected: false,
-                                expanded: false,
-                                class: 'currentDay'
+                                top:
+                                    [
+                                        {
+                                            firstTitle: currentDay,
+                                            class: 'currentDay',
+                                            selected: false,
+                                            expanded: false,
+                                            route: {
+                                                path: '/today',
+                                                alinks:
+                                                    [
+                                                         {
+                                                             class: 'currentDay',
+                                                             functons: {
+                                                                 methodOne: ''
+                                                             },
+                                                             icon: 'ion-calendar',
+                                                         }
+                                                     ]
+                                            }
+                                        }
+                                     ]
                             }
                         }
                     },
                     {
-                        path: 'logins/last_login',
+                        path: 'recent_activities',
                         data: {
-                            header: 'top',
-                            class: 'lastLogin',
                             menu: {
-                                title: currentDay,
-                                icon: 'ion-clock',
-                                selected: false,
-                                expanded: false
+                                top:
+                                    [
+                                        {
+                                            firstTitle: currentDay,
+                                            class: 'lastLogin',
+                                            selected: false,
+                                            expanded: false,
+                                            route: {
+                                                path: '/last_login',
+                                                alinks:
+                                                    [
+                                                         {
+                                                             class: 'lastLogin',
+                                                             functons: {
+                                                                 methodOne: ''
+                                                             },
+                                                             icon: 'ion-clock',
+                                                         }
+                                                     ]
+                                            }
+                                        }
+                                     ]
                             }
                         }
                     },
                     {
-                        path: 'dashboard',
+                        path: '/',
                         data: {
-                            header: 'main',
-                            class: 'sccl-header-div',
                             menu: {
-                                title: '<span>School</span><span>Cloudy</span>',
-                                icon: null,
-                                selected: false,
-                                expanded: false
+                                main:
+                                    [
+                                        {
+                                            firstTitle: 'School',
+                                            secondTitle: 'Cloudy',
+                                            selected: false,
+                                            expanded: false,
+                                            class: 'sccl-header-div',
+                                            route: {
+                                                path: 'dashboard',
+                                                alinks:
+                                                    [
+                                                         {
+                                                             class: '',
+                                                             functions: {
+                                                                 methodOne: ''
+                                                             },
+                                                             img: {
+                                                                 name: 'logo',
+                                                                 src: '( "scclLogo/sccl_logo" | scclPngExt )'
+                                                             }
+                                                         }
+                                                     ]
+                                            }
+                                        },
+                                        {
+                                            divClass: 'sccl-header-div'
+                                        },
+                                        {
+                                            search: {
+                                                class: 'search',
+                                                icon: 'ion-ios-search-strong'
+                                            }
+                                        },
+                                        {
+                                            rightSideHeader: {
+                                                button: {
+                                                    divClass: 'rightSideBarBtn',
+                                                    icon: 'collapse-right-sidebar ion-navicon'
+                                                },
+                                                class: 'user-profile',
+                                                userInfo: {
+                                                    user: {
+                                                      avatar: 'profile/eric',
+                                                      status: 'Admin',
+                                                      icon: 'ion-arrow-down-b'
+                                                    },
+                                                    children:
+                                                        [
+                                                           {
+                                                               title: 'Messages',
+                                                               icon: 'fa fa-user',
+                                                               route: '/messages',
+                                                               badge: {
+                                                                   icon: 'badge badge-info',
+                                                                   value: 2
+                                                               }
+                                                           },
+                                                           {
+                                                               title: 'Project',
+                                                               icon: 'fa fa-user',
+                                                               route: '/notifications',
+                                                               badge: {
+                                                                   icon: 'badge badge-info',
+                                                                   value: 0
+                                                               }
+                                                           },
+                                                           {
+                                                               title: 'Profile',
+                                                               icon: 'fa fa-user',
+                                                               route: '/notifications',
+                                                               badge: {
+                                                                   icon: 'badge badge-info',
+                                                                   value: 0
+                                                               }
+                                                           },
+                                                           {
+                                                               title: 'Settings',
+                                                               icon: 'fa fa-user',
+                                                               route: '/notifications',
+                                                               badge: {
+                                                                   icon: 'badge badge-info',
+                                                                   value: 0
+                                                               }
+                                                           },
+                                                           {
+                                                               title: 'Sign Out',
+                                                               icon: 'fa fa-user',
+                                                               route: '',
+                                                               badge: {
+                                                                   icon: 'badge badge-info',
+                                                                   value: 0
+                                                               }
+                                                           }
+                                                         ]
+                                                }
+                                            }
+                                        }
+                                     ]
                             }
                         }
                     }

@@ -1,69 +1,55 @@
-<div class="topHeader clearfix">
-	<div class="session">
-		<span translate> {{'sccl.menu.header.top_header.week'}}</span>
-		<span>1 </span>
-		<span translate> {{'sccl.menu.header.top_header.semester'}} </span><span> 2 </span>
-	</div>
-	<div class="currentDay">
-		<i class="ion-ios-calendar-outline"></i> 
-		<span translate> Friday 2 August 2017</span>
-	</div>
-
-	<div class="lastLogin">
-		<i class="ion-ios-clock-outline"></i>
-		<span translate>{{'sccl.menu.header.top_header.last_login.last_login'}}</span> 
-		<span>02/12/2017</span>
-	</div>
-</div>
-
-<div class="sccl-header-div clearfix" scclScrollPosition maxHeight="50"
-	(scrollChange)="scrolledChanged($event)"
-	[ngClass]="{scrolled: isScrolled}">
-	<div class="sccl-header-leftside">
-		<a href (click)="toggleMenu()" class="collapse-menu-link-mobile ion-navicon"></a> 
-		<a routerLink="home/dashboard" class="sccl-logo clearfix">
-			<img src="{{ ( 'scclLogo/sccl_logo' | scclPngExt ) }}"> 
-		</a> <a href (click)="toggleMenu()" class="collapse-menu-link ion-navicon"></a>
+<div *ngFor="let headerMenu of menuItems">
+	<div *ngIf="headerMenu.top">
+		<div *ngFor="let top of headerMenu.top" class="{{top.divClass}}">
+			<div *ngIf="top.route">
+				<a *ngFor="let alink of top.route.alinks" 
+				[routerLink]="headerMenu.route.path + top.route.path" class="{{alink.class}}">
+	    		<i *ngIf="alink.icon" class="{{alink.icon}}"></i>
+	    		<span *ngIf="top.firstTitle" translate>{{top.firstTitle}}</span><span *ngIf="top.secondTitle" translate>{{top.secondTitle}}</span>
+	    		<img *ngIf="alink.img"alt="" src="">
+	  			</a>
+			</div>
+		</div>
 	</div>
 	
-	<div class="search">
-		<i class="ion-ios-search-strong" ng-click="startSearch()"></i> <input
-			id="searchInput" type="text" placeholder="Search...">
-	</div>
-
-	<div class="user-profile clearfix">
-		<div class="">
-			<a href="javascript:void(0)" class="collapse-right-sidebar ion-navicon" scclToggleRightSidebar></a>
-		</div>
+	<div *ngIf="headerMenu.main">
+		<div *ngFor="let main of headerMenu.main" class="{{main.divClass}}" scclScrollPosition maxHeight="50"
+				(scrollChange)="scrolledChanged($event)" [ngClass]="{scrolled: isScrolled}">
+			<div *ngIf="main.route">
+				<a *ngFor="let alink of main.route.alinks" 
+				 class="{{alink.class}}">
+	    		<i *ngIf="alink.icon" class="{{alink.icon}}"></i>
+	    		<span *ngIf="main.firstTitle" translate>{{main.firstTitle}}</span><span *ngIf="main.secondTitle" translate>{{main.secondTitle}}</span>
+	    		<img *ngIf="alink.img"alt="{{alink.img.name}}" src="{{ ( 'scclLogo/sccl_logo' | scclPngExt ) }}">
+	  			</a>
+			</div>
 		
-		<div class="dropdown al-user-profile">
-			<a href="#" class="profile-toggle-link dropdown-toggle"
-				id="user-profile-dd" data-toggle="dropdown" aria-expanded="false">
-				<img src="{{ ( 'profile/eric' | scclPngExt ) }}"> <span translate>admin</span><i
-				class="ion-arrow-down-b"></i>
-			</a>
-			<ul class="dropdown-menu top-dropdown-menu profile-dropdown" aria-labelledby="user-profile-dd">
-				<li class="dropdown-item"><a href><i class="fa fa-user"></i>Updates
-						<span class="badge badge-info">42</span></a></li>
-				<li class="dropdown-item"><a href><i class="fa fa-user"></i>Messages
-						<span class="badge badge-danger">42</span></a></li>
-				<li class="dropdown-item"><a href><i class="fa fa-user"></i>Tasks</a></li>
-				<li class="dropdown-item"><a href><i class="fa fa-user"></i>Comments</a></li>
-				<li class="dropdown-item"><a href><i class="fa fa-user"></i>Projects</a></li>
-				<li class="dropdown-item"><a href><i class="fa fa-user"></i>Profile</a></li>
-				<li class="dropdown-item"><a href><i class="fa fa-cog"></i>Settings</a></li>
-				<li class="dropdown-item"><a href class="signout"><i
-						class="fa fa-power-off"></i>Sign out</a></li>
-			</ul>
-		</div>
+			<div *ngIf="main.search">
+				<div class="main.search.class">
+					<i class="{{main.search.icon}}" ng-click="startSearch()"></i> 
+					<input id="searchInput" type="text" placeholder="Search...">
+				</div>	
+			</div>
+			
+			<div *ngIf="main.rightSideHeader" class="main.rightSideHeader.class clearfix">
+				<div *ngIf="main.rightSideHeader.button" class="main.rightSideHeader.button.divClass">
+					<a href="javascript:void(0)" class="main.rightSideHeader.button.class" scclToggleRightSidebar></a>
+				</div>
+		
+				<div *ngIf="main.rightSideHeader.userInfo" class="dropdown al-user-profile">
+					<a href="#" class="profile-toggle-link dropdown-toggle"
+						id="user-profile-dd" data-toggle="dropdown" aria-expanded="false">
+						<img src="{{ ( main.rightSideHeader.userInfo.user.avatar | scclPngExt ) }}"> 
+						<span translate>{{main.rightSideHeader.userInfo.user.status}}</span>
+					</a>
+					<sccl-dropdown-menu class="dropdown-menu top-dropdown-menu profile-dropdown" aria-labelledby="user-profile-dd" 
+					[dropDownMenuItems]="main.rightSideHeader.userInfo.children"></sccl-dropdown-menu>
+				</div>
 
-		<div class="msg-notification-box">
-			<sccl-msg-center></sccl-msg-center>
+				<div class="msg-notification-box">
+					<sccl-msg-center></sccl-msg-center>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
-
-<div>
-	<sccl-content-top></sccl-content-top>
-</div>
-

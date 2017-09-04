@@ -30,6 +30,9 @@ import {
     } from './scclSharedModule/scclLayoutModule/scclComponents/scclHeader/scclPageContentTop/scclContentTop.component';
 import { ScclMsgCenterComponent } from './scclSharedModule/scclLayoutModule/scclComponents/scclMsgCenter/scclMsgCenter.component';
 import { ScclMsgCenterService } from './scclSharedModule/scclLayoutModule/scclComponents/scclMsgCenter/scclMsgCenter.service';
+import {
+    ScclDropDownMenuComponent
+    } from './scclSharedModule/scclLayoutModule/scclComponents/scclHeader/scclTopNavBar/scclDropDownMenu/scclDropDownMenu';
 
 
 const SCCL_SHARED_SERVICE = [
@@ -51,7 +54,8 @@ const SCCL_COMPONENTS = [
     ScclLeftSidebarComponent,
     ScclRightSidebarComponent,
     ScclPageContentTopComponent,
-    ScclMsgCenterComponent
+    ScclMsgCenterComponent,
+    ScclDropDownMenuComponent
 ];
 
 const SCCL_PIPES = [
