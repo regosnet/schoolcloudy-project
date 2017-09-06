@@ -1,20 +1,24 @@
 @import '../../../../../../../scclStyles';
 
  div.contentTop {
-  	height: 30px;
+  	height: 18px;
   	background-color: $sccl-light-gray;
   	width:100%;
   	color: white;
   	font-weight: 20px;
   	padding-right: 3%;
   	.navigationInfo {
-  		float:left
+  		float:left;
+  		margin-top: -4px;
+  		font-weight: bold;
   	}
   	.userGreeting {
-  		margin-right: 5%;
+  		margin-right: 2%;
+  		
   	}
   	.languageSelect, .userGreeting {
   		float: right;
+  		margin-top: -4px;
   		a > span, .dropdown-toggle{
   			color: #fff;
   		}

@@ -1,39 +1,42 @@
 <div *ngFor="let headerMenu of menuItems">
 	<div *ngIf="headerMenu.top">
-		<div *ngFor="let top of headerMenu.top" class="{{top.divClass}}">
-			<div *ngIf="top.route">
-				<a *ngFor="let alink of top.route.alinks" 
-				[routerLink]="headerMenu.route.path + top.route.path" class="{{alink.class}}">
-	    		<i *ngIf="alink.icon" class="{{alink.icon}}"></i>
-	    		<span *ngIf="top.firstTitle" translate>{{top.firstTitle}}</span><span *ngIf="top.secondTitle" translate>{{top.secondTitle}}</span>
-	    		<img *ngIf="alink.img"alt="" src="">
+		<div *ngFor="let top of headerMenu.top" class="topHeader clearfix">
+			<div *ngIf="top.route" class="{{top.class}}">
+				<a href="#"
+				[routerLink]="headerMenu.route.path + top.route.path">
+	    		<i *ngIf="top.icon" class="{{top.icon}}"></i>
+	    		<span *ngFor="let title of top.titles">
+	    			<span *ngIf="title.title" translate>{{title.title}}</span>
+	    			<span *ngIf="title.data">{{title.data}}</span>
+	    		</span>
 	  			</a>
 			</div>
 		</div>
 	</div>
 	
 	<div *ngIf="headerMenu.main">
-		<div *ngFor="let main of headerMenu.main" class="{{main.divClass}}" scclScrollPosition maxHeight="50"
+		<div *ngFor="let main of headerMenu.main" class="sccl-header-div clearfix" scclScrollPosition maxHeight="50"
 				(scrollChange)="scrolledChanged($event)" [ngClass]="{scrolled: isScrolled}">
-			<div *ngIf="main.route">
-				<a *ngFor="let alink of main.route.alinks" 
-				 class="{{alink.class}}">
-	    		<i *ngIf="alink.icon" class="{{alink.icon}}"></i>
-	    		<span *ngIf="main.firstTitle" translate>{{main.firstTitle}}</span><span *ngIf="main.secondTitle" translate>{{main.secondTitle}}</span>
-	    		<img *ngIf="alink.img"alt="{{alink.img.name}}" src="{{ ( 'scclLogo/sccl_logo' | scclPngExt ) }}">
-	  			</a>
+			<div *ngIf="main.route" class="sccl-header-leftside clearfix">
+			<a href (click)="toggleMenu()" class="collapse-menu-link-mobile ion-navicon"></a> 
+				<a routerLink="home/dashboard" class="sccl-logo clearfix">	
+	    		<span *ngFor="let title of main.titles">
+	    			<span class="logoSc" *ngIf="title.title1" translate>{{title.title1}}</span><span class="logoCl" *ngIf="title.title2" translate>{{title.title2}}</span>
+	    		</span>
+	    		<img *ngIf="main.img.name" alt="{{main.img.name}}" src="{{ ( 'scclLogo/sccl_logo' | scclPngExt ) }}">
+	  			</a><a href (click)="toggleMenu()" class="collapse-menu-link ion-navicon"></a>
 			</div>
 		
 			<div *ngIf="main.search">
-				<div class="main.search.class">
+				<div class="{{main.search.class}}">
 					<i class="{{main.search.icon}}" ng-click="startSearch()"></i> 
-					<input id="searchInput" type="text" placeholder="Search...">
+					<input id="searchInput" type="text" placeholder="{{main.search.placeHolder | translate}}">
 				</div>	
 			</div>
 			
-			<div *ngIf="main.rightSideHeader" class="main.rightSideHeader.class clearfix">
-				<div *ngIf="main.rightSideHeader.button" class="main.rightSideHeader.button.divClass">
-					<a href="javascript:void(0)" class="main.rightSideHeader.button.class" scclToggleRightSidebar></a>
+			<div *ngIf="main.rightSideHeader" class="user-profile clearfix">
+				<div *ngIf="main.rightSideHeader.button">
+					<a href="javascript:void(0)" class="collapse-right-sidebar ion-navicon" scclToggleRightSidebar></a>
 				</div>
 		
 				<div *ngIf="main.rightSideHeader.userInfo" class="dropdown al-user-profile">
@@ -41,6 +44,7 @@
 						id="user-profile-dd" data-toggle="dropdown" aria-expanded="false">
 						<img src="{{ ( main.rightSideHeader.userInfo.user.avatar | scclPngExt ) }}"> 
 						<span translate>{{main.rightSideHeader.userInfo.user.status}}</span>
+						<i class="ion-arrow-down-b"></i>
 					</a>
 					<sccl-dropdown-menu class="dropdown-menu top-dropdown-menu profile-dropdown" aria-labelledby="user-profile-dd" 
 					[dropDownMenuItems]="main.rightSideHeader.userInfo.children"></sccl-dropdown-menu>
@@ -51,5 +55,9 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	
+	<div *ngIf="headerMenu.contentTop">
+		<sccl-content-top></sccl-content-top>
 	</div>
 </div>

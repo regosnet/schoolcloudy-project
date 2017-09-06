@@ -11,7 +11,7 @@ export const SCCL_ADMINISTRATOR_MENU =
                      data: {
                          menu: {
                              title: 'sccl.menu.left_side_bar.dashboard',
-                             icon: 'ion-android-home',
+                             icon: 'ion-ios-speedometer-outline',
                              selected: false,
                              expanded: false,
                              order: 0
@@ -48,7 +48,7 @@ export const SCCL_ADMINISTRATOR_MENU =
                                     data: {
                                         menu: {
                                             title: 'sccl.menu.left_side_bar.programmes',
-                                            icon: 'ion-university',
+                                            icon: 'ion-record',
                                             selected: false,
                                             expanded: false,
                                             order: 1.2
@@ -60,7 +60,7 @@ export const SCCL_ADMINISTRATOR_MENU =
                                         data: {
                                             menu: {
                                                 title: 'sccl.menu.left_side_bar.courses',
-                                                icon: 'ion-university',
+                                                icon: 'ion-record',
                                                 selected: false,
                                                 expanded: false,
                                                 order: 1.1
@@ -72,7 +72,7 @@ export const SCCL_ADMINISTRATOR_MENU =
                                         data: {
                                             menu: {
                                                 title: 'sccl.menu.left_side_bar.masters',
-                                                icon: 'ion-university',
+                                                icon: 'ion-record',
                                                 selected: false,
                                                 expanded: false,
                                                 order: 1.2
@@ -84,7 +84,7 @@ export const SCCL_ADMINISTRATOR_MENU =
                                         data: {
                                             menu: {
                                                 title: 'sccl.menu.left_side_bar.bachelors',
-                                                icon: 'ion-university',
+                                                icon: 'ion-record',
                                                 selected: false,
                                                 expanded: false,
                                                 order: 1.3
@@ -96,7 +96,7 @@ export const SCCL_ADMINISTRATOR_MENU =
                                         data: {
                                             menu: {
                                                 title: 'sccl.menu.left_side_bar.exams',
-                                                icon: 'ion-university',
+                                                icon: 'ion-record',
                                                 selected: false,
                                                 expanded: false,
                                                 order: 1.2
@@ -110,7 +110,7 @@ export const SCCL_ADMINISTRATOR_MENU =
                      data: {
                          menu: {
                              title: 'sccl.menu.left_side_bar.students',
-                             icon: 'ion-android-contacts',
+                             icon: 'ion-ios-people-outline',
                              selected: false,
                              expanded: false,
                              order: 4
@@ -134,7 +134,7 @@ export const SCCL_ADMINISTRATOR_MENU =
                      data: {
                          menu: {
                              title: 'sccl.menu.left_side_bar.parents',
-                             icon: 'iion-person-stalker',
+                             icon: 'ion-ios-person-outline',
                              selected: false,
                              expanded: false,
                              order: 6
@@ -146,7 +146,7 @@ export const SCCL_ADMINISTRATOR_MENU =
                      data: {
                          menu: {
                              title: 'sccl.menu.left_side_bar.utilities',
-                             icon: 'ion-android-home',
+                             icon: 'ion-ios-paw-outline',
                              selected: false,
                              expanded: false,
                              order: 7
@@ -155,10 +155,10 @@ export const SCCL_ADMINISTRATOR_MENU =
                      children:
                          [
                                 {
-                                    path: 'programmes',
+                                    path: 'Calendar',
                                     data: {
                                         menu: {
-                                            title: 'sccl.menu.left_side_bar.programmes',
+                                            title: 'sccl.menu.left_side_bar.calendar',
                                             icon: 'ion-university',
                                             selected: false,
                                             expanded: false,
@@ -272,7 +272,7 @@ export const SCCL_ADMINISTRATOR_MENU =
                      data: {
                          menu: {
                              title: 'sccl.menu.left_side_bar.settings',
-                             icon: 'ion-ios-gear',
+                             icon: 'ion-ios-gear-outline',
                              selected: false,
                              expanded: false,
                              order: 9
@@ -285,7 +285,7 @@ export const SCCL_ADMINISTRATOR_MENU =
                                     data: {
                                         menu: {
                                             title: 'sccl.menu.left_side_bar.programmes',
-                                            icon: 'ion-university',
+                                            icon: 'ion-ios-ionic-outline',
                                             selected: false,
                                             expanded: false,
                                             order: 1.2
@@ -349,25 +349,25 @@ export const SCCL_HEADER_MENU =
                                 top:
                                     [
                                          {
-                                             firstTitle: 'Week 11; Semester 2',
+                                             titles:
+                                                 [
+                                                      {
+                                                          title: 'sccl.menu.header.top_header.week',
+                                                          data: 3
+                                                      },
+                                                      {
+                                                          title: 'sccl.menu.header.top_header.semester',
+                                                          data: 3
+                                                      }
+                                                  ],
                                              selected: false,
                                              expanded: false,
+                                             icon: 'ion-pie-graph',
                                              class: 'session',
                                              route: {
-                                                 path: '/school_calendar',
-                                                 alinks:
-                                                     [
-                                                          {
-                                                              class: 'session',
-                                                              functons: {
-                                                                  methodOne: ''
-                                                              },
-                                                              icon: 'ion-ios-book-outline'
-                                                          }
-                                                      ]
+                                                 path: '/school_calendar'
                                              }
-                                         },
-                                         {divClass: 'topHeader'}
+                                         }
                                      ]
                             }
                         }
@@ -379,22 +379,23 @@ export const SCCL_HEADER_MENU =
                                 top:
                                     [
                                         {
-                                            firstTitle: currentDay,
+                                            titles:
+                                                [
+                                                     {
+                                                         title: 'sccl.menu.calendar.day.' + currentDay.getDay(),
+                                                         data: currentDay.getDate()
+                                                     },
+                                                     {
+                                                         title: 'sccl.menu.calendar.month.' + currentDay.getMonth(),
+                                                         data: currentDay.getFullYear()
+                                                     }
+                                                 ],
+                                            icon: 'ion-calendar',
                                             class: 'currentDay',
                                             selected: false,
                                             expanded: false,
                                             route: {
-                                                path: '/today',
-                                                alinks:
-                                                    [
-                                                         {
-                                                             class: 'currentDay',
-                                                             functons: {
-                                                                 methodOne: ''
-                                                             },
-                                                             icon: 'ion-calendar',
-                                                         }
-                                                     ]
+                                                path: '/today'
                                             }
                                         }
                                      ]
@@ -408,22 +409,19 @@ export const SCCL_HEADER_MENU =
                                 top:
                                     [
                                         {
-                                            firstTitle: currentDay,
+                                            titles:
+                                                [
+                                                     {
+                                                         title: 'sccl.menu.header.top_header.last_login',
+                                                         data: currentDay.toDateString()
+                                                     },
+                                                 ],
+                                            icon: 'ion-clock',
                                             class: 'lastLogin',
                                             selected: false,
                                             expanded: false,
                                             route: {
-                                                path: '/last_login',
-                                                alinks:
-                                                    [
-                                                         {
-                                                             class: 'lastLogin',
-                                                             functons: {
-                                                                 methodOne: ''
-                                                             },
-                                                             icon: 'ion-clock',
-                                                         }
-                                                     ]
+                                                path: '/last_login'
                                             }
                                         }
                                      ]
@@ -437,35 +435,24 @@ export const SCCL_HEADER_MENU =
                                 main:
                                     [
                                         {
-                                            firstTitle: 'School',
-                                            secondTitle: 'Cloudy',
+                                            titles:
+                                                [
+                                                     {title1: 'School', title2: 'Cloudy'}
+                                                 ],
                                             selected: false,
                                             expanded: false,
-                                            class: 'sccl-header-div',
+                                            img: {
+                                                name: 'logo'
+                                            },
                                             route: {
-                                                path: 'dashboard',
-                                                alinks:
-                                                    [
-                                                         {
-                                                             class: '',
-                                                             functions: {
-                                                                 methodOne: ''
-                                                             },
-                                                             img: {
-                                                                 name: 'logo',
-                                                                 src: '( "scclLogo/sccl_logo" | scclPngExt )'
-                                                             }
-                                                         }
-                                                     ]
+                                                path: 'dashboard'
                                             }
-                                        },
-                                        {
-                                            divClass: 'sccl-header-div'
                                         },
                                         {
                                             search: {
                                                 class: 'search',
-                                                icon: 'ion-ios-search-strong'
+                                                icon: 'ion-ios-search-strong',
+                                                placeHolder: 'sccl.menu.header.main_header.search'
                                             }
                                         },
                                         {
@@ -532,7 +519,9 @@ export const SCCL_HEADER_MENU =
                                                 }
                                             }
                                         }
-                                     ]
+                                     ],
+                                     contentTop:
+                                         []
                             }
                         }
                     }

@@ -16,9 +16,6 @@ export class ScclTopNavBarComponent implements OnInit {
 
     public isScrolled = false;
     public isMenuCollapsed = false;
-    static func() {
-        console.log('Hovered');
-    }
 
     constructor(private _menuService: ScclMenuService,
             private translate: TranslateService,
@@ -35,12 +32,6 @@ export class ScclTopNavBarComponent implements OnInit {
     // initializes the menu data from the user in sccl header
     public ngOnInit(): void {
        this._menuService.scclHeaderMenuItems.subscribe(res => this.menuItems = res);
-       setTimeout(() => {
-           this.menuItems.forEach((menu) => {
-               console.log(menu);
-           });
-
-}, 1000);
       }
 
     public toggleMenu() {
@@ -63,5 +54,4 @@ export class ScclTopNavBarComponent implements OnInit {
 }
         this.translate.use(language);
     }
-    
 }

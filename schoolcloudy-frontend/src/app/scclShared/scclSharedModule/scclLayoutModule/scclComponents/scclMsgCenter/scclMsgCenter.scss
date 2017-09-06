@@ -19,13 +19,13 @@
   float: left;
   padding: 0;
   list-style: none;
-  margin: 13px 10px 0 0;
+  margin: 18px 10px 0 0;
   li {
     list-style: none;
     float: left;
-    margin-left: 20px; // expands space between msg notif icons
+    margin-left: 40px; // expands space between msg notif icons
     &:first-child {
-      margin-left: 0;
+      margin-left: 10px;;
     }
     & > a {
       color: $sccl-light-gray;
@@ -96,11 +96,11 @@
   margin: 0 0 0 6px;
 }
 
-.top-dropdown-menu {
+.notification-menu, .message-menu {
   width: 400px;
   left: auto;
   right: -17px;
-  top: 35px;
+  top: 32px;
   @include scrollbars(.4em, rgba(0,0,0,0.5), #fff);
   .header {
     padding: 10px 12px;
@@ -239,6 +239,13 @@
       border-bottom-color: $sccl-bright-white;
     }
   }
+}
+
+.notification-menu {
+	right: -54px;
+	i.dropdown-arr {
+		right: 51px;
+	}
 }
 
 @media (max-width: 415px) {

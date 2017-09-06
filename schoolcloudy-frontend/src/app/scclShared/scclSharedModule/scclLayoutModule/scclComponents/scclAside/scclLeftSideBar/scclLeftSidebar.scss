@@ -4,6 +4,7 @@
 :host /deep/ {
   .al-sidebar {
     width: $sidebar-width;
+    transition: width 0.5s ease;
     top: $top-height;
     left: 0;
     z-index: 1001;
@@ -71,10 +72,9 @@
 
   a.al-sidebar-list-link {
     display: block;
-    height: 42px;
     padding-left: 18px;
     text-shadow: none;
-    font-size: 16px;
+    font-size: 14px;
     text-decoration: none;
     color:$sccl-bright-white;
     line-height: 42px;
@@ -88,13 +88,14 @@
       }
     }
     i {
-      margin-right: 18px;
-      width: 16px;
-      display: inline-block;
+     	position: absolute;
+     	float: left;
+     	font-size: 22px;
     }
     b {
       display: block;
       opacity: 1;
+      transition: opacity 0.2s 0 ease;
       width: 14px;
       height: 14px;
       line-height: 14px;
@@ -106,7 +107,11 @@
       padding: 0;
       text-align: center;
       color: $sccl-bright-white;
-      transition: transform 0.2s linear;
+    }
+    div {
+    	span {
+    		margin-left: 40px;
+    	}
     }
   }
 
@@ -125,7 +130,7 @@
     background: $sccl-sky-blue;
     position: absolute;
     top: -150px;
-    margin-top: -34px;
+    margin-top: -17px;
     left: $sidebar-width - $sidebar-scroll-width;
     transition: all 0.5s ease;
     transition-property: top, height;

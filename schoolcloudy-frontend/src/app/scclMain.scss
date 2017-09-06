@@ -13,42 +13,50 @@
 
   @mixin sidebar-collapsed() {
     .al-sidebar {
-      width: 52px;
-
+      width: 60px;
+      transition: width 0.5s ease;
       .fa-angle-down, .fa-angle-up {
         opacity: 0;
       }
-
-      .al-sidebar-sublist {
-        position: absolute;
-        top: -1px;
-        left: 52px;
-        @include bg-translucent-dark(0.8);
-        width: 0;
-        display: block;
-        overflow: hidden;
-        transition: width 0.5s ease;
-        &.slide-right {
-          width: 135px;
-        }
-        &::before {
-          display: none;
-        }
-        li {
-          &::before {
-            display: none; 
-          }
-          a {
-            padding-left: 18px;
-            padding-right: 18px;
-            min-width: 130px;
-            white-space: nowrap;
-          }
-        }
+      
+    a.al-sidebar-list-link {
+    display: block;
+    text-shadow: none;
+    text-align: center;
+    font-size: 14px;
+    margin: 10px 0 10px -60px;
+    transition: margin 0.5s ease;
+    text-decoration: none;
+    color:$sccl-bright-white;
+    line-height: 42px;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+    &:hover {
+      color: $sccl-sky-blue;
+      b {
+        color: $sccl-sky-blue;
       }
-
+    }
+    i {
+     	position: absolute;
+     	font-size: 28px;
+     	left: 19px;
+    }
+    b {
+      display: none;
+    }
+    div {
+    	position:relative;
+    	top: 15px;
+    	span {
+    		font-size: 9px;
+    		font-weight: bold;
+    	}
+    }
+  }
       .sidebar-hover-elem, .sidebar-select-elem {
-        left: 48px;
+        left: 55px;
       }
     }
   }

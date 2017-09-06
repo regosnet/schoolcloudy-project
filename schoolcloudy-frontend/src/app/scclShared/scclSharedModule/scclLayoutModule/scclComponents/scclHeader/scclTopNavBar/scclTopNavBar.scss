@@ -6,7 +6,7 @@
   .sccl-header-div {
   	background-color: $sccl-dark-gray;
     z-index: 904;
-    height: 50px;
+    height: 15px;
     width: 100%;
     min-width: $resMin;
     padding: 0 32px 0 40px;
@@ -17,20 +17,32 @@
   
   div.topHeader {
   	background-color: $sccl-darken-gray;
-  	height: 20px;
+  	height: 10px;
   	width: 100%;
-  	color: $sccl-light-gray;
   	font-size: 12px;
   	padding: 0 2.5%;
-  	.session, .currentDay {
+  	a{
+  		text-decoration: none;
+  		color: $sccl-light-gray;
+  		font-weight: bold;
+  		i {
+  			color: $sccl-sky-blue;
+  		}
+  	}
+  	
+  	.session{
   		float:left;
+  		margin-top: 2px;
   	}
   	.currentDay {
-  		margin-left: 40%;
+  		margin-left: 35%;
+  		margin-top: -10px;
+  		
   	}
   	.lastLogin {
   		display: inline;
   		float:right;
+  		margin-top: -11px;
   	} 
   }
  
@@ -45,13 +57,13 @@
   	.collapse-menu-link {
     	font-size: 31px;
     	cursor: pointer;
-    	display: block;
+    	display: inline;
     	text-decoration: none;
     	line-height: 42px;
     	color: $sccl-light-gray; 
     	padding: 0;
     	float: left;
-    	margin: 0 0 0 65px;
+    	margin: -63px 0 0 185px;
     	&:hover {
       		text-decoration: none;
       		color: $sccl-bright-white;
@@ -80,7 +92,8 @@
 		img {
 			width: 35px;
 			position: absolute;
-			right: 74px;
+			top: 4px;
+			right: 64px;
 		}
   	}
   	
@@ -98,7 +111,7 @@
     overflow: hidden;
     width: 162px;
     float: left;
-    margin: 10px 0 0 30px;
+    margin: -15px 0 0 30px;
 
     label {
       cursor: pointer;
@@ -131,18 +144,21 @@
 
   .user-profile {
     float: right;
-    min-width: 240px;
+    width: 320px;
+    margin-top: -37px;
        
     .al-user-profile {
     	float: right;
    	 	transition: all .15s ease-in-out;
     	padding: 0;
-    	width: 120px;
+    	width: 135px;
+    	top: 10px;
     	height: 36px;
     	opacity: 1;
     	position: relative;
     	a {
       		display: block;
+      		text-decoration: none;
     	}
     	img {
       		width: 35px;
@@ -182,9 +198,8 @@
     	}
    	}
    	.profile-dropdown {
-   		background-color: red;
-   		right: 300px;
-   		top: 47px;
+   		left: -50px;
+   		top: 37px;
    	}
    	
   }

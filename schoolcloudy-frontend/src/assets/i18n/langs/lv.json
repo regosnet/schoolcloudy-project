@@ -25,21 +25,50 @@
   		},
   		"header": {
   			"top_header": {
-  				"week": "Nedēļa",
-  				"semester": "Semestris",
-  				"last_login": {
-  					"last_login": "Pēdējā pierakstīšanās"
-  				}
+  				"week": "Nedēļa:",
+  				"semester": "Semestris:",
+  				"last_login": "Pēdējā pierakstīšanās:"
   			},
   			"main_header": {
   				"status": "Ierēdnis",
-  				"search": "Meklēt"
+  				"search": "Meklēt..."
   			},
   			"content_top": {
   				"home": "Mājas",
-  				"welcome": "Laipni lūdzam"
+  				"welcome": "Laipni lūdzam",
+  				"notifications": "Paziņojumi",
+  				"messages": "Ziņojumi",
+  				"mark_as_read": "Atzīmēt kā lasītu",
+  				"see_all_notif": "Skatiet visus paziņojumus",
+  				"see_all_msgs": "Skatīt visus ziņojumus" 
+  			}
+  		  },
+  		  "calendar": {
+  			"month": {
+  				"0": "Janvāris",
+  				"1": "Februāris",
+  				"2": "Marts",
+  				"3": "Aprīlis",
+  				"4": "Maijs",
+  				"5": "Jūnijs",
+  				"6": "Jūlijs",
+  				"7": "Augusts",
+  				"8": "Septembris",
+  				"9": "Oktobris",
+  				"10": "Novembris",
+  				"11": "Decembris"
+  				},
+  			"day": {
+  				"1": "Pirmdienā",
+  				"2": "Otrdiena",
+  				"3": "Wednesday",
+  				"4": "Trešdiena",
+  				"5": "Piektdiena",
+  				"6": "Sestdiena",
+  				"7": "Svētdiena"
+  				}
+
   			}
   		}
   	}
-  }
 }
