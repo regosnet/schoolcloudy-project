@@ -3,38 +3,24 @@ import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'sccl-administrator-dashboard',
-    template: `
-        <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-    `
+    templateUrl: './scclAdministratorDashboard.html',
+    styleUrls: ['./scclAdministratorDashboard.scss']
 })
 export class ScclAdminDashboardComponent {
-
+    listOne: Array<any> = [
+                           {name: 'Weather', img: {name: 'weather-widget'}},
+                           {name: 'Calendar', img: {name: 'calendar'}},
+                           {name: 'Upcomings', data: {}},
+                           {name: 'Projects', data: {}},
+                           {name: 'Shortcuts', data: {}}
+                           ];
     constructor( private translate: TranslateService) {
-
     }
-   
+    asideLayout: Object = {
+            color: 'red',
+            distance: 295,
+            wheelStep: 2,
+            position: 'left',
+            height: $(window).height() - 50
+    };
 }

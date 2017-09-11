@@ -1,6 +1,8 @@
 @import '../../../../../../../scclStyles';
 
  div.contentTop {
+ 	position: relative;
+ 	top: 17px;
   	height: 18px;
   	background-color: $sccl-light-gray;
   	width:100%;

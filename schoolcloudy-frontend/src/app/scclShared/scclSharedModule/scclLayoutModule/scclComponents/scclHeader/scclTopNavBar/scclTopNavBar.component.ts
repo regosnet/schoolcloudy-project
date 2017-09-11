@@ -19,6 +19,7 @@ export class ScclTopNavBarComponent implements OnInit {
 
     constructor(private _menuService: ScclMenuService,
             private translate: TranslateService,
+            private cdRef: ChangeDetectorRef,
             private _state: ScclGlobalState) {
         this._state.subscribe('menu.isCollapsed', (isCollapsed) => {
             this.isMenuCollapsed = isCollapsed;
@@ -32,6 +33,7 @@ export class ScclTopNavBarComponent implements OnInit {
     // initializes the menu data from the user in sccl header
     public ngOnInit(): void {
        this._menuService.scclHeaderMenuItems.subscribe(res => this.menuItems = res);
+       this.cdRef.detectChanges();
       }
 
     public toggleMenu() {

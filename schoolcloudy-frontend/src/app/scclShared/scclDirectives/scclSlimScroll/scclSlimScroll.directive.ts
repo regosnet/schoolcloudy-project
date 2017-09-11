@@ -1,4 +1,4 @@
-import {Directive, Input, Output, ElementRef, EventEmitter, OnChanges} from '@angular/core';
+import {Directive, Input, Output, ElementRef, EventEmitter, OnChanges, HostListener} from '@angular/core';
 import 'jquery-slimscroll';
 
 @Directive({
@@ -26,5 +26,10 @@ export class ScclSlimScrollDirective implements OnChanges {
 
   private _destroy() {
     jQuery(this._elementRef.nativeElement).slimScroll({ destroy: true });
+  }
+  
+  @HostListener('window:resize')
+  getWidowHeight() {
+    
   }
 }

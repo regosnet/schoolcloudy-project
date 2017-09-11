@@ -3,100 +3,106 @@
 :host /deep/ {
 
 // The header div is divided into 3 partitions
-  .sccl-header-div {
-  	background-color: $sccl-dark-gray;
-    z-index: 904;
-    height: 15px;
-    width: 100%;
-    min-width: $resMin;
-    padding: 0 32px 0 40px;
-    .dropdown-toggle::after {
-      display: none;
-    }
-  }
-  
-  div.topHeader {
-  	background-color: $sccl-darken-gray;
-  	height: 10px;
-  	width: 100%;
-  	font-size: 12px;
-  	padding: 0 2.5%;
-  	a{
-  		text-decoration: none;
-  		color: $sccl-light-gray;
-  		font-weight: bold;
-  		i {
-  			color: $sccl-sky-blue;
+div.header {
+	position: fixed;
+	width: 100%;
+  	div.topHeader {	
+  		position: fixed;
+  		background: $sccl-darken-gray;
+  		padding: 0 3.5%;
+  		z-index: 140;
+  		height: 17px;
+  		width: 100%;
+  		a{
+  			font-size: 12px;
+  			text-decoration: none;
+  			color: $sccl-light-gray;
+  			font-weight: bold;
+  			i {
+  				color: $sccl-sky-blue;
+  			}
   		}
-  	}
-  	
-  	.session{
-  		float:left;
-  		margin-top: 2px;
-  	}
-  	.currentDay {
-  		margin-left: 35%;
-  		margin-top: -10px;
+  		.session{
+  			float:left;
+  			margin-top: -7px;
+  		}
+  		.dateToday {
+  			float:left;
+  			margin-left: 35%;
+  			margin-top: -7px;
+  		}
+  		.lastLogin {
+  			float: right;
+  			margin-top: -6.5px;
+  		}
   		
   	}
-  	.lastLogin {
-  		display: inline;
-  		float:right;
-  		margin-top: -11px;
-  	} 
-  }
  
  
  // This styles the first partition of the sccl-header-div 
  
-  .sccl-header-leftside {
-  	position: relative;
-  	height: 55px;
-  	width: 220px;
-  	float: left;
-  	.collapse-menu-link {
-    	font-size: 31px;
-    	cursor: pointer;
-    	display: inline;
-    	text-decoration: none;
-    	line-height: 42px;
-    	color: $sccl-light-gray; 
-    	padding: 0;
-    	float: left;
-    	margin: -63px 0 0 185px;
-    	&:hover {
-      		text-decoration: none;
-      		color: $sccl-bright-white;
+	.sccl-header-div {
+  		background-color: $sccl-dark-gray;
+  		position: relative;
+  		top: 17px;
+    	z-index: 130;
+   	 	height: 40px;
+    	width: 100%;
+    	min-width: $resMin;
+    	.dropdown-toggle::after {
+      		display: none;
     	}
-  	}
-  	.collapse-menu-link-mobile {
-  		display:none;
-  	}
-  	.sccl-logo {
-    	@include topbar();
-    	.logoSc, .logoCl {
-      		color: $sccl-sky-blue;
-      		font-family: 'Anton', sans-serif;
-      		text-decoration: none;
-    	}
-    	.logoCl {
-    		color: $sccl-bright-white;
-    	}
-    	&:hover {
-    		color: $sccl-light-gray;
-    		text-decoration: none;
+ 
+  		.sccl-header-leftside {
+  			position: relative;
+  			left: 20px;
+  			height: 55px;
+  			top: -5px;
+  			width: 220px;
+  			float: left;
+  			.collapse-menu-link {
+    			font-size: 31px;
+    			cursor: pointer;
+    			display: inline;
+    			text-decoration: none;
+    			line-height: 42px;
+    			color: $sccl-light-gray; 
+    			padding: 0;
+    			float: left;
+    			margin: -60px 0 0 185px;
+    			&:hover {
+      				text-decoration: none;
+      				color: $sccl-bright-white;
+    			}
+  			}
+  		.collapse-menu-link-mobile {
+  				display:none;
   		}
-  		&:link {
-			text-decoration: none;
-		}
-		img {
-			width: 35px;
-			position: absolute;
-			top: 4px;
-			right: 64px;
-		}
+  		.sccl-logo {
+    		@include topbar();
+    		.logoSc, .logoCl {
+      			color: $sccl-sky-blue;
+      			font-family: 'Anton', sans-serif;
+      			text-decoration: none;
+    		}
+    		.logoCl {
+    			color: $sccl-bright-white;
+    		}
+    		&:hover {
+    			color: $sccl-light-gray;
+    			text-decoration: none;
+  			}
+  			&:link {
+				text-decoration: none;
+			}
+			img {
+				width: 35px;
+				position: absolute;
+				top: 4px;
+				right: 64px;
+			}
+  		}
   	}
-  	
   }
   
 
@@ -111,7 +117,7 @@
     overflow: hidden;
     width: 162px;
     float: left;
-    margin: -15px 0 0 30px;
+    margin-left: 16%;
 
     label {
       cursor: pointer;
@@ -144,8 +150,16 @@
 
   .user-profile {
     float: right;
-    width: 320px;
-    margin-top: -37px;
+    width: 650px;
+    margin-top: -10px;
+    
+    .msg-notification-box {
+  		float: left;
+  		color: white;
+  		position: relative;
+    	left: 100px;
+    	top: 3px;
+  	}
        
     .al-user-profile {
     	float: right;
@@ -156,6 +170,8 @@
     	height: 36px;
     	opacity: 1;
     	position: relative;
+    	left: -220px;
+    	
     	a {
       		display: block;
       		text-decoration: none;
@@ -177,11 +193,6 @@
   		
     }
     
-    .msg-notification-box {
-  		float: left;
-  		margin-right: 20px;
-  		color: white;
-  	}
     .collapse-right-sidebar{
     	font-size: 31px;
     	cursor: pointer;
@@ -191,7 +202,7 @@
     	color: $sccl-bright-white;
     	padding: 0;
     	float: right;
-    	margin: 0 20px 0 25px;
+    	margin: 6px 70px 0 0;
     	&:hover {
       		text-decoration: none;
       		color: $warning;
@@ -201,9 +212,8 @@
    		left: -50px;
    		top: 37px;
    	}
-   	
   }
-
+}
 
 @media screen and (max-width: $resM) {
 	.user-profile {
@@ -319,210 +329,3 @@
   
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-.app-header {
-  flex: 0 0 $navbar-height;
-   background-color: $sccl-dark-gray;
-}
-
-.header-fixed {
-  .app-header {
-    position: fixed;
-    z-index: $zindex-sticky;
-    width: 100%;
-  }
-  .app-body {
-    margin-top: $navbar-height;
-  }
-}
-
-
-
-.app-header.navbar {
-  position: relative;
-  flex-direction: row;
-  height: $navbar-height;
-  margin: 0;
-  padding: 0;
-  @include borders($navbar-border);
-
-  .navbar-brand {
-    display: inline-block;
-    width: $navbar-brand-width;
-    height: $navbar-height;
-    padding: $navbar-padding-y $navbar-padding-x;
-    margin-right: 0;
-    background-color: $navbar-brand-bg;
-    background-image: $navbar-brand-logo;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: $navbar-brand-logo-size;
-    @include borders($navbar-brand-border);
-  }
-
-  .navbar-toggler {
-    color: $navbar-color;
-  }
-
-  .navbar-nav {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .nav-item {
-    position: relative;
-    min-width: 50px;
-    margin: 0 !important;
-    text-align: center;
-
-    button {
-      margin: 0 auto;
-    }
-
-    .nav-link {
-      padding-top: 0;
-      padding-bottom: 0;
-      border: 0;
-      background: 0;
-
-      .badge {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-top: -16px;
-        margin-left: 0;
-      }
-
-      > .img-avatar {
-        height: $navbar-height - 20px;
-        margin: 0 10px;
-      }
-    }
-  }
-
-  .dropdown-menu {
-    padding-bottom: 0;
-    line-height: $line-height-base;
-  }
-
-  .dropdown-item {
-    min-width: 180px;
-  }
-}
-
-.navbar-brand {
-  color: $navbar-active-color;
-
-  @include hover-focus {
-    color: $navbar-active-color;
-  }
-}
-
-.navbar-nav {
-  .nav-link {
-    color: $navbar-color;
-
-    @include hover-focus {
-      color: $navbar-hover-color;
-    }
-  }
-
-  .open > .nav-link,
-  .active > .nav-link,
-  .nav-link.open,
-  .nav-link.active {
-    @include plain-hover-focus {
-      color: $navbar-active-color;
-    }
-  }
-}
-
-.navbar-divider {
-  background-color: rgba(0,0,0,.075);
-}
-
-.app-header,
-.app-footer,
-.sidebar,
-.main,
-.aside-menu {
-  transition: margin-left $layout-transition-speed, margin-right $layout-transition-speed, width $layout-transition-speed, flex $layout-transition-speed;
-}
- @media (max-width: $resM) {
-  	.app-header {
-    position: fixed !important;
-    z-index: $zindex-sticky;
-    width: 100%;
-
-    .navbar-toggler {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 70px;
-      height: inherit;
-    }
-
-    .navbar-toggler {
-      @if (lightness( $navbar-brand-bg ) > 40) {
-        color: $navbar-color;
-      } @else {
-        color: #fff;
-      }
-    }
-
-    .navbar-brand {
-      width: 100% !important;
-      margin: 0 auto !important;
-    }
-
-    .navbar-nav {
-      position: absolute;
-      top: 0;
-      right: 15px;
-      height: inherit;
-    }
-  }
-  }
-  
-  // navbar dropdown fix
-.navbar .dropdown-toggle {
-  @extend .nav-link;
-
-  .img-avatar {
-    height: $navbar-height - 20px;
-    margin: 0 10px;
-  }
-}
-
-.img-avatar {
-  border-radius: 50em;
-}
-*/
-
- 
