@@ -378,12 +378,13 @@ export const SCCL_HEADER_MENU =
                         path: 'administrator',
                         data: {
                             menu: {
-                                main:{
+                                main: {
+                                        class: 'sccl-header-div',
                                         logoSection: {
                                             t1: 'School',
                                             t2: 'Cloudy',
                                             logoName: 'sccl_logo',
-                                            path: '/administrator/dashboard' 
+                                            path: '/administrator/dashboard'
                                         },
                                         search: {
                                             icon: 'ion-ios-search-strong',
@@ -441,15 +442,15 @@ export const SCCL_HEADER_MENU =
                                                        }
                                                    }
                                                  ]
-                                        }, //user info ends
-                                        
+                                        }, // user info ends
+
                                         contentTop: {
-                                            
+
                                         }
-                                       
+
                                   }// main ends
                               } // menu end
-                        }//data ends
+                        }// data ends
                     }
                 ]
            }
@@ -476,7 +477,7 @@ export const SCCL_HEADER_MENU =
                  route: '/administrator/dashboard',
                  ddUserMenu:
                      [
-                        
+
                       ],
              },
              contentTop: {

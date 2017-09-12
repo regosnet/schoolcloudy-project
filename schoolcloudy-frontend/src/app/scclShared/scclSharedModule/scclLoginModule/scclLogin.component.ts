@@ -1,11 +1,13 @@
 import {Component} from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, Routes } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 import { ScclLoginService } from './scclLogin.service';
 import * as $ from 'jquery';
 import { TranslateService } from '@ngx-translate/core';
 import { UserImpl } from '../../scclModels/absract/user-impl';
+import { ScclMenuService } from '../../scclSharedService/scclMenuService/scclMenuService';
+import { SCCL_HEADER_MENU } from './scclLoginMenu';
 
 
 
@@ -16,13 +18,16 @@ import { UserImpl } from '../../scclModels/absract/user-impl';
 })
 export class ScclLoginComponent {
     private _user: UserImpl;
+    private loginMsg = false;
 
 
 
 
-constructor(private _route: Router, private _scclUserAuthentication: ScclLoginService, private translate: TranslateService) {
+constructor(private _route: Router, private _scclUserAuthentication: ScclLoginService,
+            private translate: TranslateService, private _menuService: ScclMenuService ) {
+        this._menuService.updateHeaderMenu(<Routes> SCCL_HEADER_MENU);
 }
-/*
+
 submitUserForm(userFormData, event) {
     event.preventDefault();
     const loginBtn = $('.center');
@@ -31,9 +36,7 @@ submitUserForm(userFormData, event) {
     this._scclUserAuthentication.getUserByCredential(userFormData).subscribe(
             response => {
                 if (response.status === 204) {
-                    loginBtn.html('Login');
-                    button.removeClass('ok loading');
-                    spinner.removeClass('spin');
+                    this.loginMsg = true;
                 }else {
                     if (response.status === 202) {
                         button.addClass('loading');
@@ -49,7 +52,7 @@ submitUserForm(userFormData, event) {
                 console.log(error);
             }
     );
-}*/
+}
 
 changeLang(lang) {
     this.translate.use(lang);

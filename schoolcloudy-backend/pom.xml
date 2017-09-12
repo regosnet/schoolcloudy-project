@@ -164,7 +164,7 @@
  </dependencies>
   
   <properties>
-  	<name>schoolutils</name>
+  	<name>schoolcloudy</name>
   </properties>
   <build>
   	<finalName>${name}</finalName>

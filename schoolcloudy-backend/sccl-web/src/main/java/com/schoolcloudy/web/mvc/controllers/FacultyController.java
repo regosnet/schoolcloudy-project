@@ -18,7 +18,7 @@ import com.schoolcloudy.service.administrative.AdministrativeService;
 @SessionAttributes("newFaculty")
 public class FacultyController {
 	
-	@SuppressWarnings("unused")
+	
 	@Autowired
 	private AdministrativeService administrativeService;
 	

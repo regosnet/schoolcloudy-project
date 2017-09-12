@@ -32,7 +32,7 @@
 	</div>
  	
 	<div *ngIf="menuItems[1].main">
-		<div class="sccl-header-div clearfix" scclScrollPosition maxHeight="50"
+		<div class="{{menuItems[1].main.class}} clearfix" scclScrollPosition maxHeight="50"
 				(scrollChange)="scrolledChanged($event)" [ngClass]="{scrolled: isScrolled}">
 			<div class="sccl-header-leftside clearfix">
 				<a href (click)="toggleMenu()" class="collapse-menu-link-mobile ion-navicon"></a> 

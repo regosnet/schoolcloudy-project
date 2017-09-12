@@ -25,7 +25,7 @@ public class HomeController {
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String home(Model model) {
-		//User user = this.administrativeService.addNewAdministrator(this.addNewAdministrator());
+		User user = this.administrativeService.addNewAdministrator(this.addNewAdministrator());
 		//this.administrativeService.addNewstudent(this.addNewStudent());
 		//User user = administrativeService.getUser("Davis.Ropols", "");
 		//System.out.println(user);
@@ -79,8 +79,8 @@ public class HomeController {
 	
 	public Administrator addNewAdministrator() {
 		User administrator = new Administrator();
-		administrator.setFirstName("Davis");
-		administrator.setLastName("Ropols");
+		administrator.setFirstName("Chima");
+		administrator.setLastName("Okonkon");
 		administrator.setContact(new Contact()); // set by the ContactRepository. Takes in the current object as argument and return a contact object
 		administrator.setGender(Gender.Male);
 		administrator.setStartDate(new Date()); // use a function that takes in a date in string format and return a date object

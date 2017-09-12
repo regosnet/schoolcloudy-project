@@ -1,17 +1,70 @@
-@import '../../../../scclStyles';
+@import '../../../../scclStyles'; 
+
+.sccl-login-main-header {
+  		background-color: $sccl-dark-gray;
+  		position: relative; 
+    	z-index: 130;
+   	 	height: 48px;
+    	width: 100%;
+    	min-width: $resMin;
+    	.dropdown-toggle::after {
+      		display: none;
+    	}
+ 
+  		.sccl-header-leftside {
+  			position: relative;
+  			left: 60px;
+  			height: 55px;
+  			top: 0px;
+  			width: 220px;
+  			float: left;
+  			.collapse-menu-link {
+    			display:none;
+  			}
+  			.collapse-menu-link-mobile {
+  				display:none;
+  			}
+  			.sccl-logo {
+    		@include topbar();
+    		.logoSc, .logoCl {
+      			color: $sccl-sky-blue;
+      			font-family: 'Anton', sans-serif;
+      			text-decoration: none;
+    		}
+    		.logoCl {
+    			color: $sccl-bright-white;
+    		}
+    		&:hover {
+    			color: $sccl-light-gray;
+    			text-decoration: none;
+  			}
+  			&:link {
+				text-decoration: none;
+			}
+			img {
+				width: 35px;
+				position: absolute;
+				top: 4px;
+				right: 64px;
+			}
+  		}
+  	}
+  }
 
 
-.container {
-   width: 150%;
-}
-.login-box {
-	background:$sccl-dark-gray;
-	border:1px solid #F4F4F4;	
+.loginbox, .footer {	
 	-moz-box-shadow:0 0 10px #C4C4C4;
 	-webkit-box-shadow:0 0 10px #C4C4C4;
 	box-shadow:0 0 10px #C4C4C4;
-	margin-top: 15em;
+	top: 35%;
+	position: fixed;
+	right: 5%;
+	width: 400px;
 }
+
+.footer {
+	left: 20px;
+}	
 
 .login-navbar {
 	background-color: $sccl-dark-gray;

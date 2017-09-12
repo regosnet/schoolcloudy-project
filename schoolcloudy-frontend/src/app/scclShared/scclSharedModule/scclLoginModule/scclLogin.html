@@ -1,24 +1,39 @@
+<sccl-top-navbar></sccl-top-navbar>
+<div class="loginbox">
+	<div class="card row">
+		<div class="card-header col-sm-12">Login</div>
+		<p *ngIf="loginMsg" class="login-msg">wrong username or password</p>
+		<div class="card-block col-sm-12">
+			<form class="form-horizontal" role="form" #userForm="ngForm"
+				(ngSubmit)="(submitUserForm(userForm.value,$event))">
 
-<h3 translate>{{'sccl.login.title'}}</h3>
-<div class="contentTop clearfix">
-	<div class="navigationInfo">
-		<span>Home / Dashboard</span>
+				<div class="field input-group">
+					<span class="input-group-addon"><i class="ion-person"></i></span> <input
+						type="text" id="fieldUser" class="input" required pattern=.*\S.*
+						name="username" ngModel /> <label for="fieldUser" class="label"
+						translate>{{'sccl.login.username'}}</label>
+				</div>
+
+				<div class="field input-group">
+					<span class="input-group-addon"> <i class="ion-locked"></i>
+					</span> <input type="password" id="fieldPassword" class="input" required
+						pattern=.*\S.* name="password" ngModel /> <label
+						for="fieldPassword" class="label" translate>{{'sccl.login.password'}}</label>
+				</div>
+				
+					<div class="col-sm-10 offset-sm-4">
+						<button [disabled]="!userForm.valid">
+							<div class="button login color">
+								<div class="center" translate>{{'sccl.login.sign_in'}}</div>
+								<i class="spinner"></i>
+							</div>
+						</button>
+					</div>
+			</form>
+		</div>
 	</div>
-	<div class="languageSelect dropdown">
-		<a href="#" class="profile-toggle-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-			<span>English</span>
-		</a>
-		<ul class="dropdown-menu" aria-labelledby="user-profile-dd">
-			<li class="dropdown-item"><a href="javascript:void(0)" (click)="changeLang('en')"><i class="flag-icon flag-icon-gr flag-icon"></i>English</a></li>
-			<li class="dropdown-item"><a href="javascript:void(0)" (click)="changeLang('lv')"><i class="fa fa-user"></i>Latvia</a></li>
-			<li class="dropdown-item"><a href="javascript:void(0)" (click)="changeLang('fr')"><i class="fa fa-user"></i>French</a></li>
-			<li class="dropdown-item"><a href="javascript:void(0)" (click)="changeLang('Es')"><i class="fa fa-user"></i>Estonia</a></li>
-			<li class="dropdown-item"><a href="javascript:void(0)" (click)="changeLang('De')"><i class="fa fa-user"></i>German</a></li>
-			<li class="dropdown-item"><a href="javascript:void(0)" (click)="changeLang('Ar')"><i class="fa fa-user"></i>Arabic</a></li>
-		</ul>
-	</div>>
-	<h3>
-  <i class="icon-user-tie"></i>
-  <span class="flag-icon flag-icon-gr flag-icon"></span>
-  Stats
-</h3>
+</div>
+
+<div class="footer">
+	<div class="separator"></div>
+</div>

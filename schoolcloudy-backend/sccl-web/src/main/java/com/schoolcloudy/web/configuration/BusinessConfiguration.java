@@ -23,8 +23,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories("com.schoolutils.repository")
-@ComponentScan("com.schoolutils")
+@EnableJpaRepositories("com.schoolcloudy.repository")
+@ComponentScan("com.schoolcloudy")
 public class BusinessConfiguration {
 
 	@Bean
@@ -47,7 +47,7 @@ public class BusinessConfiguration {
 		
 		LocalContainerEntityManagerFactoryBean emf = new LocalContainerEntityManagerFactoryBean();
 		emf.setDataSource(dataSource);
-		emf.setPackagesToScan("com.schoolutils.model");
+		emf.setPackagesToScan("com.schoolcloudy.model");
 		emf.setJpaVendorAdapter(jpaVendorAdapter);
 		emf.setJpaProperties(props);
 		return emf;
