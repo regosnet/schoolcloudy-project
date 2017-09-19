@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, OnDestroy, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 import * as $ from 'jquery';
@@ -25,7 +25,10 @@ export class ScclMenuComponent implements OnInit, OnDestroy {
   protected _onRouteChange: Subscription;
   public outOfArea: number = -200;
 
-  constructor(private _router: Router, private _service: ScclMenuService, private _state: ScclGlobalState) {
+  constructor(private _router: Router,
+          private cdRef: ChangeDetectorRef,
+          private _service: ScclMenuService,
+          private _state: ScclGlobalState) {
   }
 
   public updateMenu(newMenuItems) {

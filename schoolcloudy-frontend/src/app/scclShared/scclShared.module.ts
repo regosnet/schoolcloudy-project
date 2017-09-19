@@ -6,33 +6,38 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AppTranslationModule } from '../scclTranslatingModule';
 import { ScclLoginModule } from './scclSharedModule/scclLoginModule/scclLogin.module';
-import { ScclMenuComponent } from './scclSharedModule/scclLayoutModule/scclComponents/scclMenu/scclMenu.component';
-import {
-    ScclMenuItemComponent
-    } from './scclSharedModule/scclLayoutModule/scclComponents/scclMenu/scclMenuComponent/scclMenuItem/scclMenuItem.component';
-
-import {
-    ScclTopNavBarComponent
-    } from './scclSharedModule/scclLayoutModule/scclComponents/scclHeader/scclTopNavBar/scclTopNavBar.component';
-import {
-    ScclLeftSidebarComponent
-    } from './scclSharedModule/scclLayoutModule/scclComponents/scclAside/scclLeftSideBar/scclLeftSidebar.component';
 import { ScclSlimScrollDirective } from './scclDirectives/scclSlimScroll/scclSlimScroll.directive';
 import { ScclScrollPositionDirective } from './scclDirectives/scclScrollPosition/scclScrollPosition.directive';
 import { TranslateService } from '@ngx-translate/core';
 import { ScclPngExtPipe } from './scclPipes/scclPngExt.pipe';
 import { ScclRightSidebarDirective } from './scclDirectives/scclSidebarDirectives/scclRightSidebar.directive';
+import { ScclMsgCenterService } from './scclSharedModule/scclLayoutModule/scclOuterLayout/scclMsgCenter/scclMsgCenter.service';
+import {
+    ScclTopNavBarComponent
+    } from './scclSharedModule/scclLayoutModule/scclOuterLayout/scclHeader/scclTopNavBar/scclTopNavBar.component';
+import {
+    ScclMenuItemComponent
+    } from './scclSharedModule/scclLayoutModule/scclOuterLayout/scclMenu/scclMenuComponent/scclMenuItem/scclMenuItem.component';
+import {
+    ScclMenuComponent
+    } from './scclSharedModule/scclLayoutModule/scclOuterLayout/scclMenu/scclMenu.component';
+import {
+    ScclLeftSidebarComponent
+    } from './scclSharedModule/scclLayoutModule/scclOuterLayout/scclAside/scclLeftSideBar/scclLeftSidebar.component';
 import {
     ScclRightSidebarComponent
-    } from './scclSharedModule/scclLayoutModule/scclComponents/scclAside/scclRightSideBar/scclRightSidebar.component';
+    } from './scclSharedModule/scclLayoutModule/scclOuterLayout/scclAside/scclRightSideBar/scclRightSidebar.component';
 import {
     ScclPageContentTopComponent
-    } from './scclSharedModule/scclLayoutModule/scclComponents/scclHeader/scclPageContentTop/scclContentTop.component';
-import { ScclMsgCenterComponent } from './scclSharedModule/scclLayoutModule/scclComponents/scclMsgCenter/scclMsgCenter.component';
-import { ScclMsgCenterService } from './scclSharedModule/scclLayoutModule/scclComponents/scclMsgCenter/scclMsgCenter.service';
+    } from './scclSharedModule/scclLayoutModule/scclOuterLayout/scclHeader/scclPageContentTop/scclContentTop.component';
+import { ScclMsgCenterComponent } from './scclSharedModule/scclLayoutModule/scclOuterLayout/scclMsgCenter/scclMsgCenter.component';
 import {
     ScclDropDownMenuComponent
-    } from './scclSharedModule/scclLayoutModule/scclComponents/scclHeader/scclTopNavBar/scclDropDownMenu/scclDropDownMenu';
+    } from './scclSharedModule/scclLayoutModule/scclOuterLayout/scclHeader/scclTopNavBar/scclDropDownMenu/scclDropDownMenu';
+import {
+    ScclAdminDashboardAsideComponent
+    } from './scclSharedModule/scclLayoutModule/scclInnerLayout/scclInnerAside/scclInnerAside.component';
+    import {DndModule} from 'ng2-dnd';
 
 
 const SCCL_SHARED_SERVICE = [
@@ -55,7 +60,8 @@ const SCCL_COMPONENTS = [
     ScclRightSidebarComponent,
     ScclPageContentTopComponent,
     ScclMsgCenterComponent,
-    ScclDropDownMenuComponent
+    ScclDropDownMenuComponent,
+    ScclAdminDashboardAsideComponent
 ];
 
 const SCCL_PIPES = [
@@ -68,7 +74,8 @@ const SCCL_PIPES = [
       ReactiveFormsModule,
       FormsModule,
       RouterModule,
-      AppTranslationModule
+      AppTranslationModule,
+      DndModule.forRoot()
     ],
     declarations: [
       ...SCCL_PIPES,

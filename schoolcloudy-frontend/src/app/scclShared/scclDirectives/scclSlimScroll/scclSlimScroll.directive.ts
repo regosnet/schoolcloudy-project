@@ -28,8 +28,5 @@ export class ScclSlimScrollDirective implements OnChanges {
     jQuery(this._elementRef.nativeElement).slimScroll({ destroy: true });
   }
   
-  @HostListener('window:resize')
-  getWidowHeight() {
-    
-  }
+
 }

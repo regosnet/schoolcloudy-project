@@ -41,6 +41,11 @@ public class AdministratorRepositoryImpl implements AdministratorRepository{
 	public long countAdministrators() throws DataAccessException {
 		return em.createQuery("SELECT COUNT(administrator) FROM Administrator administrator", Long.class).getSingleResult();
 	}
+
+	@Override
+	public Administrator findOneByUserName(String username, long internalId) throws DataAccessException {
+		return em.createQuery("Use the username and internalId to get approprate admin user", Administrator.class).getSingleResult();
+	}
 	
 	
 

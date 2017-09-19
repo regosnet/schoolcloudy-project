@@ -3,6 +3,9 @@ import { Routes } from '@angular/router';
 import { SCCL_ADMINISTRATOR_MENU, SCCL_HEADER_MENU } from './scclAdministrator.menu';
 import { ScclMenuService } from '../scclShared/scclSharedService/scclMenuService/scclMenuService';
 import { TranslateService } from '@ngx-translate/core';
+import { ScclAdmininstratorService } from './scclAdministrator.service';
+import { Cookie } from 'ng2-cookies/ng2-cookies';
+import { ScclGlobalState } from '../scclGlobalState';
 
 @Component({
     selector: 'sccl-administrator',
@@ -10,7 +13,16 @@ import { TranslateService } from '@ngx-translate/core';
     styleUrls: ['./scclAdministrator.scss']
 })
 export class ScclAdministratorComponent implements OnInit {
-    constructor(private _menuService: ScclMenuService, private translate: TranslateService) {
+    constructor(private _menuService: ScclMenuService,
+                private translate: TranslateService,
+                private _administratorService: ScclAdmininstratorService,
+                private _scclGlobalState: ScclGlobalState) {
+        /*
+        this._administratorService.getAdministrator(Cookie.get('adminUsernameSessionId')).subscribe((response) => {
+            console.log(response.json())
+        });*/
+
+        this._scclGlobalState.loggedIn.subscribe(res => console.log(res));
     }
 
     ngOnInit() {

@@ -7,9 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class ScclLayoutComponent {
 
-    @Input()
-    private _elements: HTMLElement;
-
     constructor() {
     }
 }

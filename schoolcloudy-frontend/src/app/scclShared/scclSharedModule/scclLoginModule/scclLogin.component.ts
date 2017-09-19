@@ -8,6 +8,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { UserImpl } from '../../scclModels/absract/user-impl';
 import { ScclMenuService } from '../../scclSharedService/scclMenuService/scclMenuService';
 import { SCCL_HEADER_MENU } from './scclLoginMenu';
+import { Cookie } from 'ng2-cookies/ng2-cookies';
+import { ScclGlobalState } from '../../../scclGlobalState';
 
 
 
@@ -19,16 +21,21 @@ import { SCCL_HEADER_MENU } from './scclLoginMenu';
 export class ScclLoginComponent {
     private _user: UserImpl;
     private loginMsg = false;
+    private path = 'http://localhost:8080/schoolcloudy/login/check-get-user-by/credential';
 
 
 
 
-constructor(private _route: Router, private _scclUserAuthentication: ScclLoginService,
-            private translate: TranslateService, private _menuService: ScclMenuService ) {
-        this._menuService.updateHeaderMenu(<Routes> SCCL_HEADER_MENU);
+constructor(private _route: Router,
+        private _scclUserAuthentication: ScclLoginService,
+        private translate: TranslateService,
+        private _menuService: ScclMenuService,
+        private _scclState: ScclGlobalState) {
+    this._menuService.updateHeaderMenu(<Routes> SCCL_HEADER_MENU);
 }
 
 submitUserForm(userFormData, event) {
+    const cdate = new Date();
     event.preventDefault();
     const loginBtn = $('.center');
     const button = $('button > .button');
@@ -42,9 +49,15 @@ submitUserForm(userFormData, event) {
                         button.addClass('loading');
                         loginBtn.html('Authenticating');
                         spinner.addClass('spin');
-                        if (response.json().user === 'Administrator') {
-                            this._route.navigate(['/administrator']);
-                        }
+                        setTimeout(() => {
+                            if (response.json().user === 'Administrator') {
+                                this._route.navigate(['/administrator']);
+                               document.cookie = 'username=' + response.json().credential.username + ';'
+                               + 'expires=Mon, 18 Sep 2017 20:00:11 UTC';
+                                this._scclState.loggedIn.next(true);
+                                sessionStorage.setItem('username', response.json());
+                            }
+                        }, 1000);
                     }
                 }
             },
@@ -52,9 +65,13 @@ submitUserForm(userFormData, event) {
                 console.log(error);
             }
     );
-}
+    }
 
-changeLang(lang) {
-    this.translate.use(lang);
-}
+    setSessionTime() {
+        const d1 = new Date (),
+        d2 = new Date ( d1 );
+        d2.setUTCMinutes(d1.getUTCMinutes() + 2 );
+        console.log(d2)
+        return d2;
+    }
 }

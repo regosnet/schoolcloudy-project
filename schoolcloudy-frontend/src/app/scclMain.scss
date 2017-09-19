@@ -1,5 +1,5 @@
 @import '../scclStyles';
-@import '/scclShared/scclSharedModule/scclLayoutModule/scclComponents/scclAside/scclLeftSideBar/scclLeftSidebar';
+@import '/scclShared/scclSharedModule/scclLayoutModule/scclOuterLayout/scclAside/scclLeftSideBar/scclLeftSidebar';
 
 :host /deep/ {
   @mixin layout-collapsed() {

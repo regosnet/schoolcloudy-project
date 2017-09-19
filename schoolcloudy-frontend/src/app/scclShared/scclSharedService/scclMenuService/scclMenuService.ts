@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 @Injectable()
 export class ScclMenuService {
   public menuItems = new BehaviorSubject<any[]>([]);
-  public scclHeaderMenuItems = new BehaviorSubject<any[]>([]);
+  public scclHeaderMenuItems = new BehaviorSubject<any>({});
 
   protected _currentMenuItem = {};
 
@@ -24,7 +24,7 @@ export class ScclMenuService {
   }
 
   public updateHeaderMenu(routes: Routes) {
-      const convertedRoutes = this.convertRoutesToMenus(_.cloneDeep(routes));
+      const convertedRoutes = this._prepareHeaderMenu(_.cloneDeep(routes));
       this.scclHeaderMenuItems.next(convertedRoutes);
   }
 
@@ -76,9 +76,6 @@ export class ScclMenuService {
 
   protected _convertArrayToItems(routes: any[], parent?: any): any[] {
     const items = [];
-    const topHeader = [];
-    const mainHeader = [];
-    const contentTop = [];
     routes.forEach((route) => {
         const convertedItem = this._convertObjectToItem(route, parent);
         items.push(convertedItem);
@@ -134,5 +131,23 @@ export class ScclMenuService {
   protected _selectItem(object: any): any {
     object.selected = this._router.isActive(this._router.createUrlTree(object.route.paths), object.pathMatch === 'full');
     return object;
+  }
+
+  // extract and prepare items for the header menu
+  protected _prepareHeaderMenu(routes: Routes) {
+      const convertedItems = {top: {}, main: {}};
+      const items = [];
+      routes.forEach((route) => {
+         if (route.children) {
+            route.children.forEach((childItem) => {
+                if (childItem.data.menu.top) {
+                    convertedItems.top = childItem.data.menu.top;
+                }else if (childItem.data.menu.main) {
+                    convertedItems.main = childItem.data.menu.main;
+                }
+            });
+         }
+      });
+      return convertedItems;
   }
 }

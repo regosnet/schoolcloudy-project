@@ -4,15 +4,15 @@ import { ScclAdministratorComponent } from './scclAdministrator.component';
 import { ScclAdministratorRouter } from './scclAdministrator.routing';
 import { ScclSharedModule } from '../scclShared/scclShared.module';
 import { AppTranslationModule } from '../scclTranslatingModule';
+import { ScclAdmininstratorService } from './scclAdministrator.service';
+import { ScclLayoutComponent } from '../scclShared/scclSharedModule/scclLayoutModule/scclLayout.component';
+import { ScclLayoutModule } from '../scclShared/scclSharedModule/scclLayoutModule/scclLayout.module';
+
 
 @NgModule({
-    imports: [
-              ScclAdministratorRouter,
-              ScclSharedModule.forRoot(),
-              CommonModule, AppTranslationModule,
-    ],
-    declarations: [ScclAdministratorComponent],
-    providers: []
+    imports: [ScclSharedModule.forRoot(), ScclAdministratorRouter],
+    declarations: [ScclAdministratorComponent, ScclLayoutComponent],
+    providers: [ScclAdmininstratorService]
 })
 export class ScclAdministratorModule {
 }

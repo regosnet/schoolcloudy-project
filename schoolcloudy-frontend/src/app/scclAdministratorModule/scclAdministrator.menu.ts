@@ -339,11 +339,10 @@ const dateToday = new Date();
 export const SCCL_HEADER_MENU =
     [
        {
-           path: '/',
+           path: 'administrator',
            children:
                [
                     {
-                        path: 'administrator',
                         data: {
                             menu: {
                                 top:
@@ -375,7 +374,6 @@ export const SCCL_HEADER_MENU =
                         }
                     },
                     {
-                        path: 'administrator',
                         data: {
                             menu: {
                                 main: {

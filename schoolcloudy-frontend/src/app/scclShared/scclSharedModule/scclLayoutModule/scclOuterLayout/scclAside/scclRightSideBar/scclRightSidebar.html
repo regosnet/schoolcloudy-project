@@ -1,0 +1,66 @@
+<aside class="sccl-right-sidebar-hidden">
+	<div class="row">
+		<div class="col-12">
+			<!-- Nav tabs -->
+			<ul class="nav nav-tabs" role="tablist">
+				<li class="nav-item active"><a
+					class="nav-link ion-navicon-round" data-toggle="tab" href="#home"
+					role="tab"></a></li>
+				<li class="nav-item"><a class="nav-link ion-email"
+					data-toggle="tab" href="#messages" role="tab"></a></li>
+				<li class="nav-item"><a class="nav-link ion-settings"
+					data-toggle="tab" href="#settings" role="tab"></a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<div class="tab-pane active" id="home" role="tabpanel">....</div>
+				<div class="tab-pane" id="messages" role="tabpanel">...</div>
+				
+				<!-- Settings -->
+				<div class="tab-pane" id="settings" role="tabpanel">
+				<!-- Choose Language -->
+					<div class="languageSelect dropdown">
+						<a href="#" class="profile-toggle-link dropdown-toggle"
+							data-toggle="dropdown" aria-expanded="false"> 
+							<span translate>Choose Language</span>
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="languages">
+
+							<li class="dropdown-item"><a href="javascript:void(0)"
+								(click)="changeLang('en')"> <i
+									class="flag-icon flag-icon-gb flag-icon"></i><span translate>{{'sccl.languages.en'}}</span>
+							</a></li>
+							<li class="dropdown-item"><a href="javascript:void(0)"
+								(click)="changeLang('lv')"> <i
+									class="flag-icon flag-icon-lv flag-icon"></i><span translate>{{'sccl.languages.lv'}}</span>
+							</a></li>
+							<li class="dropdown-item"><a href="javascript:void(0)"
+								(click)="changeLang('fr')"> <i
+									class="flag-icon flag-icon-fr flag-icon"></i><span translate>{{'sccl.languages.fr'}}</span>
+							</a></li>
+							<li class="dropdown-item"><a href="javascript:void(0)"
+								(click)="changeLang('Es')"> <i
+									class="flag-icon flag-icon-es flag-icon"></i><span translate>{{'sccl.languages.es'}}</span>
+							</a></li>
+							<li class="dropdown-item"><a href="javascript:void(0)"
+								(click)="changeLang('De')"> <i
+									class="flag-icon flag-icon-de flag-icon"></i><span translate>{{'sccl.languages.de'}}</span>
+							</a></li>
+							<li class="dropdown-item"><a href="javascript:void(0)"
+								(click)="changeLang('Ar')"> <i
+									class="flag-icon flag-icon-eg flag-icon"></i><span translate>{{'sccl.languages.ar'}}</span>
+							</a></li>
+						</ul>
+					</div><!-- choose language div ends -->
+					
+					
+				</div><!-- Settings div ends -->
+			</div>
+		</div>
+	</div>
+</aside>

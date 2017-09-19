@@ -6,5 +6,4 @@ import { Component } from '@angular/core';
     styleUrls: ['./scclRightSidebar.scss']
 })
 export class ScclRightSidebarComponent {
-    
 }

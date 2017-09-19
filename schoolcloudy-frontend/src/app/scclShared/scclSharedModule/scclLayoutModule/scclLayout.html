@@ -1,2 +1,13 @@
 <sccl-top-navbar></sccl-top-navbar>
 <sccl-left-sidebar></sccl-left-sidebar>
+<sccl-right-sidebar></sccl-right-sidebar>
+<div class="sccl-inner-layout">
+	<div class="row">
+		<div class="col-md-9">
+			<router-outlet></router-outlet>
+		</div>
+		<div class="col-md-3">
+			<sccl-inner-aside-layout></sccl-inner-aside-layout>
+		</div>
+	</div>
+</div>

@@ -9,4 +9,4 @@ export const scclLayoutPaths = {
         images: {
           root: IMAGES_ROOT
         }
-      };
+};

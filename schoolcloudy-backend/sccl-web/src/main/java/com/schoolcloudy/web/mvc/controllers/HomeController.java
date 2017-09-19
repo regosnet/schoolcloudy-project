@@ -25,7 +25,7 @@ public class HomeController {
 	
 	@RequestMapping(value="/", method=RequestMethod.GET)
 	public String home(Model model) {
-		User user = this.administrativeService.addNewAdministrator(this.addNewAdministrator());
+		//User user = this.administrativeService.addNewAdministrator(this.addNewAdministrator());
 		//this.administrativeService.addNewstudent(this.addNewStudent());
 		//User user = administrativeService.getUser("Davis.Ropols", "");
 		//System.out.println(user);

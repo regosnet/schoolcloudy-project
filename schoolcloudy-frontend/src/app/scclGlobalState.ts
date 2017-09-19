@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class ScclGlobalState {
 
   private _data = new Subject<Object>();
   private _dataStream$ = this._data.asObservable();
+  public loggedIn = new BehaviorSubject<Boolean>(false);
 
   private _subscriptions: Map<string, Array<Function>> = new Map<string, Array<Function>>();
 
@@ -27,7 +29,6 @@ export class ScclGlobalState {
   public subscribe(event: string, callback: Function) {
     const subscribers = this._subscriptions.get(event) || [];
     subscribers.push(callback);
-
     this._subscriptions.set(event, subscribers);
   }
 
