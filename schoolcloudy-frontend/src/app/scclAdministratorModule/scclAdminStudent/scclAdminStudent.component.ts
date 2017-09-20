@@ -4,13 +4,16 @@ import { ScclGlobalState } from '../../scclGlobalState';
 
 @Component({
     selector: 'sccl-admin-student',
-    template: `
-        <h3> Administrator / Students List</h3>
-    `
+    templateUrl: './scclAdminStudent.html',
+    styleUrls: ['./scclAdminStudent.scss']
 })
 export class ScclAdminStudentComponent {
 
     constructor(private translate: TranslateService, private _scclGlobalState: ScclGlobalState) {
         this._scclGlobalState.loggedIn.subscribe(res => console.log(res));
+    }
+    
+    getDocumentBody() {
+        $('#myModal').appendTo('body')
     }
 }

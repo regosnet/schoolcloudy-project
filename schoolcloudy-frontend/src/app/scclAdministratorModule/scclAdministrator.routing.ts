@@ -17,7 +17,8 @@ export const routes: Routes = [
       {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
       {path: 'dashboard', loadChildren: './scclAdminDashboard/scclAdminDashboard.module#ScclAdminDashboardModule'},
       {path: 'academics', loadChildren: './scclAdminAcademics/scclAdminAcademics.module#ScclAdminAcademicsModule'},
-      {path: 'students', loadChildren: './scclAdminStudent/scclAdminStudent.module#ScclAdminStudentModule'}
+      {path: 'students', loadChildren: './scclAdminStudent/scclAdminStudent.module#ScclAdminStudentModule'},
+      {path: 'mailbox', loadChildren: './scclAdminMailbox/scclAdminMailbox.module#ScclAdminMailboxModule'}
     ]
   }
 ];

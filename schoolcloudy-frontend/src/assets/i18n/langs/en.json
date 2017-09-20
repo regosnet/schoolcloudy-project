@@ -25,6 +25,9 @@
   			"academics": "Academics",
   			"programmes": "Programmes",
   			"courses": "Courses",
+  			"departments": "Departments",
+  			"timetables": "Timetable",
+  			"faculties": "Faculties",
   			"masters": "Masters",
   			"bachelors": "Bachelors",
   			"students" : "Students",
@@ -45,7 +48,8 @@
   				"logoSc":"School",
   				"logoCl": "Cloudy", 
   				"status": "Admin",
-  				"search": "Search"
+  				"search": "Search",
+  				"admin": "Administrator"
   			},
   			"content_top": {
   				"home": "Home",

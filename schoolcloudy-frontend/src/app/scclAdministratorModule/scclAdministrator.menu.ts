@@ -68,10 +68,10 @@ export const SCCL_ADMINISTRATOR_MENU =
                                         }
                                     },
                                     {
-                                        path: 'masters',
+                                        path: 'departments',
                                         data: {
                                             menu: {
-                                                title: 'sccl.menu.left_side_bar.masters',
+                                                title: 'sccl.menu.left_side_bar.departments',
                                                 icon: 'ion-record',
                                                 selected: false,
                                                 expanded: false,
@@ -80,10 +80,10 @@ export const SCCL_ADMINISTRATOR_MENU =
                                         }
                                     },
                                     {
-                                        path: 'bachelors',
+                                        path: 'faculties',
                                         data: {
                                             menu: {
-                                                title: 'sccl.menu.left_side_bar.bachelors',
+                                                title: 'sccl.menu.left_side_bar.faculties',
                                                 icon: 'ion-record',
                                                 selected: false,
                                                 expanded: false,
@@ -92,10 +92,10 @@ export const SCCL_ADMINISTRATOR_MENU =
                                         }
                                     },
                                     {
-                                        path: 'exams',
+                                        path: 'timetables',
                                         data: {
                                             menu: {
-                                                title: 'sccl.menu.left_side_bar.exams',
+                                                title: 'sccl.menu.left_side_bar.timetables',
                                                 icon: 'ion-record',
                                                 selected: false,
                                                 expanded: false,
