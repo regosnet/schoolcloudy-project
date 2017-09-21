@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { scclLayoutSizes } from '../../scclLayout.constants';
 
 @Component({
     selector: 'sccl-inner-aside-layout',
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
     styleUrls: ['./scclInnerAside.scss']
 })
 export class ScclAdminDashboardAsideComponent {
+    
     listOne: Array<any> = [
                            {name: 'Weather', img: {name: 'weather-widget'}},
                            {name: 'Calendar', img: {name: 'calendar'}},
@@ -14,6 +16,9 @@ export class ScclAdminDashboardAsideComponent {
                            {name: 'Shortcuts', data: {}}
                            ];
     constructor() {
+        if ($(window).width() <= scclLayoutSizes.resWidthCollapseSidebar) {
+          
+        }
     }
     asideLayout: Object = {
             color: 'red',
@@ -22,4 +27,5 @@ export class ScclAdminDashboardAsideComponent {
             position: 'left',
             height: $(window).height() - 50
     };
+    
 }

@@ -11,7 +11,7 @@ import { ScclLayoutModule } from '../scclShared/scclSharedModule/scclLayoutModul
 
 @NgModule({
     imports: [ScclSharedModule.forRoot(), ScclAdministratorRouter],
-    declarations: [ScclAdministratorComponent, ScclLayoutComponent],
+    declarations: [ScclAdministratorComponent],
     providers: [ScclAdmininstratorService]
 })
 export class ScclAdministratorModule {

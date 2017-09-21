@@ -14,7 +14,7 @@ export const SCCL_HEADER_MENU =
                                           t1: 'School',
                                           t2: 'Cloudy',
                                           logoName: 'sccl_logo',
-                                          path: '/administrator/dashboard'
+                                          path: '/login'
                                       },
                                       search: {
                                           icon: 'ion-ios-search-strong',

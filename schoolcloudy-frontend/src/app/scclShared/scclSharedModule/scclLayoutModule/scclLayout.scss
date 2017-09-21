@@ -1,13 +1,32 @@
+@import '../../../../scclStyles';
+
 .sccl-inner-layout{
-	border: red solid 2px;
-	width: 87.5%;
 	z-index: -1;
+	margin-left: 65px;
 	position: fixed;
 	top: 75px;
-	margin-left: 12.5%;
 	sccl-inner-aside-layout {
 		width: 300px;
 		float:right;
 	}
-	
 }
+
+.rightSideBarCollapsedL {
+	margin-left: 190px;
+}
+
+@media screen and (max-width: $resXXL - 80) {
+	.sccl-inner-layout{
+		margin-left: 190px;
+	}	
+	.rightSideBarCollapsedL {
+		margin-left: 65px;
+	}
+}
+
+@media screen and (max-width: $resXS) {
+	.sccl-inner-layout{
+		margin-left: 5px;
+	}	
+}
+

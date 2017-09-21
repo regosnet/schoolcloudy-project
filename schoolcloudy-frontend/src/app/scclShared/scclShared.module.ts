@@ -38,6 +38,7 @@ import {
     ScclAdminDashboardAsideComponent
     } from './scclSharedModule/scclLayoutModule/scclInnerLayout/scclInnerAside/scclInnerAside.component';
     import {DndModule} from 'ng2-dnd';
+import { ScclLayoutComponent } from './scclSharedModule/scclLayoutModule/scclLayout.component';
 
 
 const SCCL_SHARED_SERVICE = [
@@ -61,7 +62,8 @@ const SCCL_COMPONENTS = [
     ScclPageContentTopComponent,
     ScclMsgCenterComponent,
     ScclDropDownMenuComponent,
-    ScclAdminDashboardAsideComponent
+    ScclAdminDashboardAsideComponent,
+    ScclLayoutComponent
 ];
 
 const SCCL_PIPES = [

@@ -20,8 +20,8 @@ export class ScclTopNavBarComponent implements OnInit {
     constructor(private _menuService: ScclMenuService,
             private translate: TranslateService,
             private cdRef: ChangeDetectorRef,
-            private _state: ScclGlobalState) {
-        this._state.subscribe('menu.isCollapsed', (isCollapsed) => {
+            private _scclState: ScclGlobalState) {
+        this._scclState.subscribe('menu.isCollapsed', (isCollapsed) => {
             this.isMenuCollapsed = isCollapsed;
           });
     }
@@ -37,7 +37,8 @@ export class ScclTopNavBarComponent implements OnInit {
 
     public toggleMenu() {
         this.isMenuCollapsed = !this.isMenuCollapsed;
-        this._state.notifyDataChanged('menu.isCollapsed', this.isMenuCollapsed);
+        this._scclState.notifyDataChanged('menu.isCollapsed', this.isMenuCollapsed);
+        $('.sccl-inner-layout').toggleClass('rightSideBarCollapsedL');
         return false;
       }
 
