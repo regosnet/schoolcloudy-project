@@ -11,6 +11,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import com.schoolcloudy.model.entities.Administrator;
+import com.schoolcloudy.model.shared.entities.Credential;
 
 
 @Repository
@@ -43,8 +44,12 @@ public class AdministratorRepositoryImpl implements AdministratorRepository{
 	}
 
 	@Override
-	public Administrator findOneByUserName(String username, long internalId) throws DataAccessException {
-		return em.createQuery("Use the username and internalId to get approprate admin user", Administrator.class).getSingleResult();
+	public Administrator findOneByIds(long internalId, String externalId) throws DataAccessException {
+		System.out.println(em.createQuery("SELECT c FROM Administrator admin JOIN "
+				+ "admin.credential c WHERE c.username=:username", Credential.class)
+				.setParameter("username", "sarah.mourine")
+				.getSingleResult());
+		return null;
 	}
 	
 	

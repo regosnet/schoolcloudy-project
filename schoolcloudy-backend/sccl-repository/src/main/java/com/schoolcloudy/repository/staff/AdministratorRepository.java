@@ -10,6 +10,6 @@ public interface AdministratorRepository {
 	List<Administrator> findAllAdministrator() throws DataAccessException;
 	Administrator save(Administrator administrator) throws DataAccessException;
 	long countAdministrators() throws DataAccessException;
-	Administrator findOneByUserName(String username,  long internalId) throws DataAccessException;
+	Administrator findOneByIds(long internalId, String externalId) throws DataAccessException;
 	
 }

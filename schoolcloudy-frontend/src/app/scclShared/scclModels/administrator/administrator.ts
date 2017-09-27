@@ -16,12 +16,5 @@ export class Administrator implements User {
     credential: Credential;
     startDate: Date;
     endDate: Date;
-    getInternalId(): number {
-    throw new Error('Method not implemented.');
-    }
-    getUser(): string {
-    throw new Error('Method not implemented.');
-    }
-
-
+    status: string;
 }

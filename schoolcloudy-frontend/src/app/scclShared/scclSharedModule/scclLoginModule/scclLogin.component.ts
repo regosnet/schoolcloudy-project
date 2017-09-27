@@ -55,7 +55,9 @@ submitUserForm(userFormData, event) {
                                document.cookie = 'username=' + response.json().credential.username + ';'
                                + 'expires=Mon, 18 Sep 2017 20:00:11 UTC';
                                 this._scclState.loggedIn.next(true);
-                                sessionStorage.setItem('username', response.json());
+                                sessionStorage.setItem('int_id', response.json().internalId);
+                                sessionStorage.setItem('ext_id', response.json().externalId);
+                                Cookie.set('internalId', '12', 0.126000);
                             }
                         }, 1000);
                     }
@@ -71,7 +73,6 @@ submitUserForm(userFormData, event) {
         const d1 = new Date (),
         d2 = new Date ( d1 );
         d2.setUTCMinutes(d1.getUTCMinutes() + 2 );
-        console.log(d2)
         return d2;
     }
 }

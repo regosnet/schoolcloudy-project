@@ -17,7 +17,5 @@ export interface User {
     credential: Credential;
     startDate: Date;
     endDate: Date;
-
-    getInternalId(): number;
-    getUser(): string;
+    status: string;
 }

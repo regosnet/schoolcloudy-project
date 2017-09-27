@@ -18,10 +18,10 @@ export class ScclGlobalState {
  public notifyDataChanged(event, value) {
     const current = this._data[event];
     if (current !== value) {
-      this._data[event] = value;
-      this._data.next({
-        event: event,
-        data: this._data[event]
+            this._data[event] = value;
+            this._data.next({
+                event: event,
+                data: this._data[event]
       });
     }
   }

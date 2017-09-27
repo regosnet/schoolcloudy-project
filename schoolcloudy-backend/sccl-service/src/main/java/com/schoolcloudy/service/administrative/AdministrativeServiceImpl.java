@@ -110,4 +110,9 @@ public class AdministrativeServiceImpl implements AdministrativeService {
 
 		return externalIdFormat;
 	}
+
+	@Override
+	public Administrator getAdministratorByIds(long internalId, String externalId) throws DataAccessException {
+		return this.administratorRepository.findOneByIds(internalId, externalId);
+	}
 }

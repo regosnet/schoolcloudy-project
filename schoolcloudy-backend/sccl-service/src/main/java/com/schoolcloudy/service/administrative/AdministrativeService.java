@@ -18,6 +18,7 @@ public interface AdministrativeService {
 	long updateNumberOfFaculty();
 	boolean isAdministratorExist(Administrator administrator) throws DataAccessException;
 	Administrator addNewAdministrator(Administrator administrator) throws DataAccessException;
+	Administrator getAdministratorByIds(long internalId, String externalId) throws DataAccessException;
 	User getUser(String username, String password) throws DataAccessException;
 	
 	Student addNewstudent(Student student) throws DataAccessException;

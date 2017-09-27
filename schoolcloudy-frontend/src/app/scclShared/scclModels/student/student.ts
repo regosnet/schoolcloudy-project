@@ -1,8 +1,9 @@
-import { Contact } from './contact';
-import { Gender } from './gender.enum';
-import { Credential } from './credential';
+import { Contact } from '../absract/contact';
+import { Gender } from '../absract/gender.enum';
+import { Credential } from '../absract/credential';
+import { User } from '../absract/user';
 
-export class UserImpl {
+export class Student implements User {
     internalId: number;
     externalId: string;
     firstName: string;
@@ -15,5 +16,5 @@ export class UserImpl {
     credential: Credential;
     startDate: Date;
     endDate: Date;
-    
+    status: string;
 }

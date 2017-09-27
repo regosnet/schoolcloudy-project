@@ -23,6 +23,7 @@
     "@angular/router": "^4.2.4",
     "@ngx-translate/core": "6.0.1",
     "@ngx-translate/http-loader": "0.0.3",
+    "@swimlane/ngx-datatable": "^10.2.3",
     "bootstrap": "^4.0.0-alpha.6",
     "core-js": "^2.4.1",
     "flag-icon-css": "^2.8.0",

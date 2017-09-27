@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.schoolcloudy.model.entities.Administrator;
@@ -28,10 +29,11 @@ public class AdministratorRestController {
 	
 	// gets one Administrator
 	@CrossOrigin(origins = "http://localhost:4200")
-	@RequestMapping(value="/administrator", method = RequestMethod.GET, produces = "application/json")
-	public ResponseEntity<List<Administrator>> student(Model model){
-		List<Administrator> administrator = null; 
-		return new ResponseEntity<List<Administrator>>(administrator, HttpStatus.OK);
+	@RequestMapping(value="/administrator", method = RequestMethod.POST)
+	public ResponseEntity<Administrator> getAdministrator(@RequestBody Object admin){
+		System.out.println(admin);
+		Administrator administrator = null;
+		return new ResponseEntity<Administrator>(administrator, HttpStatus.OK);
 	}
 
 
