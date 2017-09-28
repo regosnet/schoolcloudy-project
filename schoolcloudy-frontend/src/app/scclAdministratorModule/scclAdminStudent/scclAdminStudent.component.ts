@@ -22,22 +22,32 @@ export class ScclAdminStudentComponent implements OnInit {
     ngOnInit(): void {
         this.columnTitle =
             [
-             {title: 'ID'},
-             {title: 'First Name'},
-             {title: 'Last Name'},
-             {title: 'UserName'},
-             {title: 'Status'},
-             {title: 'Address'},
-             {title: 'Email'},
-             {title: 'Department'}
+             {title: 'ID', dt: ['externalId']},
+             {title: 'Name', dt: ['firstName', 'lastName']},
+             {title: 'UserName', dt: ['username']},
+             {title: 'Status', dt: ['status']},
+             {title: 'Address', dt: ['houseNo', 'street']}
              ];
         this.tableSchema = this.setDataSchema();
 
-        this.data = [{externalId: 'SM0989', firstName: 'Ihechukwudere', lastName: 'Okoroego',
-            credential: '@ihechukwudere'},
-                            {externalId: 'SM0989', firstName: 'Ihechukwudere', lastName: 'Okoroego',
-                credential: '@ihechukwudere'},
-                            ];
+        this.data = [
+                     {
+                         externalId: 'SM0989',
+                         firstName: 'Ihechukwudere',
+                         lastName: 'Okoroego',
+                         status: 'Student',
+                         credential: {username: '@Ihechukwudere'},
+                         contact: {houseNo: 102, street: 'Lilly Street'}
+                     },
+                     {
+                         externalId: 'SM898',
+                         firstName: 'Rolands',
+                         status: 'Student',
+                         lastName: 'Wilsonify',
+                         credential: {username: '@wilson'},
+                         contact: {houseNo: 3, street: 'Adams Street'}
+                      }
+                    ];
     }
 
     setDataSchema() {

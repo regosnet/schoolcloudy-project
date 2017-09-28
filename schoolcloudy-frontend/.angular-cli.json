@@ -25,13 +25,15 @@
 		"../src/assets/scclStyle/scclCss/icomoon/style.css",
 		"../node_modules/flag-icon-css/sass/_flag-icon.scss",
 		"../node_modules/font-awesome/css/font-awesome.min.css",
+		"../node_modules/datatables.net-dt/css/jquery.dataTables.css",
         "scclStyles.scss"
       ],
       "scripts": [
 		"../node_modules/jquery/dist/jquery.min.js",
 		"../node_modules/jquery-slimscroll/jquery.slimscroll.js",
 		"../node_modules/tether/dist/js/tether.min.js",
-		"../node_modules/bootstrap/dist/js/bootstrap.min.js"
+		"../node_modules/bootstrap/dist/js/bootstrap.min.js",
+		"../node_modules/datatables.net/js/jquery.dataTables.js"
 		
 	  ],
       "environmentSource": "environments/environment.ts",

@@ -30,9 +30,26 @@ export class ScclTableComponent implements OnInit {
         this._dataStream$.subscribe((data) => {
             this.dataSource.push(data);
         });*/
+       this.dataSource = this.convertDataToObjects(this.dataSource);
     }
 
     getDocumentBody() {
         $('#addItemModal').appendTo('body');
+    }
+
+    private convertDataToObjects(data: Array<object>) {
+        const converteData = [];
+        data.forEach((dataObj) => {
+            for (const [key, value] of Object.entries(dataObj)){
+                 if (typeof value === 'object') {
+                     for (const [oKey, oValue] of Object.entries(value)){
+                         dataObj[oKey] = value[oKey];
+                     }
+                     delete(dataObj[key]);
+                 }
+            }
+            converteData.push(dataObj);
+        });
+        return converteData;
     }
 }

@@ -47,11 +47,15 @@
 										<th><input type="checkbox" id="checkall" /></th>
 										<th class="col-title" *ngFor="let colTitle of columnTitle">{{colTitle.title}}</th>
 									</thead>
-									<tbody>
+									<tbody *ngFor="let data of dataSource">
 										<p *ngIf="!dataSource">No data</p>
-										<tr *ngFor="let data of dataSource">
-											<td><input type="checkbox" class="checkthis" /></td>
-											<td *ngFor="let title of tableSchema">{{data[title.title]}}</td>
+										<tr>
+											<td><input type="checkbox" class="checkthis"/></td>
+											<td *ngFor="let dataTitle of columnTitle">
+												<span *ngFor="let dt of dataTitle.dt">
+													<span>{{data[dt]}}</span>
+												</span>
+											</td>
 										</tr>
 									</tbody>
 								</table>
