@@ -1,5 +1,5 @@
 package com.schoolcloudy.repository.school;
-
+/*
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -52,3 +52,4 @@ public class SchoolRepositoryImpl implements SchoolRepository{
 		return schoolExtIdFormat + f;
 	}
 }
+*/

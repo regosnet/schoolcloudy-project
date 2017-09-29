@@ -1,27 +1,32 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
     selector: 'sccl-table',
     templateUrl: './scclTable.html',
     styleUrls: ['./scclTable.scss']
 })
-export class ScclTableComponent implements OnInit {
+export class ScclTableComponent implements OnInit, AfterViewInit {
 
     @Input()
     private _dataStream$ = new BehaviorSubject<any>({});
 
     @Input()
-    private columnTitle;
+    private settings;
 
     @Input()
     private tableSchema = [];
 
+    private data;
+
     @Input()
-    private dataSource = [];
+    private dataSource: Observable<any>;
 
     @Input()
     private tableName;
+    private showColTitle = true;
+    private scrollProperties;
 
 
 
@@ -30,7 +35,13 @@ export class ScclTableComponent implements OnInit {
         this._dataStream$.subscribe((data) => {
             this.dataSource.push(data);
         });*/
-       this.dataSource = this.convertDataToObjects(this.dataSource);
+        this.scrollProperties = this.getScrollProperties();
+    }
+
+    ngAfterViewInit() {
+       this.dataSource.subscribe((data) => {
+           this.data = this.convertDataToObjects(data.json());
+       });
     }
 
     getDocumentBody() {
@@ -51,5 +62,16 @@ export class ScclTableComponent implements OnInit {
             converteData.push(dataObj);
         });
         return converteData;
+    }
+
+    private getScrollProperties() {
+        const properties: Object = {
+                color: 'red',
+                distance: 1230,
+                wheelStep: 50,
+                position: 'left',
+                height: $(window).height() - 270
+        };
+    return properties;
     }
 }

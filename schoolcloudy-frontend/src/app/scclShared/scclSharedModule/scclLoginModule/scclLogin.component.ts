@@ -20,6 +20,7 @@ import { ScclGlobalState } from '../../../scclGlobalState';
 })
 export class ScclLoginComponent {
     private _user: UserImpl;
+    private hideMain = false;
     private loginMsg = false;
     private path = 'http://localhost:8080/schoolcloudy/login/check-get-user-by/credential';
 

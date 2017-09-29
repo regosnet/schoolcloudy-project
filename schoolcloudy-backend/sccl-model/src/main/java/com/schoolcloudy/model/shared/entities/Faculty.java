@@ -1,5 +1,5 @@
 package com.schoolcloudy.model.shared.entities;
-
+/*
 import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
@@ -61,7 +61,7 @@ public class Faculty implements Serializable{
 	@Embedded
 	@AttributeOverride(name="houseNumber", column=@Column(name="BLOCK_NUMBER"))
 	private Contact contact;
-
+/*
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="faculty")
 	private List<Student> students;
 	
@@ -88,7 +88,7 @@ public class Faculty implements Serializable{
 			@JoinColumn(name="HEAD_OF_FACULTY_ID", referencedColumnName="ACADEMIC_STAFF_ID")
 	})
 	//private AcademicStaff headOfFaculty;
-*/	
+
 	public Faculty() {}
 
 	
@@ -163,7 +163,7 @@ public class Faculty implements Serializable{
 	public void setFacultyProgrammes(Set<Programme> facultyProgrammes) {
 		this.facultyProgrammes = facultyProgrammes;
 	}
-/*
+
 	public AcademicStaff getHeadOfFaculty() {
 		return headOfFaculty;
 	}
@@ -171,7 +171,7 @@ public class Faculty implements Serializable{
 	public void setHeadOfFaculty(AcademicStaff headOfFaculty) {
 		this.headOfFaculty = headOfFaculty;
 	}
-*/
+
 	public Long getInternalId() {
 		return internalId;
 	}
@@ -205,4 +205,4 @@ public class Faculty implements Serializable{
 	}
 	
 	
-}
+}*/

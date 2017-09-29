@@ -1,5 +1,5 @@
 package com.schoolcloudy.model.shared.entities;
-
+/*
 import java.util.Date;
 import java.util.Set;
 
@@ -51,26 +51,26 @@ public class School {
 	
 	@Column(name="SCHOOL_FOUNDER")
 	private String founder;
-/*/	
+
 	@OneToOne
 	private AcademicStaff headOfSchool;
-	*/
+	
 	@Embedded
 	private Contact contact;
 	
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="school")
 	private Set<Faculty> schoolFaculties;
-/*	
+	
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="school")
 	private Set<AcademicStaff> academicStaff;
-	*/
+	
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="school")
 	private Set<NonAcademicStaff> nonAcademicStaff;
 	
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="school")
 	private Set<Parent> parentGuardian;
 	
-	
+
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="school")
 	private Set<Student> students;
 	
@@ -128,7 +128,7 @@ public class School {
 	public void setFounder(String founder) {
 		this.founder = founder;
 	}
-/*
+
 	public AcademicStaff getHeadOfSchool() {
 		return headOfSchool;
 	}
@@ -136,7 +136,7 @@ public class School {
 	public void setHeadOfSchool(AcademicStaff headOfSchool) {
 		this.headOfSchool = headOfSchool;
 	}
-*/
+
 	public Contact getContact() {
 		return contact;
 	}
@@ -152,7 +152,7 @@ public class School {
 	public void setSchoolFaculties(Set<Faculty> schoolFaculties) {
 		this.schoolFaculties = schoolFaculties;
 	}
-/*
+
 	public Set<AcademicStaff> getAcademicStaff() {
 		return academicStaff;
 	}
@@ -160,7 +160,7 @@ public class School {
 	public void setAcademicStaff(Set<AcademicStaff> academicStaff) {
 		this.academicStaff = academicStaff;
 	}
-*/
+
 	public Set<NonAcademicStaff> getNonAcademicStaff() {
 		return nonAcademicStaff;
 	}
@@ -179,3 +179,4 @@ public class School {
 
 	
 }
+*/

@@ -1,5 +1,5 @@
 package com.schoolcloudy.model.shared.entities;
-
+/*
 import java.util.Date;
 import java.util.List;
 
@@ -163,3 +163,4 @@ public class Programme {
 				.hashCode();
 	}
 }
+*/

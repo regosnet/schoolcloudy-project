@@ -1,5 +1,5 @@
 package com.schoolcloudy.model.entities;
-
+/*
 import java.util.Date;
 import java.util.List;
 
@@ -28,11 +28,11 @@ import com.schoolcloudy.model.shared.entities.User;
 	@AttributeOverride(name="hobbies", column=@Column(name="PARENT_HOBBIES"))
 })
 public class Parent extends User{
-	
+/*	
 	@ManyToMany(cascade=CascadeType.ALL, mappedBy="studentParent")
 	@Column(name="CHILD")
 	private List<Student> child;
-	
+*//*	
 	public Parent(){}
 	
 	@ManyToOne(cascade=CascadeType.ALL)
@@ -46,7 +46,7 @@ public class Parent extends User{
 			@JoinColumn(name="SCHOOL_ID", referencedColumnName="SCHOOL_ID")
 		})
 	private School school;
-	
+/*	
 	public List<Student> getChild() {
 		return child;
 	}
@@ -54,7 +54,7 @@ public class Parent extends User{
 	public void setChild(List<Student> child) {
 		this.child = child;
 	}
-
+*//*
 	@Override
 	public Date getEndDate() {
 		// TODO Auto-generated method stub
@@ -69,3 +69,4 @@ public class Parent extends User{
 	}
 	
 }
+*/

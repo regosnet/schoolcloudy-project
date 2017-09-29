@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit} from '@angular/core';
+import { Component, HostListener, OnInit, Input} from '@angular/core';
 import { scclLayoutSizes } from './scclLayout.constants';
 import { ScclGlobalState } from '../../../scclGlobalState';
 
@@ -11,6 +11,9 @@ export class ScclLayoutComponent implements OnInit {
 
     private width: number;
     private height: number;
+
+    @Input()
+    private main = false;
     constructor() {
     }
     ngOnInit(): void {

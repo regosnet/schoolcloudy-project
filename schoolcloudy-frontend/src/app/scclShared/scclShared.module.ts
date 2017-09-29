@@ -1,44 +1,20 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { ScclMenuService } from './scclSharedService/scclMenuService/scclMenuService';
-import { ScclPreloaderService } from './scclSharedService/scclPreloaderService/scclPreloader';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AppTranslationModule } from '../scclTranslatingModule';
-import { ScclLoginModule } from './scclSharedModule/scclLoginModule/scclLogin.module';
+import {DndModule} from 'ng2-dnd';
+
 import { ScclSlimScrollDirective } from './scclDirectives/scclSlimScroll/scclSlimScroll.directive';
 import { ScclScrollPositionDirective } from './scclDirectives/scclScrollPosition/scclScrollPosition.directive';
-import { TranslateService } from '@ngx-translate/core';
-import { ScclPngExtPipe } from './scclPipes/scclPngExt.pipe';
 import { ScclRightSidebarDirective } from './scclDirectives/scclSidebarDirectives/scclRightSidebar.directive';
+import { ScclPngExtPipe } from './scclPipes/scclPngExt.pipe';
+
 import { ScclMsgCenterService } from './scclSharedModule/scclLayoutModule/scclOuterLayout/scclMsgCenter/scclMsgCenter.service';
-import {
-    ScclTopNavBarComponent
-    } from './scclSharedModule/scclLayoutModule/scclOuterLayout/scclHeader/scclTopNavBar/scclTopNavBar.component';
-import {
-    ScclMenuItemComponent
-    } from './scclSharedModule/scclLayoutModule/scclOuterLayout/scclMenu/scclMenuComponent/scclMenuItem/scclMenuItem.component';
-import {
-    ScclMenuComponent
-    } from './scclSharedModule/scclLayoutModule/scclOuterLayout/scclMenu/scclMenu.component';
-import {
-    ScclLeftSidebarComponent
-    } from './scclSharedModule/scclLayoutModule/scclOuterLayout/scclAside/scclLeftSideBar/scclLeftSidebar.component';
-import {
-    ScclRightSidebarComponent
-    } from './scclSharedModule/scclLayoutModule/scclOuterLayout/scclAside/scclRightSideBar/scclRightSidebar.component';
-import {
-    ScclPageContentTopComponent
-    } from './scclSharedModule/scclLayoutModule/scclOuterLayout/scclHeader/scclPageContentTop/scclContentTop.component';
-import { ScclMsgCenterComponent } from './scclSharedModule/scclLayoutModule/scclOuterLayout/scclMsgCenter/scclMsgCenter.component';
-import {
-    ScclDropDownMenuComponent
-    } from './scclSharedModule/scclLayoutModule/scclOuterLayout/scclHeader/scclTopNavBar/scclDropDownMenu/scclDropDownMenu';
-import {
-    ScclAdminDashboardAsideComponent
-    } from './scclSharedModule/scclLayoutModule/scclInnerLayout/scclInnerAside/scclInnerAside.component';
-    import {DndModule} from 'ng2-dnd';
-import { ScclLayoutComponent } from './scclSharedModule/scclLayoutModule/scclLayout.component';
+import { ScclMenuService } from './scclSharedService/scclMenuService/scclMenuService';
+import { ScclPreloaderService } from './scclSharedService/scclPreloaderService/scclPreloader';
+import { TranslateService } from '@ngx-translate/core';
+
 
 
 const SCCL_SHARED_SERVICE = [
@@ -49,21 +25,11 @@ const SCCL_SHARED_SERVICE = [
 
 const SCCL_DIRECTIVES = [
     ScclScrollPositionDirective,
-    ScclSlimScrollDirective,
-    ScclRightSidebarDirective
+    ScclRightSidebarDirective,
+    ScclSlimScrollDirective
 ];
 
 const SCCL_COMPONENTS = [
-    ScclTopNavBarComponent,
-    ScclMenuItemComponent,
-    ScclMenuComponent,
-    ScclLeftSidebarComponent,
-    ScclRightSidebarComponent,
-    ScclPageContentTopComponent,
-    ScclMsgCenterComponent,
-    ScclDropDownMenuComponent,
-    ScclAdminDashboardAsideComponent,
-    ScclLayoutComponent
 ];
 
 const SCCL_PIPES = [
@@ -77,7 +43,9 @@ const SCCL_PIPES = [
       FormsModule,
       RouterModule,
       AppTranslationModule,
-      DndModule.forRoot()
+      DndModule.forRoot(),
+      ReactiveFormsModule,
+      FormsModule,
     ],
     declarations: [
       ...SCCL_PIPES,
@@ -90,7 +58,13 @@ const SCCL_PIPES = [
     exports: [
          ...SCCL_PIPES,
          ...SCCL_DIRECTIVES,
-         ...SCCL_COMPONENTS
+         ...SCCL_COMPONENTS,
+         DndModule,
+         RouterModule,
+         AppTranslationModule,
+         CommonModule,
+         ReactiveFormsModule,
+         FormsModule,
     ]
 })
 export class ScclSharedModule {

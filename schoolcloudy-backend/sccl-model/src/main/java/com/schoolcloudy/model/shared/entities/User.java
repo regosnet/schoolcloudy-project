@@ -54,6 +54,9 @@ public class User {
 	@Column(name="USER")
 	private String user;
 	
+	@Column(name="STATUS")
+	private String status;
+	
 	@Embedded
 	private Contact contact;
 	
@@ -185,5 +188,22 @@ public class User {
 	public void setUser(User user) {
 		this.user = user.getClass().getSimpleName();
 	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
+	}
+	
 
 }

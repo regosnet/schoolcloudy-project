@@ -1,5 +1,5 @@
 package com.schoolcloudy.model.entities;
-
+/*
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.CascadeType;
@@ -52,3 +52,4 @@ public class AcademicStaff extends Staff{
 	
 	
 }
+*/

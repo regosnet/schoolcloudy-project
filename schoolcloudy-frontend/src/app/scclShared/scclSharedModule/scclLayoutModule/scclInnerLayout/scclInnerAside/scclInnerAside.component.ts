@@ -16,9 +16,6 @@ export class ScclAdminDashboardAsideComponent {
                            {name: 'Shortcuts', data: {}}
                            ];
     constructor() {
-        if ($(window).width() <= scclLayoutSizes.resWidthCollapseSidebar) {
-          
-        }
     }
     asideLayout: Object = {
             color: 'red',
@@ -27,5 +24,5 @@ export class ScclAdminDashboardAsideComponent {
             position: 'left',
             height: $(window).height() - 50
     };
-    
+
 }

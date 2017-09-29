@@ -1,5 +1,5 @@
 package com.schoolcloudy.web.mvc.controllers;
-
+/*
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,10 +28,10 @@ public class SchoolController {
 	AdministrativeService administrativeService;
 	@Autowired
 	AdministratorRepository admministratorRepository;
-	
+	*/
 	/*
 	 * Here I indicate that this controller uses the 'SchoolValidator'
-	 */
+	 *//*
 	@InitBinder
 	public void initBinder(WebDataBinder dataBinder) {
 		//dataBinder.setDisallowedFields("fieldName"); could be used to skip error binding for this field
@@ -55,7 +55,7 @@ public class SchoolController {
 		admministratorRepository.addNewPerson(p);
 		admministratorRepository.addNewPerson(p2);
 		admministratorRepository.addNewPerson(p3);
-	*/
+	
 		return "new_school";
 	}
 
@@ -79,4 +79,4 @@ public class SchoolController {
 	}
 
 
-}
+}*/

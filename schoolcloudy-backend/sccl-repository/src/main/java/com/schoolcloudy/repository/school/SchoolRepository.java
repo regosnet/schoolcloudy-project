@@ -1,5 +1,5 @@
 package com.schoolcloudy.repository.school;
-
+/*
 import java.util.List;
 
 import org.springframework.dao.DataAccessException;
@@ -13,3 +13,4 @@ public interface SchoolRepository {
 	List<Faculty> getFaculties() throws DataAccessException;
 	School save(School school) throws DataAccessException;
 }
+*/

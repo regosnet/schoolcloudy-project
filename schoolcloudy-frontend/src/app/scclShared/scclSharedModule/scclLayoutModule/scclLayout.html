@@ -1,13 +1,15 @@
-<sccl-top-navbar></sccl-top-navbar>
-<sccl-left-sidebar></sccl-left-sidebar>
-<sccl-right-sidebar></sccl-right-sidebar>
-<div class="sccl-inner-layout rightSideBarCollapsedL" [ngStyle]="{height: height + 'px', width: width + 'px'}">
-	<div class="row">
-		<div class="col-md-9">
-			<router-outlet></router-outlet>
-		</div>
-		<div class="col-md-3">
-			<sccl-inner-aside-layout></sccl-inner-aside-layout>
+<sccl-top-navbar></sccl-top-navbar> 
+<span *ngIf="main"> 
+	<sccl-left-sidebar></sccl-left-sidebar>
+	<sccl-right-sidebar></sccl-right-sidebar>
+	<div class="sccl-inner-layout rightSideBarCollapsedL" [ngStyle]="{height: height + 'px', width: width + 'px'}">
+		<div class="row">
+			<div class="col-md-9">
+				<router-outlet></router-outlet>
+			</div>
+			<div class="col-md-3">
+				<sccl-inner-aside-layout></sccl-inner-aside-layout>
+			</div>
 		</div>
 	</div>
-</div>
+</span>

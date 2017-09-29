@@ -41,19 +41,22 @@
 							</div>
 						</div>
 						<div class="card-block">
-							<div class="float-sm-left">
+							<div scclSlimScroll [scclSlimScrollOptions]="scrollProperties">
+								<div class="float-sm-left">
 								<table class="table table-bordred table-striped main-table">
 									<thead>
 										<th><input type="checkbox" id="checkall" /></th>
-										<th class="col-title" *ngFor="let colTitle of columnTitle">{{colTitle.title}}</th>
+										<th class="col-title" *ngFor="let setColumn of settings">
+											<span *ngIf="showColTitle">{{setColumn.columnTitle}}</span>
+										</th>
 									</thead>
-									<tbody *ngFor="let data of dataSource">
-										<p *ngIf="!dataSource">No data</p>
-										<tr>
+									<tbody>
+										<p *ngIf="!data">No data received</p>
+										<tr *ngFor="let data of data">
 											<td><input type="checkbox" class="checkthis"/></td>
-											<td *ngFor="let dataTitle of columnTitle">
-												<span *ngFor="let dt of dataTitle.dt">
-													<span>{{data[dt]}}</span>
+											<td *ngFor="let setDataKey of settings">
+												<span *ngFor="let key of setDataKey.dataKey">
+													<span *ngIf="data[key]" (showColTitle)="true">{{data[key]}}</span>
 												</span>
 											</td>
 										</tr>
@@ -66,7 +69,7 @@
 										<th colspan="2">Actions</th>
 									</thead>
 									<tbody>
-										<tr>
+										<tr *ngFor="let data of data">
 											<td>
 												<span data-placement="top" data-toggle="tooltip" title="Edit">
 													<button class="btn btn-primary btn-xs" data-title="Edit"
@@ -86,6 +89,7 @@
 										</tr>
 									</tbody>
 								</table>
+							</div>
 							</div>
 						</div>
 					</div>

@@ -1,5 +1,5 @@
 package com.schoolcloudy.repository.faculty;
-
+/*
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -42,3 +42,4 @@ public class FacultyRepositoryImpl implements FacultyRepository {
 		return jpaFaculty.findAll();
 	}
 }
+*/

@@ -1,6 +1,6 @@
 package com.schoolcloudy.web.configuration;
 
-import javax.annotation.PostConstruct;
+
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,6 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.jdbc.datasource.init.DataSourceInitializer;
-import org.springframework.jdbc.datasource.init.DatabasePopulatorUtils;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 
 @Configuration
@@ -39,14 +38,16 @@ public class DataSourceConfig {
 		DatabasePopulatorUtils.execute(populator , dataSourceForProd());
 	}*/
 	
-	@Bean
+	//@Bean
     public DataSourceInitializer dataSourceInitializer() {
     ResourceDatabasePopulator resourceDatabasePopulator = new ResourceDatabasePopulator();
-    resourceDatabasePopulator.addScript(new ClassPathResource("/data.sql"));
+    resourceDatabasePopulator.addScripts(new ClassPathResource("/sql_files/credential.sql"), 
+    		new ClassPathResource("/sql_files/student.sql"), new ClassPathResource("/sql_files/administrator.sql"));
 
     DataSourceInitializer dataSourceInitializer = new DataSourceInitializer();
     dataSourceInitializer.setDataSource(dataSourceForProd());
     dataSourceInitializer.setDatabasePopulator(resourceDatabasePopulator);
+    dataSourceInitializer.setEnabled(true);
     return dataSourceInitializer;
 }
 	

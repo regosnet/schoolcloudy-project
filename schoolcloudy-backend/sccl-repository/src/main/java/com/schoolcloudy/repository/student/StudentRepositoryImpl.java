@@ -32,7 +32,7 @@ public class StudentRepositoryImpl implements StudentRepository{
 
 	@Override
 	public List<Student> findAllStudent() throws DataAccessException {
-		return studentJpaRepository.findAll();
+		return this.studentJpaRepository.findAll();
 	}
 
 }

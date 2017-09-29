@@ -10,8 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.schoolcloudy.model.entities.Administrator;
 import com.schoolcloudy.model.entities.Student;
-import com.schoolcloudy.model.shared.entities.Faculty;
-import com.schoolcloudy.model.shared.entities.School;
 import com.schoolcloudy.model.shared.entities.User;
 import com.schoolcloudy.repository.credential.CredentialRepository;
 import com.schoolcloudy.repository.staff.AdministratorRepository;
@@ -30,13 +28,13 @@ public class AdministrativeServiceImpl implements AdministrativeService {
 
 	@Autowired
 	private StudentRepository studentRepository;
-
+/*
 	@Override
 	@Transactional(readOnly=true)
 	public List<School> getSchoolInformation() {
 		return null;
 	} 
-
+*/
 	@Override
 	public boolean isAdministratorExist(Administrator administrator) throws DataAccessException {
 		// finds all administrators and compare them to the new administrator using equals and hashcode method
@@ -76,7 +74,7 @@ public class AdministrativeServiceImpl implements AdministrativeService {
 		}
 		return studentRepository.save(student);
 	}
-
+/*
 	@Override
 	public Faculty createNewFaculty(Faculty newFaculty) {
 		// TODO Auto-generated method stub
@@ -88,7 +86,7 @@ public class AdministrativeServiceImpl implements AdministrativeService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+*/
 	@Override
 	public long updateNumberOfFaculty() {
 		// TODO Auto-generated method stub
@@ -114,5 +112,15 @@ public class AdministrativeServiceImpl implements AdministrativeService {
 	@Override
 	public Administrator getAdministratorByIds(long internalId, String externalId) throws DataAccessException {
 		return this.administratorRepository.findOneByIds(internalId, externalId);
+	}
+
+	@Override
+	public List<Student> getStudents() throws DataAccessException {
+		return this.studentRepository.findAllStudent();
+	}
+
+	@Override
+	public List<Administrator> getAdministrators() throws DataAccessException {
+		return this.administratorRepository.findAllAdministrator();
 	}
 }

@@ -14,9 +14,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.schoolcloudy.model.shared.entities.Faculty;
-import com.schoolcloudy.model.shared.entities.School;
 import com.schoolcloudy.model.shared.entities.User;
+
 
 
 
@@ -31,7 +30,7 @@ import com.schoolcloudy.model.shared.entities.User;
 	@AttributeOverride(name="hobbies", column=@Column(name="STUDENT_HOBBIES"))
 })
 public class Student extends User implements Serializable{
-
+/*
 	@ManyToMany
 	@JoinTable(name="STUDENT_PARENT", 
 		joinColumns= {
@@ -70,10 +69,10 @@ public class Student extends User implements Serializable{
 			}
 	)
 	private School school;
-	
+	*/
 	
 	public Student() {}
-	
+	/*
 	public Faculty getFaculty() {
 		return faculty;
 	}
@@ -89,4 +88,17 @@ public class Student extends User implements Serializable{
 	public void setStudentParent(List<Parent> studentParent) {
 		this.studentParent = studentParent;
 	}
+*/
+
+	@Override
+	public String toString() {
+		return "Student [getInternalId()=" + getInternalId() + ", getExternalId()=" + getExternalId()
+				+ ", getFirstName()=" + getFirstName() + ", getLastName()=" + getLastName() + ", getMiddleName()="
+				+ getMiddleName() + ", getDateOfBirth()=" + getDateOfBirth() + ", getContact()=" + getContact()
+				+ ", getGender()=" + getGender() + ", getStartDate()=" + getStartDate() + ", getEndDate()="
+				+ getEndDate() + ", getCredential()=" + getCredential() + ", getUser()=" + getUser() + ", getStatus()="
+				+ getStatus() + ", getLanguage()=" + getLanguage() + ", getClass()=" + getClass() + ", hashCode()="
+				+ hashCode() + ", toString()=" + super.toString() + "]";
+	}
+	
 }

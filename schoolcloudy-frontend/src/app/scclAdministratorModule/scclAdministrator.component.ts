@@ -23,12 +23,6 @@ export class ScclAdministratorComponent implements OnInit {
                 private translate: TranslateService,
                 private _administratorService: ScclAdmininstratorService,
                 private _scclGlobalState: ScclGlobalState) {
-
-        this._administratorService.getAdministrator().subscribe((response) => {
-            console.log(response);
-        });
-
-        this._scclGlobalState.loggedIn.subscribe(res => console.log(res));
     }
 
     ngOnInit() {

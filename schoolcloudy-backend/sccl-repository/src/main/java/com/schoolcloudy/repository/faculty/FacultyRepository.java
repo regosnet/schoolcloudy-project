@@ -1,5 +1,5 @@
 package com.schoolcloudy.repository.faculty;
-
+/*
 import java.util.List;
 
 import org.springframework.dao.DataAccessException;
@@ -12,3 +12,4 @@ public interface FacultyRepository {
 	Faculty findAFaculty(Long id) throws DataAccessException;
 	List<Faculty> findAll() throws DataAccessException;
 }
+*/

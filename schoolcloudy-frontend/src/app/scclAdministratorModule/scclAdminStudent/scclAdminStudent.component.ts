@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ScclGlobalState } from '../../scclGlobalState';
 import { Administrator } from '../../scclShared/scclModels/administrator/administrator';
+import { ScclAdmininstratorService } from '../scclAdministrator.service';
 
 @Component({
     selector: 'sccl-admin-student',
@@ -10,44 +11,30 @@ import { Administrator } from '../../scclShared/scclModels/administrator/adminis
 })
 export class ScclAdminStudentComponent implements OnInit {
 
-    private columnTitle;
+    private settings;
     private data;
     private tableName = 'Students';
     private tableSchema;
 
-    constructor(private translate: TranslateService, private _scclGlobalState: ScclGlobalState) {
+    constructor(private translate: TranslateService,
+            private _scclGlobalState: ScclGlobalState,
+            private _administratorService: ScclAdmininstratorService) {
         this._scclGlobalState.loggedIn.subscribe(res => console.log(res));
     }
 
     ngOnInit(): void {
-        this.columnTitle =
+        this.settings =
             [
-             {title: 'ID', dt: ['externalId']},
-             {title: 'Name', dt: ['firstName', 'lastName']},
-             {title: 'UserName', dt: ['username']},
-             {title: 'Status', dt: ['status']},
-             {title: 'Address', dt: ['houseNo', 'street']}
+             {columnTitle: 'ID', dataKey: ['externalId']},
+             {columnTitle: 'Name', dataKey: ['firstName', 'lastName']},
+             {columnTitle: 'Email', dataKey: ['email']},
+             {columnTitle: 'Address', dataKey: ['street', 'houseNumber', 'city']},
+             {columnTitle: 'Username', dataKey: ['username']},
+             {columnTitle: 'Gender', dataKey: ['gender']},
              ];
         this.tableSchema = this.setDataSchema();
 
-        this.data = [
-                     {
-                         externalId: 'SM0989',
-                         firstName: 'Ihechukwudere',
-                         lastName: 'Okoroego',
-                         status: 'Student',
-                         credential: {username: '@Ihechukwudere'},
-                         contact: {houseNo: 102, street: 'Lilly Street'}
-                     },
-                     {
-                         externalId: 'SM898',
-                         firstName: 'Rolands',
-                         status: 'Student',
-                         lastName: 'Wilsonify',
-                         credential: {username: '@wilson'},
-                         contact: {houseNo: 3, street: 'Adams Street'}
-                      }
-                    ];
+        this.data = this._administratorService.getStudents();
     }
 
     setDataSchema() {

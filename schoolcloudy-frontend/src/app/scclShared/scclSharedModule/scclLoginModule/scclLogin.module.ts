@@ -1,26 +1,17 @@
 import { NgModule } from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
 import { ScclLoginComponent } from './scclLogin.component';
 import { ScclLoginService } from './scclLogin.service';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { AppTranslationModule } from '../../../scclTranslatingModule';
 import { ScclSharedModule } from '../../scclShared.module';
-
-const routes: Routes = [
-   {path: '', component: ScclLoginComponent}
-];
+import { ScclLayoutModule } from '../scclLayoutModule/scclLayout.module';
+import { ScclLoginRouting } from './scclLogin.routing';
 
 @NgModule({
     imports: [
-              RouterModule.forChild(routes),
               ScclSharedModule.forRoot(),
-              CommonModule,
-              AppTranslationModule,
-              ReactiveFormsModule,
-              FormsModule
+              ScclLoginRouting,
+              ScclLayoutModule
               ],
-    exports: [RouterModule],
+    exports: [],
     declarations: [
     ScclLoginComponent
   ],
