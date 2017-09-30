@@ -1,5 +1,5 @@
 package com.schoolcloudy.model.entities;
-/*
+
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.CascadeType;
@@ -11,8 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.schoolcloudy.model.shared.entities.Faculty;
-import com.schoolcloudy.model.shared.entities.School;
+
 import com.schoolcloudy.model.shared.entities.Staff;
 
 
@@ -24,7 +23,7 @@ import com.schoolcloudy.model.shared.entities.Staff;
 	@AttributeOverride(name="externalId", column=@Column(name="ACADEMIC_STAFF_ID"))
 })
 public class AcademicStaff extends Staff{
-
+/*
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinTable(name="SCHOOL_STAFF", 
 	joinColumns={
@@ -40,7 +39,7 @@ public class AcademicStaff extends Staff{
 	@OneToOne
 	private Faculty faculty;
 	
-	public AcademicStaff(){}
+	
 
 	public School getSchool() {
 		return school;
@@ -50,6 +49,6 @@ public class AcademicStaff extends Staff{
 		this.school = school;
 	}
 	
-	
+	*/
+	public AcademicStaff(){}
 }
-*/

@@ -42,7 +42,9 @@ public class DataSourceConfig {
     public DataSourceInitializer dataSourceInitializer() {
     ResourceDatabasePopulator resourceDatabasePopulator = new ResourceDatabasePopulator();
     resourceDatabasePopulator.addScripts(new ClassPathResource("/sql_files/credential.sql"), 
-    		new ClassPathResource("/sql_files/student.sql"), new ClassPathResource("/sql_files/administrator.sql"));
+    		new ClassPathResource("/sql_files/student.sql"), 
+    		new ClassPathResource("/sql_files/academic_staff.sql"),
+    		new ClassPathResource("/sql_files/administrator.sql"));
 
     DataSourceInitializer dataSourceInitializer = new DataSourceInitializer();
     dataSourceInitializer.setDataSource(dataSourceForProd());
