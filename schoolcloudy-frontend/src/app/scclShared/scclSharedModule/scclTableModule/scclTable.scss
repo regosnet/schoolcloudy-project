@@ -2,11 +2,21 @@
 
 .sccl-table-container {
 	font-size: 0.9em;
-	border: red 1px solid;
 	position: relative;
+	z-index: 10;
 	right: -70px;
 	top: 50px;
 	.sccl-table {
+	
+		.card {
+  			position: relative;
+  			display: inline-flex;
+  			flex-direction: column;
+  			z-index: 2;
+  			background-color: $card-bg;
+  			border: $card-border-width solid white;
+  			@include border-radius($card-border-radius);
+}
 	
 		.right-side-table-head {
 			background: #ccc;
@@ -21,7 +31,6 @@
 					border: 0;
 					color: green;
 				}
-				
 			}
 			
 			.delete-selected-items-btn  {
@@ -41,7 +50,7 @@
 					line-height: 8px;
 					text-align: center;
 					margin: 0;
-					padding: 5px;
+					padding: 0;
 					background: none;
 					border: 0;
 				}

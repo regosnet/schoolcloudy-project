@@ -16,8 +16,6 @@ import { Administrator } from '../scclShared/scclModels/administrator/administra
 export class ScclAdministratorComponent implements OnInit {
 
     private administrator: Administrator;
-    private internalId = sessionStorage.getItem('int_id');
-    private externalId = sessionStorage.getItem('ext_id');
 
     constructor(private _menuService: ScclMenuService,
                 private translate: TranslateService,
@@ -26,6 +24,9 @@ export class ScclAdministratorComponent implements OnInit {
     }
 
     ngOnInit() {
+        const listOfStudents = this._administratorService.getStudents().subscribe((res) => {
+            this._scclGlobalState.notifyDataChanged('menu.student', res.json());
+        });
         this._menuService.updateMenuByRoutes(<Routes>SCCL_ADMINISTRATOR_MENU);
         this._menuService.updateHeaderMenu(<Routes> SCCL_HEADER_MENU);
     }

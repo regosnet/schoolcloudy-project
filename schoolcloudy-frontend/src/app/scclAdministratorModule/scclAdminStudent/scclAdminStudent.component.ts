@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { ScclGlobalState } from '../../scclGlobalState';
 import { Administrator } from '../../scclShared/scclModels/administrator/administrator';
 import { ScclAdmininstratorService } from '../scclAdministrator.service';
+import { ScclTableService } from '../../scclShared/scclSharedModule/scclTableModule/scclTable.service';
 
 @Component({
     selector: 'sccl-admin-student',
@@ -18,29 +19,22 @@ export class ScclAdminStudentComponent implements OnInit {
 
     constructor(private translate: TranslateService,
             private _scclGlobalState: ScclGlobalState,
-            private _administratorService: ScclAdmininstratorService) {
-        this._scclGlobalState.loggedIn.subscribe(res => console.log(res));
+            private _administratorService: ScclAdmininstratorService,
+            private _scclTableService: ScclTableService) {
+        this._administratorService.getStudents().subscribe((data) => {
+            this._scclTableService.getDataStream().next(data.json());
+        });
     }
 
     ngOnInit(): void {
         this.settings =
             [
-             {columnTitle: 'ID', dataKey: ['externalId']},
+             {columnTitle: 'ID', dataKey: ['internalId']},
              {columnTitle: 'Name', dataKey: ['firstName', 'lastName']},
              {columnTitle: 'Email', dataKey: ['email']},
              {columnTitle: 'Address', dataKey: ['street', 'houseNumber', 'city']},
              {columnTitle: 'Username', dataKey: ['username']},
              {columnTitle: 'Gender', dataKey: ['gender']},
              ];
-        this.tableSchema = this.setDataSchema();
-
-        this.data = this._administratorService.getStudents();
-    }
-
-    setDataSchema() {
-        return [
-                    {title: 'externalId'}, {title: 'firstName'},
-                    {title: 'lastName'}, {title: 'credential'}
-                ];
     }
 }

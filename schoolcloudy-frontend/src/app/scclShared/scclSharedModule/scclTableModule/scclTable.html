@@ -8,12 +8,12 @@
 							<div class="float-sm-left">
 								<h4>{{tableName}}</h4>
 							</div><!-- Table title ends -->
-							<div class="right-side-table-head float-sm-right">
+							<div class="right-side-table-head float-sm-right"> 
 								<!-- Search bar -->
 								<div class="float-sm-right">
 									<div class="input-group input-group-sm">
-										<span class="input-group-addon ion-ios-search-strong"></span><input
-											type="text" class="form-control" placeholder="Search for...">
+										<span class="input-group-addon ion-ios-search-strong"></span>
+										<input type="text" class="form-control" [(ngModel)]="filterKey" placeholder="Search for...">
 									</div>
 								</div>
 	
@@ -51,12 +51,12 @@
 										</th>
 									</thead>
 									<tbody>
-										<p *ngIf="!data">No data received</p>
-										<tr *ngFor="let data of data">
+										<p *ngIf="data?.length == 0">No data received</p>
+										<tr *ngFor="let d of items | scclObjectPipe">
 											<td><input type="checkbox" class="checkthis"/></td>
-											<td *ngFor="let setDataKey of settings">
-												<span *ngFor="let key of setDataKey.dataKey">
-													<span *ngIf="data[key]" (showColTitle)="true">{{data[key]}}</span>
+											<td *ngFor=" let key of settings | scclItemKey">
+												<span *ngFor="let k of key">
+													<span>{{d[k]}}</span>
 												</span>
 											</td>
 										</tr>
@@ -69,7 +69,7 @@
 										<th colspan="2">Actions</th>
 									</thead>
 									<tbody>
-										<tr *ngFor="let data of data">
+										<tr *ngFor="let d of actions">
 											<td>
 												<span data-placement="top" data-toggle="tooltip" title="Edit">
 													<button class="btn btn-primary btn-xs" data-title="Edit"
@@ -95,16 +95,16 @@
 					</div>
 				</div>
 				<div class="clearfix"></div>
-				<nav aria-label="...">
+				<nav aria-label="Page navigation example">
 					<ul class="pagination justify-content-end">
-						<li class="page-item disabled"><span class="page-link">Previous</span>
+						<li [ngClass]="{'page-item disabled': (currentIndex == 1 || pageNumber == 0)}" >
+							<a class="page-link" (click)="prevPage()" tabindex="-1">Previous</a>
 						</li>
-						<li class="page-item"><a class="page-link" href="#">1</a></li>
-						<li class="page-item active"><span class="page-link">
-								2 <span class="sr-only">(current)</span>
-						</span></li>
-						<li class="page-item"><a class="page-link" href="#">3</a></li>
-						<li class="page-item"><a class="page-link" href="#">Next</a>
+						<li *ngFor="let page of pagesIndex"  [ngClass]="{'page-item active': (currentIndex == page)}">
+							<a class="page-link" (click)="setPage(page)">{{page}}</a>
+						</li>
+						<li [ngClass]="{'page=item disabled': (currentIndex == pageNumber || pageNumber == 0)}" >
+							<a class="page-link" (click)="nextPage()">Next</a>
 						</li>
 					</ul>
 				</nav>

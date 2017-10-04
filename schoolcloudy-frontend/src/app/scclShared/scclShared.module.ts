@@ -8,7 +8,7 @@ import {DndModule} from 'ng2-dnd';
 import { ScclSlimScrollDirective } from './scclDirectives/scclSlimScroll/scclSlimScroll.directive';
 import { ScclScrollPositionDirective } from './scclDirectives/scclScrollPosition/scclScrollPosition.directive';
 import { ScclRightSidebarDirective } from './scclDirectives/scclSidebarDirectives/scclRightSidebar.directive';
-import { ScclPngExtPipe } from './scclPipes/scclPngExt.pipe';
+import { ScclPngExtPipe, ScclObjectPipe, ScclItemKey } from './scclPipes/scclPngExt.pipe';
 
 import { ScclMsgCenterService } from './scclSharedModule/scclLayoutModule/scclOuterLayout/scclMsgCenter/scclMsgCenter.service';
 import { ScclMenuService } from './scclSharedService/scclMenuService/scclMenuService';
@@ -33,7 +33,9 @@ const SCCL_COMPONENTS = [
 ];
 
 const SCCL_PIPES = [
-    ScclPngExtPipe
+    ScclPngExtPipe,
+    ScclObjectPipe,
+    ScclItemKey
 ];
 
 @NgModule({
