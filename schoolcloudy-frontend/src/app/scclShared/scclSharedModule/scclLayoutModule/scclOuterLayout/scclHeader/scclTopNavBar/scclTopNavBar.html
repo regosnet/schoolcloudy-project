@@ -40,7 +40,7 @@
 	    			<span class="logoSc" translate>{{menuItems.main.logoSection.t1}}</span><span class="logoCl" translate>{{menuItems.main.logoSection.t2}}</span>
 	    			<img alt="{{menuItems.main.logoSection.logoName}}" src="{{ ( 'scclLogo/sccl_logo' | scclPngExt ) }}">
 	  			</a>
-	  			<a href (click)="toggleMenu()" class="collapse-menu-link ion-navicon"></a>
+	  			<a href (click)="toggleMenu()" class="collapse-menu-link ion-navicon" scclLayoutDirective></a>
 			</div>
 		
 			<div *ngIf="menuItems.main.search">

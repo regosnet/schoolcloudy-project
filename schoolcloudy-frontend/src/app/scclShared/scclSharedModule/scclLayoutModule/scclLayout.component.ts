@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit, Input} from '@angular/core';
-import { scclLayoutSizes } from './scclLayout.constants';
+
 import { ScclGlobalState } from '../../../scclGlobalState';
+import { ScclLayoutService } from './scclLayout.service';
 
 @Component({
     selector: 'sccl-layout',
@@ -14,24 +15,12 @@ export class ScclLayoutComponent implements OnInit {
 
     @Input()
     private main = false;
-    constructor() {
+    constructor(private _scclLayoutService: ScclLayoutService) {
     }
     ngOnInit(): void {
-        this.windowResizer();
-    }
-
-    @HostListener('window:resize')
-    getCurrentWindowSize() {
-       this.windowResizer();
-    }
-
-   private windowResizer(): void {
-        if ($(window).width() <= scclLayoutSizes.resWidthHideSidebar) {
-            this.width = ($(window).width() - 10);
-        }else if ($(window).width() <= scclLayoutSizes.resWidthCollapseSidebar) {
-            this.width = ($(window).width() - 70);
-        }else {
-            this.width = ($(window).width() - 200);
-        }
+        this._scclLayoutService.windowResizer(1);
+        this._scclLayoutService.getWidth().subscribe((width) => {
+            this.width = width;
+        });
     }
 }

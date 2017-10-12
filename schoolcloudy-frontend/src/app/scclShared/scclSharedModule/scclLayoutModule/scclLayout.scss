@@ -4,16 +4,17 @@
 	z-index: -1;
 	margin-left: 65px;
 	position: fixed;
-	border: 1px solid green;
 	top: 75px;
+	transition: .5s;
 	sccl-inner-aside-layout {
-		width: 300px;
+		width: 200px;
 		float:right;
 	}
 }
 
 .rightSideBarCollapsedL {
 	margin-left: 190px;
+	transition: .5s;
 }
 
 @media screen and (max-width: $resXXL - 80) {
@@ -30,4 +31,3 @@
 		margin-left: 5px;
 	}	
 }
-

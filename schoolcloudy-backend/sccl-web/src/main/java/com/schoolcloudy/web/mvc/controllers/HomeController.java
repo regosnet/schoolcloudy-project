@@ -85,18 +85,27 @@ public class HomeController {
 		administrator.setGender(Gender.Male);
 		administrator.setStartDate(new Date()); // use a function that takes in a date in string format and return a date object
 		administrator.setEndDate(new Date());
+		administrator.setLanguage("English");
+		administrator.setStatus("Administrator");
 		administrator.setDateOfBirth(new Date());
 		return (Administrator) administrator;
 	}
 	
 	public Student addNewStudent() {
 		User student = new Student();
-		student.setFirstName("Raphel");
-		student.setLastName("Igwenna");
-		student.setMiddleName("Green");
-		student.setGender(Gender.Male);
+		student.setFirstName("Adanna");
+		student.setLastName("Vincent");
+		student.setMiddleName("Eucaria");
+		student.setGender(Gender.Female);
+		student.setLanguage("english");
+		student.setStatus("Student");
 		student.setContact(new Contact());
-		student.getContact().setCity("Sweden");
+		student.getContact().setCity("United Kingdom");
+		student.getContact().setEmail(student.getFirstName()+ "." +student.getLastName());
+		student.getContact().setHouseNumber(213);
+		student.getContact().setStreet("Bridge Street");
+		student.getContact().setState("London");
+		student.getContact().setTelephone("+032345453634");
 		student.setDateOfBirth(new Date());
 		student.setStartDate(new Date());
 		student.setEndDate(new Date());

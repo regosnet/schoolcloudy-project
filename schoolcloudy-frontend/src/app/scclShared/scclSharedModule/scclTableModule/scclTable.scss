@@ -1,91 +1,19 @@
 @import '../../../../scclStyles';
 
-.sccl-table-container {
-	font-size: 0.9em;
+.navbar {
+	color: $sccl-light-gray;
+	left: 13px;
+	top: 5px;
+	background: $sccl-dark-gray;
+	border: 2px solid $sccl-dark-gray;
+	padding-top: 1.5px;
+	padding-bottom: 0; 
+}
+.sccl-table {
+	background: $sccl-bright-white;
 	position: relative;
-	z-index: 10;
-	right: -70px;
-	top: 50px;
-	.sccl-table {
-	
-		.card {
-  			position: relative;
-  			display: inline-flex;
-  			flex-direction: column;
-  			z-index: 2;
-  			background-color: $card-bg;
-  			border: $card-border-width solid white;
-  			@include border-radius($card-border-radius);
+	left: 13px;
+	top: 3px;
+	width: 100%;
 }
 	
-		.right-side-table-head {
-			background: #ccc;
-			border-radius: 3px;
-			height: 30px;
-			.add-new-item-btn, .delete-selected-items-btn {
-				button {
-					margin-right: 40px;
-					height: 30px;
-					background: none;
-					padding: 0 10px;
-					border: 0;
-					color: green;
-				}
-			}
-			
-			.delete-selected-items-btn  {
-				button {
-					margin-right: .5px;
-					height: 30px;
-					background: none;
-					padding: 0 10px;
-					color: red;
-				}
-			}
-		}
-		
-		.card-block {
-			table.actions {
-				button {
-					line-height: 8px;
-					text-align: center;
-					margin: 0;
-					padding: 0;
-					background: none;
-					border: 0;
-				}
-				button.btn-primary {
-					color: green;
-				}
-					
-				button.btn-danger {
-					color: red;
-				}
-				tbody {
-					tr {
-						margin: 0;
-						padding: 0;
-						height: 20px;
-					}
-				}
-			}
-		}
-	}
-}
-
-
-@media screen and (max-width: $resXXL + 300) {
-	.sccl-table-container {
-		right: -20px;
-		.card-block {
-			table.main-table {
-				thead {
-					th.col-title {
-						
-					}
-				} //thead*
-			} // main-table class*
-			
-		} // card-block class*
-	}
-}

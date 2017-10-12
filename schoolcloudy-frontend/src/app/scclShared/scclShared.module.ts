@@ -14,6 +14,8 @@ import { ScclMsgCenterService } from './scclSharedModule/scclLayoutModule/scclOu
 import { ScclMenuService } from './scclSharedService/scclMenuService/scclMenuService';
 import { ScclPreloaderService } from './scclSharedService/scclPreloaderService/scclPreloader';
 import { TranslateService } from '@ngx-translate/core';
+import { ScclLayoutDirective } from './scclDirectives/scclLayoutDirectives/scclLayout.directive';
+import { ScclTableDirective } from './scclDirectives/scclTableDirectives/scclTable.directive';
 
 
 
@@ -26,7 +28,9 @@ const SCCL_SHARED_SERVICE = [
 const SCCL_DIRECTIVES = [
     ScclScrollPositionDirective,
     ScclRightSidebarDirective,
-    ScclSlimScrollDirective
+    ScclSlimScrollDirective,
+    ScclLayoutDirective,
+    ScclTableDirective
 ];
 
 const SCCL_COMPONENTS = [

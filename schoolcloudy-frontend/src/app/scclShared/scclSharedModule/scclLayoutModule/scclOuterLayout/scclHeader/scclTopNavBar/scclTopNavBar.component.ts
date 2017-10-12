@@ -38,7 +38,6 @@ export class ScclTopNavBarComponent implements OnInit {
     public toggleMenu() {
         this.isMenuCollapsed = !this.isMenuCollapsed;
         this._scclState.notifyDataChanged('menu.isCollapsed', this.isMenuCollapsed);
-        $('.sccl-inner-layout').toggleClass('rightSideBarCollapsedL');
         return false;
       }
 

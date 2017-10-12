@@ -16,6 +16,7 @@ import {
     ScclTopNavBarComponent
     } from './scclOuterLayout';
 import {ScclAdminDashboardAsideComponent} from './scclInnerLayout';
+import { ScclLayoutService } from './scclLayout.service';
 
 
 
@@ -41,6 +42,6 @@ const SCCL_LAYOUT_COMPONENTS =
                    ScclLayoutComponent],
     exports: [ScclLayoutComponent, ScclSharedModule],
 
-    providers: []
+    providers: [ScclLayoutService]
 })
 export class ScclLayoutModule {}
