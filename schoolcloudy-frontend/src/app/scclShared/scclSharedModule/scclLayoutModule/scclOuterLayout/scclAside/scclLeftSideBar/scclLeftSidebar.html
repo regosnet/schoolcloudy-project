@@ -1,5 +1,10 @@
 <aside class="al-sidebar" sidebarResize>
   <sccl-menu [menuHeight]="menuHeight"
            [sidebarCollapsed]="isMenuCollapsed"
-           (expandMenu)="menuExpand()"></sccl-menu>  
+           (expandMenu)="menuExpand()"></sccl-menu> 
+           <div class="left-side-footer">
+				<i *ngIf="isMenuCollapsed" class="ion-android-menu"></i>  
+				<i *ngIf="!isMenuCollapsed"class="ion-android-settings"></i>  
+				<i *ngIf="!isMenuCollapsed"class="ion-android-exit"></i>           	
+           </div>
 </aside>

@@ -1,4 +1,20 @@
 <nav class="navbar navbar-inverse">
-  <h4>{{tableTitle}}</h4>
+  <div class="bar-title">
+  	<h4>{{tableTitle}}</h4>
+  </div>
+  	<div class="table-controls">
+  		<div class="input-group input-group-sm">
+			<i class="ion-plus-round" matTooltip="Add New" [matTooltipDisabled]="toolTipActive"  
+			[matTooltipPosition]="'above'" [matTooltipHideDelay]="1" [matTooltipClass]="{'mat-tooltip': showExtraClass}"></i>
+			
+			<i class="ion-refresh" matTooltip="Refresh" [matTooltipDisabled]="toolTipActive"  
+			[matTooltipPosition]="'above'" [matTooltipHideDelay]="1" [matTooltipClass]="{'mat-tooltip': showExtraClass}"></i>
+			
+			<i class="ion-trash-a" matTooltip="Delete all"  [matTooltipDisabled]="toolTipActive"  
+			[matTooltipPosition]="'above'" [matTooltipHideDelay]="1" [matTooltipClass]="{'mat-tooltip': showExtraClass}"></i>
+			<input type="tel" class="form-control" aria-label="search bar" placeholder="Search {{tableTitle}}">
+		</div>
+	</div>
+	
 </nav>
 <div class="sccl-table" scclTableDirective></div>

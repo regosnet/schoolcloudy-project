@@ -9,7 +9,7 @@ import { ScclGlobalState } from './scclGlobalState';
   styleUrls: ['./scclMain.scss']
 })
 export class ScclMainComponent implements AfterViewInit {
-    isMenuCollapsed: boolean = false;
+    isMenuCollapsed = false;
 
   constructor(private _scclSpinner: ScclPreloaderService, private _scclState: ScclGlobalState) {
       this._scclState.subscribe('menu.isCollapsed', (isCollapsed) => {

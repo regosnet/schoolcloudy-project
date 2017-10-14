@@ -4,6 +4,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AppTranslationModule } from '../scclTranslatingModule';
 import {DndModule} from 'ng2-dnd';
+import 'hammerjs';
 
 import { ScclSlimScrollDirective } from './scclDirectives/scclSlimScroll/scclSlimScroll.directive';
 import { ScclScrollPositionDirective } from './scclDirectives/scclScrollPosition/scclScrollPosition.directive';
@@ -16,13 +17,15 @@ import { ScclPreloaderService } from './scclSharedService/scclPreloaderService/s
 import { TranslateService } from '@ngx-translate/core';
 import { ScclLayoutDirective } from './scclDirectives/scclLayoutDirectives/scclLayout.directive';
 import { ScclTableDirective } from './scclDirectives/scclTableDirectives/scclTable.directive';
+import { ScclGlobalState } from '../scclGlobalState';
 
 
 
 const SCCL_SHARED_SERVICE = [
     ScclMenuService,
     ScclPreloaderService,
-    ScclMsgCenterService
+    ScclMsgCenterService,
+    ScclGlobalState
 ];
 
 const SCCL_DIRECTIVES = [
@@ -51,7 +54,7 @@ const SCCL_PIPES = [
       AppTranslationModule,
       DndModule.forRoot(),
       ReactiveFormsModule,
-      FormsModule,
+      FormsModule
     ],
     declarations: [
       ...SCCL_PIPES,

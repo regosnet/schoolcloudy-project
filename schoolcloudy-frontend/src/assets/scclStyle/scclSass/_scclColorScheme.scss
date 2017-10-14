@@ -9,6 +9,12 @@ $sccl-sky-blue: #66CCFF;
 $sccl-darken-blue: shade($sccl-sky-blue, 40%);
 $sccl-normal-red: red !default;
 $sccl-dark-red: shade($sccl-normal-red, 15%);
+$sccl-light-red: tint($sccl-normal-red, 15%);
+$sccl-lighter-red: tint($sccl-normal-red, 40%);
+
+$sccl-normal-green: rgb(0, 255, 0);
+$sccl-light-green: tint($sccl-normal-green, 15%);
+
 
 $disabled: rgba(255, 255, 255, 0.4); // color for disabled state
 $disabled-bg: tint($disabled, 15%); // background color for disable state

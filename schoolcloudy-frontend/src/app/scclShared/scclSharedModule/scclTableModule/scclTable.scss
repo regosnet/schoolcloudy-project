@@ -6,8 +6,47 @@
 	top: 5px;
 	background: $sccl-dark-gray;
 	border: 2px solid $sccl-dark-gray;
+	width: 100%;
 	padding-top: 1.5px;
-	padding-bottom: 0; 
+	padding-bottom: 0;
+	div.bar-title {
+		float: left;
+	}
+	div.table-controls {
+		position: absolute;
+		right: 3px;
+		top: 3px;
+		width: 30%;
+		i {
+			padding: 0 10px;
+			border: 0.5px solid $sccl-light-gray;
+			margin-right: 5px;
+			border-radius: 5px;
+		}
+		i.ion-trash-a {
+			color: $sccl-light-red;
+			&:hover {
+				background: $sccl-light-gray;
+				color: $sccl-light-red;
+			}
+		}
+		i.ion-plus-round {
+			color: $sccl-light-green;
+			&:hover {
+				background: $sccl-light-gray;
+				color: $sccl-light-green;
+			}
+		}
+		input {
+			background: $sccl-dark-gray;
+			border: 0.5px solid $sccl-light-gray;
+			border-radius: 5px;
+			&:focus {
+				background: $sccl-light-gray;
+				color: $sccl-bright-white;
+			}
+		}
+	}
 }
 .sccl-table {
 	background: $sccl-bright-white;
@@ -15,5 +54,23 @@
 	left: 13px;
 	top: 3px;
 	width: 100%;
+}
+
+/deep/ .mat-tooltip {
+    background-color: rgba(45, 54, 53, 0.4); 
+    width: 60px;
+    position: relative;
+    text-align: center;
+    bottom: -5px;
+    margin-bottom: 15px;  
+    &::after {
+    	content: "\f0d7";
+    	font-family: FontAwesome;
+    	font-size: 20px;
+    	color: rgba(45, 54, 53, 0.4); 
+    	position: absolute;
+    	bottom: -16px;
+    	left: 20px;
+    }
 }
 	

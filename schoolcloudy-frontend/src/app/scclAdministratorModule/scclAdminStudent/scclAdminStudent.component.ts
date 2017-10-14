@@ -13,8 +13,6 @@ import { DatePipe } from '@angular/common';
 })
 export class ScclAdminStudentComponent implements OnInit {
 
-    private columnConfig;
-    private data;
     private tableTitle = 'Students';
     private tableSchema;
 
@@ -25,17 +23,18 @@ export class ScclAdminStudentComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.columnConfig = this.getColumnConfigurations();
-        this._administratorService.getStudents().subscribe((data) => {
-            this._scclTableService.getTablePackStream().next([{data: data.json()}, {columnConfig: this.columnConfig}]);
-        });
+            if (this._scclTableService.getDataSource().length === 0) {
+                this.tableSchema = this.getColumnConfigurations();
+                this._administratorService.getStudents().subscribe((data) => {
+                    this._scclTableService.getTableStream().next([{data: data.json()}, {tableSchema: this.tableSchema}]);
+                });
+            }
     }
 
     getColumnConfigurations() {
         return [
                 {title: 'ID', field: 'externalId', width: 85},
                 {title: 'Name', field: 'name',  mutator: (cell, d) => d.firstName + ' ' + d.lastName, width: 135},
-                {title: 'Status', field: 'status', responsive: 3, width: 65},
                 {title: 'Department', field: 'department', width: 165},
                 {title: 'Faculty', field: 'faculty', width: 129},
                 {title: 'Username', field: 'credential', formatter: (d) => d.getValue().username, width: 135},
@@ -44,7 +43,8 @@ export class ScclAdminStudentComponent implements OnInit {
                 {title: 'Email', field: 'contact', formatter: (d) => d.getValue().email, width: 135},
                 {title: 'Enrolment Date', field: 'dateOfBirth', width: 135, sorter: 'date',
                  sorterParams: {format: 'MMM-dd-yyyy'},
-                 formatter: (cell) => this.datePipe.transform(cell.getValue(), 'MMM dd, yyyy')}
+                 formatter: (cell) => this.datePipe.transform(cell.getValue(), 'MMM dd, yyyy')},
+                 {title: 'Status', field: 'status', responsive: 3, width: 65}
           ];
     }
 }

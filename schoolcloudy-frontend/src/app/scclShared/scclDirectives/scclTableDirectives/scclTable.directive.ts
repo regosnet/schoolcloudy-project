@@ -11,11 +11,12 @@ export class ScclTableDirective {
 
 
     constructor(private _scclTableService: ScclTableService) {
-        
+
     }
 
     @HostListener('window:resize')
     getCurrentWindowSize() {
-        //console.log($('.sccl-table').width())
+        //$('.sccl-table').tabulator('addColumn', {title:'internalId', field:'internalId'}, true, 'IntId');
+        //$("#example-table").tabulator("deleteColumn", "name");
     }
 }
