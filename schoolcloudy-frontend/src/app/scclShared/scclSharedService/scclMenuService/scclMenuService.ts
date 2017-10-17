@@ -150,4 +150,14 @@ export class ScclMenuService {
       });
       return convertedItems;
   }
+
+  public getCountries(): Array<object> {
+      return [
+              {language: 'English', abbrv: 'gb'},
+              {language: 'Latviešu', abbrv: 'lv'},
+              {language: 'Français', abbrv: 'fr'},
+              {language: 'Deutsche', abbrv: 'de'},
+              {language: 'عربى', abbrv: 'eg'},
+          ];
+  }
 }

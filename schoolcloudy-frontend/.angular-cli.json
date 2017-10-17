@@ -27,7 +27,7 @@
 		"../node_modules/font-awesome/css/font-awesome.min.css",
 		"../node_modules/jquery-ui-dist/jquery-ui.min.css",
 		"../node_modules/datatables.net-dt/css/jquery.dataTables.css",
-		"../node_modules/jquery.tabulator/dist/css/tabulator.min.css",
+		"../node_modules/jquery.tabulator/dist/css/semantic-ui/tabulator_semantic-ui.min.css",
         "scclStyles.scss"
       ],
       "scripts": [

@@ -1,8 +1,7 @@
-import { Component, Input, OnInit, AfterViewInit, Output } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit, Output, Injector, ApplicationRef, ComponentFactoryResolver } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { ScclTableService } from './scclTable.service';
-import { ScclGlobalState } from "../../../scclGlobalState";
 
 
 @Component({
@@ -17,17 +16,12 @@ export class ScclTableComponent implements OnInit, AfterViewInit {
     showExtraClass = true;
     toolTipActive = false;
 
-    constructor(private _scclTableService: ScclTableService, private _scclGlobalState: ScclGlobalState) {
-        this._scclGlobalState.subscribe('menu.isDataChanged', (isDataChanged) => {
-            console.log(isDataChanged)
-            if (isDataChanged) {
-                this.getTableDataAndSchema();
-            }
-        });
+    constructor(private _scclTableService: ScclTableService) {
     }
 
     ngOnInit() {
         this.getTableDataAndSchema();
+        $( window ).resize(() => $('.sccl-table').tabulator('redraw', true));
     }
     ngAfterViewInit() {}
 
@@ -35,9 +29,9 @@ export class ScclTableComponent implements OnInit, AfterViewInit {
         $('#addItemModal').appendTo('body');
     }
 
-    private getTableProperties(data: any, columnTitle: any) {
+    private getTableProperties(data: any, columns: any) {
         return {
-            height: this._scclTableService.setTableHeight(),
+            height: () => $(window).height() - 120,
             data: data,
             placeholder: 'No Data Available',
             pagination: 'local',
@@ -47,12 +41,11 @@ export class ScclTableComponent implements OnInit, AfterViewInit {
             resizableColumns: false,
             //responsiveLayout: true,
             //footerElement: $(`<div class='tabulator-footer' (click)="setCellIcon()"><button>Custom Button</button></div>`),
-            columns: columnTitle
+            columns: this._scclTableService.getTableSchema()
         };
     }
 
     private initializeTable(tableConfig: Array<object>) {
-        console.log(tableConfig);
         if (tableConfig.length !== 0) {
             const data = tableConfig[0]['data'];
             const columns: Array<object> = tableConfig[1]['tableSchema'];

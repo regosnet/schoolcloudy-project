@@ -1,3 +1,4 @@
 @import 'assets/scclStyle/scclSass/scclStyleConfig';
 @import 'assets/scclStyle/scclSass/preloader/_preloader.scss';
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+button:focus {outline:0;}

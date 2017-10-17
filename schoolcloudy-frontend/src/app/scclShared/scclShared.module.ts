@@ -3,6 +3,16 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AppTranslationModule } from '../scclTranslatingModule';
+
+//Modules from https://material.angular.io/
+import {MatTooltipModule} from '@angular/material';
+import {MatTabsModule} from '@angular/material';
+import {MatCardModule} from '@angular/material';
+import {MatButtonModule} from '@angular/material';
+import {MatMenuModule} from '@angular/material';
+import {MatIconModule} from '@angular/material';
+
+
 import {DndModule} from 'ng2-dnd';
 import 'hammerjs';
 
@@ -12,8 +22,7 @@ import { ScclRightSidebarDirective } from './scclDirectives/scclSidebarDirective
 import { ScclPngExtPipe, ScclObjectPipe, ScclItemKey } from './scclPipes/scclPngExt.pipe';
 
 import { ScclMsgCenterService } from './scclSharedModule/scclLayoutModule/scclOuterLayout/scclMsgCenter/scclMsgCenter.service';
-import { ScclMenuService } from './scclSharedService/scclMenuService/scclMenuService';
-import { ScclPreloaderService } from './scclSharedService/scclPreloaderService/scclPreloader';
+import { ScclMenuService, ScclPreloaderService } from './scclSharedService';
 import { TranslateService } from '@ngx-translate/core';
 import { ScclLayoutDirective } from './scclDirectives/scclLayoutDirectives/scclLayout.directive';
 import { ScclTableDirective } from './scclDirectives/scclTableDirectives/scclTable.directive';
@@ -54,7 +63,12 @@ const SCCL_PIPES = [
       AppTranslationModule,
       DndModule.forRoot(),
       ReactiveFormsModule,
-      FormsModule
+      FormsModule,
+      MatTooltipModule,
+      MatTabsModule,
+      MatCardModule,
+      MatMenuModule,
+      MatIconModule
     ],
     declarations: [
       ...SCCL_PIPES,
@@ -74,6 +88,11 @@ const SCCL_PIPES = [
          CommonModule,
          ReactiveFormsModule,
          FormsModule,
+         MatTooltipModule,
+         MatTabsModule,
+         MatCardModule,
+         MatMenuModule,
+         MatIconModule
     ]
 })
 export class ScclSharedModule {

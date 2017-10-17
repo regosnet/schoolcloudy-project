@@ -1,8 +1,11 @@
 @import '../../../../../../../scclStyles';
 
-:host /deep/ {
-  .sccl-right-sidebar-hidden {
-    width: $sidebar-width;
+@mixin setFont() {
+	font-size: .80rem;
+}
+
+.sccl-right-sidebar-hidden {
+	width: $sidebar-width;
     right:0;
     transform: translateX(200px);
     transition: .3s;
@@ -13,10 +16,10 @@
     height: 100%;
     position: fixed;
     z-index: 1;
-  }
+}
 
-  .sccl-right-sidebar {
-    width: 236px;
+.sccl-right-sidebar {
+	width: 236px;
     transform: translateX(0px);
     transition: .3s;
     top: $top-height;
@@ -26,37 +29,81 @@
     background-color: $sccl-dark-gray;
     height: 100%;
     position: fixed;
-  }
- 
+    opacity: 0.9;
+    .sccl-tab-group {
+    	::ng-deep .mat-tab-label {
+			min-width: 75px;
+			width: 75px;
+			color: $sccl-bright-white;
+			&:active {
+				
+			}
+			&:focus {
+				background: $sccl-light-gray;	
+			}
+			i {
+				color: $sccl-bright-white;
+				font-size: 24px;
+			}
+		}
+		
+		// settings tab content
+		.settings-tab-content {
+			& > div {
+				@include setFont();
+			}
+			.language {
+				button {
+					margin-bottom: 20px;
+				}
+			}
+		}
+		
+    }//sccl-tab-group end
+}	
+
+::ng-deep .language-menu {
+		position: absolute;
+		z-index: 100;
+		width: 230px !important;
+		top: 26px;
+		left: 3px;
+		button {
+			border-bottom: 1px solid $sccl-light-gray !important;
+			border-right: 1px solid $sccl-light-gray !important;
+			float: left;
+			display: inline !important;
+			width: 50% !important;
+			&:last-child {
+				border: none;
+			}	
+			i {
+				@include setFont();
+			}
+			span {
+				@include setFont();
+			}
+		}
 }
 
-.nav.nav-tabs {
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  border-right: $sccl-dark-gray solid 11px;
-  border-left: $sccl-dark-gray solid 11px;
-  border-bottom: $sccl-bright-white solid 1px;
-  border-top: $sccl-bright-white solid 1px;
-  background-color: $sccl-dark-gray;
-  
-  & > li > a {
-  	color: $sccl-bright-white;
-    text-align: center;
-    font-size: 1.2rem;
-    margin-right: 0;
-    margin-bottom: 0;
-    border-radius: 0;
-    border: none;
-    &:hover {
-      background-color: $sccl-bright-white;
-      color:$sccl-bright-white;
-    }
-    :active {
-    	background-color: $sccl-bright-white;
-    }
-  }
+::ng-deep .tooltips {
+	.btn-toggle {
+		float: right;
+	}
 }
 
+::ng-deep button.language-dropdown-btn {
+	background: $sccl-dark-gray;
+	color: $sccl-bright-white;
+	border: none;
+	margin-top: 10px;
+	text-align: left;
+	width: 100%;
+	i {
+		color: $sccl-bright-white;
+		float: right; 
+	}
+}	
 
 @media screen and (max-width: $resM) {
 	.sccl-right-sidebar {
@@ -85,4 +132,286 @@
     	display:none;
 	}
   }
+  
+
+
+
+  // Colors
+$brand-primary: #29b5a8;
+$brand-secondary: #ff8300;
+$gray: #6b7381;
+$gray-light: lighten($gray, 15%);
+$gray-lighter: lighten($gray, 30%);
+
+// Button Colors
+$btn-default-color: $gray;
+$btn-default-bg: $gray-lighter;
+
+// Toggle Sizes
+$toggle-default-size: 1.2rem;
+$toggle-default-label-width: 4rem;
+$toggle-default-font-size: 0.75rem;
+
+// Mixin for Switch Colors
+// Variables: $color, $bg, $active-bg
+@mixin toggle-color($color: $btn-default-color, $bg: $btn-default-bg, $active-bg: $brand-primary) {
+  color: $color;
+  background: $active-bg;
+  &:before,
+  &:after {
+    color: $color;
+  }
+  &.active {
+    background-color: $bg;
+  }
+}
+
+// Mixin for Default Switch Styles
+// Variables: $size, $margin, $color, $bg, $active-bg, $font-size
+@mixin toggle-mixin($size: $toggle-default-size, $margin: $toggle-default-label-width, $font-size: $toggle-default-font-size) {
+  // color: $color;
+  // background: $bg;
+  margin: 0 $margin;
+  padding: 0;
+  position: relative;
+  border: none;
+  height: $size;
+  width: $size * 2;
+  border-radius: $size;
+
+  &:focus,
+  &.focus {
+    &,
+    &.active {
+      outline: none;
+    }
+  }
+
+  &:before,
+  &:after {
+    line-height: $size;
+    width: $margin;
+    text-align: center;
+    font-weight: 600;
+    // color: $color;
+    font-size: $font-size;
+    text-transform: uppercase; 
+    letter-spacing: 2px;
+    position: absolute;
+    bottom: 0;
+    transition: opacity 0.25s;
+  }
+&:before {
+    content: "On";
+    right: -$margin;
+    
+  }
+   &:after {
+    content: "Off";
+    left: -$margin;
+  }
+
+  > .handle {
+    position: absolute; 
+    top: ($size * 0.25) / 2;
+    right: ($size * 0.25) / 2;
+    width: $size * 0.75;
+    height: $size * 0.75;
+    border-radius: $size * 0.75;
+    background: #fff;
+    transition: right 0.25s;
+  }
+  &.active {
+    transition: background-color 0.25s;
+    > .handle {
+      right: $size + (($size * 0.25) / 2);
+      transition: right 0.25s;
+    }
+    &:before {
+      opacity: 0.5;
+    }
+    &:after {
+      opacity: 1;
+    }
+  }
+
+  &.btn-sm {
+    &:before,
+    &:after {
+      line-height: $size - 2rem;
+      color: #fff;
+      letter-spacing: 0.75px;
+      left: $size * 0.275;
+      width: $size * 1.55;
+    }
+    &:before {
+      text-align: left;
+    }
+    &:after {
+      text-align: right;
+      opacity: 0;
+    }
+    &.active {
+      &:before {
+        opacity: 0;
+      }
+      &:after {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// Apply Mixin to different sizes & colors
+.btn-toggle {
+  //@include toggle-mixin;
+  @include toggle-color;
+
+  &.btn-sm {
+    @include toggle-mixin($font-size: 0.50rem, $margin: 0.12rem);
+  }
+}
+  
+  /*
+  	
+
+  // Colors
+$brand-primary: #29b5a8;
+$brand-secondary: #ff8300;
+$gray: #6b7381;
+$gray-light: lighten($gray, 15%);
+$gray-lighter: lighten($gray, 30%);
+
+// Button Colors
+$btn-default-color: $gray;
+$btn-default-bg: $gray-lighter;
+
+// Toggle Sizes
+$toggle-default-size: 1.2rem;
+$toggle-default-label-width: 4rem;
+$toggle-default-font-size: 0.75rem;
+
+// Mixin for Switch Colors
+// Variables: $color, $bg, $active-bg
+@mixin toggle-color($color: $btn-default-color, $bg: $btn-default-bg, $active-bg: $brand-primary) {
+  color: $color;
+  background: $bg;
+  &:before,
+  &:after {
+    color: $color;
+  }
+  &.active {
+    background-color: $active-bg;
+  }
+}
+
+// Mixin for Default Switch Styles
+// Variables: $size, $margin, $color, $bg, $active-bg, $font-size
+@mixin toggle-mixin($size: $toggle-default-size, $margin: $toggle-default-label-width, $font-size: $toggle-default-font-size) {
+  // color: $color;
+  // background: $bg;
+  margin: 0 $margin;
+  padding: 0;
+  position: relative;
+  border: none;
+  height: $size;
+  width: $size * 2;
+  border-radius: $size;
+
+  &:focus,
+  &.focus {
+    &,
+    &.active {
+      outline: none;
+    }
+  }
+
+  &:before,
+  &:after {
+    line-height: $size;
+    width: $margin;
+    text-align: center;
+    font-weight: 600;
+    // color: $color;
+    font-size: $font-size;
+    text-transform: uppercase; 
+    letter-spacing: 2px;
+    position: absolute;
+    bottom: 0;
+    transition: opacity 0.25s;
+  }
+  &:before {
+    content: "Off";
+    left: -$margin;
+  }
+  &:after {
+    content: "On";
+    right: -$margin;
+    opacity: 0.5;
+  }
+
+  > .handle {
+    position: absolute; 
+    top: ($size * 0.25) / 2;
+    left: ($size * 0.25) / 2;
+    width: $size * 0.75;
+    height: $size * 0.75;
+    border-radius: $size * 0.75;
+    background: #fff;
+    transition: left 0.25s;
+  }
+  &.active {
+    transition: background-color 0.25s;
+    > .handle {
+      left: $size + (($size * 0.25) / 2);
+      transition: left 0.25s;
+    }
+    &:before {
+      opacity: 0.5;
+    }
+    &:after {
+      opacity: 1;
+    }
+  }
+
+  &.btn-sm {
+    &:before,
+    &:after {
+      line-height: $size - 2rem;
+      color: #fff;
+      letter-spacing: 0.75px;
+      left: $size * 0.275;
+      width: $size * 1.55;
+    }
+    &:before {
+      text-align: right;
+    }
+    &:after {
+      text-align: left;
+      opacity: 0;
+    }
+    &.active {
+      &:before {
+        opacity: 0;
+      }
+      &:after {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// Apply Mixin to different sizes & colors
+.btn-toggle {
+  @include toggle-mixin;
+  @include toggle-color;
+
+  &.btn-sm {
+    @include toggle-mixin($font-size: 0.50rem, $margin: 0.12rem);
+  }
+}
+  
+  */
+  
+  
 
