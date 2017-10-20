@@ -1,0 +1,225 @@
+ @mixin sublist-link($left) {
+	a {
+		height: 35px;
+		line-height: 34px;
+   	 	margin: 0;
+   	 	position: relative;
+      	display: block;
+      	text-shadow: none;
+      	font-size: $font-size;
+      	text-decoration: none;
+      	color: $sccl-light-gray;
+      &:hover {
+        color: $sccl-sky-blue; 
+      }
+    }
+    i {
+    	font-size: 8px;
+    	position: absolute;
+     	left: $left;
+    	color: $sccl-dark-gray;
+    	.dash-line {
+     		height: 100%;
+     		border-left: 1px $sccl-dark-gray dotted;
+     		width: 100%;
+     		position: absolute;
+     		left: 3px; 
+     	}
+    	
+    }
+}
+
+@mixin default-sublist($display) {
+  list-style: none;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  background: shade($sccl-dark-gray, 20%);
+  display: none;
+  top: -10px;
+  &.expanded {
+    display: $display;
+  }
+  > sccl-menu-item > li {
+    display: $display;
+    float: none;
+    padding: 0;
+    margin:  0  0 0 10px;
+    position: relative;
+    @include sublist-link(30px);
+    &.selected:not(.with-sub-menu) > a {
+      border: none;
+      border-radius: 5px;
+      background-color: $sccl-sky-blue;
+      color: shade($sccl-dark-gray, 50%);
+      transition: .2s;
+      line-height: 34px;
+      position: relative;
+      right: -32px;
+      width: 156px;
+      div {
+      	margin-left: 8px;
+      }
+      i {
+    	font-size: 8px;
+    	position: absolute;
+     	left: -2px;
+    	color: $sccl-dark-gray;
+    	.dash-line {
+     		height: 100%;
+     		border-left: 1px $sccl-dark-gray dotted;
+     		width: 100%;
+     		position: absolute;
+     		left: 3px; 
+     		}
+     	}
+      &:hover {
+        	color: $sccl-bright-white;
+      }
+    }
+
+  }
+}
+ 
+ @mixin sidebar-collapsed() {
+    .sccl-left-sidebar {
+     	width: 60px;
+      	transition: width 0.5s ease;
+      	.fa-angle-down, .fa-angle-up {
+        	opacity: 0;
+      	}
+      	.sccl-left-sidebar-sublist {
+       		@include sccl-sublist-on-collapsed()
+       }
+    	a.sccl-left-sidebar-list-link {
+    		display: block;
+    		text-shadow: none;
+    		text-align: center;
+    		font-size: 11px;
+    margin: 5px 0 5px -50px;
+    transition: margin 0.5s ease;
+    text-decoration: none;
+    color:$sccl-off-white;
+    line-height: 42px;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+    &:hover {
+      color: $sccl-sky-blue;
+      b {
+        color: $sccl-sky-blue;
+      }
+    }
+    i {
+     	position: absolute;
+     	font-size: 30px;
+     	left: 19px;
+     	top: 2px;
+    }
+    b {
+      display: none;
+    }
+    div {
+    	position:relative;
+    	top: 12px;
+    }
+  }
+      .sidebar-hover-elem, .sidebar-select-elem {
+        left: 55px;
+      }
+    }
+  }
+
+  @mixin sidebar-overlap() {
+    .sccl-left-sidebar {
+      width: $sidebar-width;
+      //@include bg-translucent-dark(0.75);
+      transition: width 0.5s ease;
+      .sccl-left-sidebar-sublist {
+        @include default-sublist(block);
+        top: auto;
+        left: auto;
+        background: none;
+        width: auto;
+        overflow: visible;
+        transition: none;
+      }
+
+      .sidebar-hover-elem, .sidebar-select-elem {
+        left: $sidebar-width - 4;
+        transition: left 0.5s ease;
+      }
+    }
+  }
+  
+   @mixin sidebar-hidden() {
+    .sccl-left-sidebar {
+      width: 0;
+    }
+    .sidebar-hover-elem, .sidebar-select-elem {
+      display: none;
+    }
+  }
+  
+  @mixin sccl-sublist-on-collapsed() {
+  	list-style: none;
+  	position: fixed;
+  	z-index: 1500;
+  	left: 69px;
+  	padding: 0;
+  	margin-top: -50px;
+  	border-radius: 5px;
+  	background: shade($sccl-dark-gray, 20%);
+  	display: none;
+  	&.expanded {
+    	display: block;
+  	 }
+  	 &::before {
+  	 	content: $fa-caret-left;
+  	 	color: shade($sccl-dark-gray, 20%);
+  	 	font-family: FontAwesome;
+    	font-size: 30px;
+    	position: absolute;
+    	left: -8px;
+  	 }
+  > sccl-menu-item > li {
+    display: block;
+    padding: 0;
+    @include sublist-link(-1px);
+    div {
+    	margin-left: -8px;
+    	text-align: left;
+    }
+    &.selected:not(.with-sub-menu) > a {
+      border: none;
+      border-radius: 5px;
+      background-color: $sccl-sky-blue;
+      color: shade($sccl-dark-gray, 50%);
+      transition: .2s;
+      line-height: 34px;
+      position: relative;
+      right: 0px;
+      width: 156px;
+      div {
+      	margin-left: 8px;
+      }
+      i {
+    	font-size: 8px;
+    	position: absolute;
+     	left: -2px;
+    	color: $sccl-dark-gray;
+    	.dash-line {
+     		height: 100%;
+     		border-left: 1px $sccl-dark-gray dotted;
+     		width: 100%;
+     		position: absolute;
+     		left: 0px; 
+     		}
+     	}
+      &:hover {
+        	color: $sccl-bright-white;
+      }
+    }
+
+  }
+}

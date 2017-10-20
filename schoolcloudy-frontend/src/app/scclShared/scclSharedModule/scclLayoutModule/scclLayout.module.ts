@@ -12,11 +12,12 @@ import {
     ScclDropDownMenuComponent,
     ScclMsgCenterComponent,
     ScclMsgCenterMenuItemComponent,
-    ScclPageContentTopComponent,
-    ScclTopNavBarComponent
+    ScclTopNavBarComponent,
+    ScclPageContentTopComponent
     } from './scclOuterLayout';
 import {ScclAdminDashboardAsideComponent} from './scclInnerLayout';
 import { ScclLayoutService } from './scclLayout.service';
+import { ScclLoginService } from '../scclLoginModule/scclLogin.service';
 
 
 
@@ -42,6 +43,6 @@ const SCCL_LAYOUT_COMPONENTS =
                    ScclLayoutComponent],
     exports: [ScclLayoutComponent, ScclSharedModule],
 
-    providers: [ScclLayoutService]
+    providers: [ScclLayoutService, ScclLoginService]
 })
 export class ScclLayoutModule {}

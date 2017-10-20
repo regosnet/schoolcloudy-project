@@ -1,0 +1,39 @@
+@import '../../../../../../../../scclStyles';
+
+.dropdown-item {
+  position: relative;
+  padding: 10px 10px;
+  width: 11.2rem;
+  border-bottom: 1px solid $sccl-light-gray;
+  &:last-child {
+    border-bottom: 0;
+  }
+  & > a {
+  	color: $sccl-dark-gray;
+  }
+
+  i {
+    display: inline-block;
+    width: 20px;
+    font-size: 18px;
+    font-weigth: bold;
+	margin-right: 10px;
+    color: $sccl-light-gray;
+   
+  }
+
+  .badge {
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    
+  }
+}
+
+i.ion-arrow-up-b {
+	position: absolute;
+	top: -19px;
+	right: 19px;
+	font-size: 20px;
+	color: $sccl-bright-white;
+}

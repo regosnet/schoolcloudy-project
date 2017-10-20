@@ -1,6 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, EventEmitter, Output } from '@angular/core';
 import { MatMenuTrigger } from "@angular/material/menu";
 import { ScclMenuService } from "../../../../../scclSharedService/scclMenuService/scclMenuService";
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
     selector: 'sccl-right-sidebar',
@@ -11,16 +12,21 @@ export class ScclRightSidebarComponent {
     @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
     private countries: Array<object>;
     
+    @Output() 
+    private lanaguage = new EventEmitter()
+    
+    
+    
+    constructor(private _scclMenuService: ScclMenuService, private _scclTranslateService: TranslateService) {
+        this.countries = this._scclMenuService.getCountries();
+    }
+    
     someMethod() {
         this.trigger.openMenu();
       }
     
-    changeLang(lang) {
-        console.log(lang)
-    }
-    
-    constructor(private _scclMenuService: ScclMenuService) {
-        this.countries = this._scclMenuService.getCountries();
+    private setLanguage(language) {
+        this.lanaguage.emit(language)
     }
     
 

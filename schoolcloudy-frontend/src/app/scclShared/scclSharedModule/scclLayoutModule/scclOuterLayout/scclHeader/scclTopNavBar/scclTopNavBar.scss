@@ -2,8 +2,6 @@
 @import '../../../../scclLoginModule/scclLogin';
 
 :host /deep/ {
-
-// The header div is divided into 3 partitions
 div.header {
 	position: fixed;
 	width: 100%;
@@ -39,8 +37,7 @@ div.header {
   		
   	}
  
- 
- // This styles the first partition of the sccl-header-div 
+
  
 	.sccl-header-div {
   		background-color: $sccl-dark-gray;
@@ -147,7 +144,7 @@ div.header {
     }
   }
    
-// This styles the third partition of the sccl-header-div 
+
 
   .user-profile {
     float: right;
@@ -327,6 +324,4 @@ div.header {
       	right: 30px;
     }
   } 
-  
-
 }

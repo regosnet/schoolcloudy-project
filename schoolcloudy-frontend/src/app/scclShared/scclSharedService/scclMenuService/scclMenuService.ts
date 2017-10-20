@@ -153,11 +153,11 @@ export class ScclMenuService {
 
   public getCountries(): Array<object> {
       return [
-              {language: 'English', abbrv: 'gb'},
-              {language: 'Latviešu', abbrv: 'lv'},
-              {language: 'Français', abbrv: 'fr'},
-              {language: 'Deutsche', abbrv: 'de'},
-              {language: 'عربى', abbrv: 'eg'},
+              {language: 'sccl.languages.en', abbrv: 'gb'},
+              {language: 'sccl.languages.lv', abbrv: 'lv'},
+              {language: 'sccl.languages.fr', abbrv: 'fr'},
+              {language: 'sccl.languages.de', abbrv: 'de'},
+              {language: 'sccl.languages.ar', abbrv: 'eg'},
           ];
   }
 }

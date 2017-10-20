@@ -12,7 +12,6 @@ export class ScclLeftSidebarComponent implements OnInit, AfterViewInit{
     public menuHeight: number;
     public isMenuCollapsed: boolean = false;
     public isMenuShouldCollapsed: boolean = false;
-    private activePageTitle = '';
 
 constructor(private _elementRef: ElementRef, private _scclState: ScclGlobalState) {
     // subscribes to Subject Observable Map array data stream 

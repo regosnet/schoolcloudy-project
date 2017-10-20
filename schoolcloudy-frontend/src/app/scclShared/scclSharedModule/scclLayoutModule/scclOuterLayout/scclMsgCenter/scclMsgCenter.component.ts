@@ -43,36 +43,3 @@ export class ScclMsgCenterComponent {
                              ];
 
 }
-
-
-
-/*
-{
-             msgCenter: {
-                 title: 'Notifications',
-                 path: '/administrator/messages',
-                 msg: 'See All Notifications'
-             },
-             readAll: {
-                 title: 'Mark All Read',
-             },
-             settings: {
-                 title: 'sccl.menu.left_side_bar.settings',
-                 path: '/administrator/settings'
-             }
-         },
-         {
-             msgCenter: {
-                 title: 'Messages',
-                 path: '/administrator/messages',
-                 msg: 'See All Messages'
-             },
-             readAll: {
-                 title: 'Mark All Read',
-             },
-             settings: {
-                 title: 'sccl.menu.left_side_bar.settings',
-                 path: '/administrator/settings'
-             }
-         }
-*/

@@ -10,7 +10,6 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class ScclTopNavBarComponent implements OnInit {
 
-    private selectedLanguage = {name: 'English', icon: 'gb'};
 
     private menuItems: any;
 
@@ -21,9 +20,9 @@ export class ScclTopNavBarComponent implements OnInit {
             private translate: TranslateService,
             private cdRef: ChangeDetectorRef,
             private _scclState: ScclGlobalState) {
-        this._scclState.subscribe('menu.isCollapsed', (isCollapsed) => {
+       /* this._scclState.subscribe('menu.isCollapsed', (isCollapsed) => {
             this.isMenuCollapsed = isCollapsed;
-          });
+          });*/
     }
 
     public scrolledChanged(isScrolled) {
@@ -32,7 +31,9 @@ export class ScclTopNavBarComponent implements OnInit {
 
     // initializes the menu data from the user in sccl header
     public ngOnInit(): void {
-       this._menuService.scclHeaderMenuItems.subscribe(res => this.menuItems = res);
+       this._menuService.scclHeaderMenuItems.subscribe(res => {
+           this.menuItems = res;
+       });
       }
 
     public toggleMenu() {
@@ -40,19 +41,4 @@ export class ScclTopNavBarComponent implements OnInit {
         this._scclState.notifyDataChanged('menu.isCollapsed', this.isMenuCollapsed);
         return false;
       }
-
-    changeLang(language: string) {
-        switch (language) {
-            case 'lv':
-                this.selectedLanguage = {name: 'sccl.languages.lv', icon: 'lv'};
-            break;
-            case 'en':
-                this.selectedLanguage = {name: 'sccl.languages.en', icon: 'gb'};
-            break;
-
-            default:
-            break;
-}
-        this.translate.use(language);
-    }
 }

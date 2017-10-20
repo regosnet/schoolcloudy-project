@@ -13,7 +13,7 @@ import { DatePipe } from '@angular/common';
 })
 export class ScclAdminStudentComponent implements OnInit {
 
-    private tableTitle = 'Students';
+    private tableTitle = 'sccl.menu.left_side_bar.students';
     private tableSchema;
 
     constructor(private translate: TranslateService,
@@ -29,6 +29,7 @@ export class ScclAdminStudentComponent implements OnInit {
                     this._scclTableService.getTableStream().next([{data: data.json()}, {tableSchema: this.tableSchema}]);
                 });
             }
+            this.translate.use('lv');
     }
 
     getColumnConfigurations() {

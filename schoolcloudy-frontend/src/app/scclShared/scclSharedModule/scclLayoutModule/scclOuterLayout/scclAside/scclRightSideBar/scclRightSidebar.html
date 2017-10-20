@@ -27,9 +27,9 @@
 					</button>
 					<mat-menu #menu="matMenu" class="language-menu">
 					  <div *ngFor="let country of countries">
-					  		<button (click)="changeLang(country.abbrv)" mat-menu-item>
+					  		<button (click)="setLanguage(country.abbrv)" mat-menu-item>
 						    <i class="flag-icon flag-icon-{{country.abbrv}} flag-icon"></i>
-						    <span>{{country.language}}</span>
+						    <span>{{country.language | translate}}</span>
 						  </button>
 					  	</div>
 					  

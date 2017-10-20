@@ -1,1 +1,1 @@
-
+export * from './scclSlimScroll.directive';

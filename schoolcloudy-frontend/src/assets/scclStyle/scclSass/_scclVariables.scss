@@ -27,6 +27,7 @@ $font-normal: 400;
 $font-bold: 700;
 $font-bolder: 500;
 $font-ultraBold: 900;
+$font-size: 0.9rem;
 
 $facebook-color: #3b5998;
 $twitter-color: #55acee;
@@ -48,35 +49,7 @@ $xxxxsm-d: 3.125%;
 $sidebar-width: 190px;
 $top-height: 75px;
 $sidebar-scroll-width: 4px;
-$angle-left: '\f100';
-$angle-right: '\f101';
+$fa-caret-up: '\f0d8';
+$fa-caret-down: '\f0d7';
+$fa-caret-left: '\f0d9';
 
-$border-color:                        $gray-200 !default;
-$layout-transition-speed:             .25s !default;
-
-// Navbar
-$navbar-brand-bg:                     $sccl-dark-gray;
-$navbar-brand-logo:                   url($assets-root+ $images-root + 'scclLogo/logo.png'); 
-$navbar-height:                       55px !default;
-$navbar-bg:                           #fff !default;
-$navbar-brand-logo-size:              170px auto !default;
-$navbar-border: (
-  bottom: (
-    size:                             1px,
-    style:                            solid,
-    color:                            $border-color
-  )
-)  !default;
-$navbar-brand-width:                  200px !default;
-$navbar-brand-border: (
-  bottom: (
-    size:                             1px,
-    style:                            solid,
-    color:                            $border-color
-  )
-) !default;
-
-$navbar-color:                        $gray-600 !default;
-$navbar-hover-color:                  $gray-800 !default;
-$navbar-active-color:                 $gray-800 !default;
-$navbar-disabled-color:               $gray-300 !default;

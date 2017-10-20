@@ -396,7 +396,7 @@ export const SCCL_HEADER_MENU =
                                                 [
                                                    {
                                                        title: 'Messages',
-                                                       icon: 'fa fa-user',
+                                                       icon: 'ion-ios-email-outline',
                                                        route: '/messages',
                                                        badge: {
                                                            icon: 'badge badge-info',
@@ -405,17 +405,35 @@ export const SCCL_HEADER_MENU =
                                                    },
                                                    {
                                                        title: 'Project',
-                                                       icon: 'fa fa-user',
-                                                       route: '/notifications',
+                                                       icon: 'ion-document',
+                                                       route: '/projects',
                                                        badge: {
                                                            icon: 'badge badge-info',
-                                                           value: 0
+                                                           value: 3
+                                                       }
+                                                   },
+                                                   {
+                                                       title: 'New Ticket',
+                                                       icon: 'fa fa-ticket',
+                                                       route: '/tickets',
+                                                       badge: {
+                                                           icon: 'badge badge-info',
+                                                           value: 3
+                                                       }
+                                                   },
+                                                   {
+                                                       title: 'Payment',
+                                                       icon: 'fa fa-money',
+                                                       route: '/tickets',
+                                                       badge: {
+                                                           icon: 'badge badge-info',
+                                                           value: 3
                                                        }
                                                    },
                                                    {
                                                        title: 'Profile',
-                                                       icon: 'fa fa-user',
-                                                       route: '/notifications',
+                                                       icon: 'ion-ios-person-outline',
+                                                       route: '/profile',
                                                        badge: {
                                                            icon: 'badge badge-info',
                                                            value: 0
@@ -423,8 +441,8 @@ export const SCCL_HEADER_MENU =
                                                    },
                                                    {
                                                        title: 'Settings',
-                                                       icon: 'fa fa-user',
-                                                       route: '/notifications',
+                                                       icon: 'ion-ios-gear-outline',
+                                                       route: '/settings',
                                                        badge: {
                                                            icon: 'badge badge-info',
                                                            value: 0
@@ -432,7 +450,7 @@ export const SCCL_HEADER_MENU =
                                                    },
                                                    {
                                                        title: 'Sign Out',
-                                                       icon: 'fa fa-user',
+                                                       icon: 'ion-log-out',
                                                        route: '',
                                                        badge: {
                                                            icon: 'badge badge-info',
@@ -443,9 +461,10 @@ export const SCCL_HEADER_MENU =
                                         }, // user info ends
 
                                         contentTop: {
-
+                                            user: 'Administrator',
+                                            status: 'Administrator',
+                                            userName: 'Ihechukwudere Okoroego'
                                         }
-
                                   }// main ends
                               } // menu end
                         }// data ends
@@ -453,35 +472,3 @@ export const SCCL_HEADER_MENU =
                 ]
            }
      ];
-
-
-/*
- * {scclHeader: {
-             topHeader:  {
-                 data: {
-                     menu: {
-                         section1: {
-                             title: 'Week' + 1 + 'Semester' + 2,
-                             icon: null
-                         }
-                         titleOne: '',
-                         titleTwo: 'Friday 1 September 2017',
-                         titleThree: '12/04/2017'
-                          }
-                     }
-             },
-             mainHeader: {
-                 status: 'sccl.menu.header.main_header.status',
-                 route: '/administrator/dashboard',
-                 ddUserMenu:
-                     [
-
-                      ],
-             },
-             contentTop: {
-                 data: {
-                     title: 'sccl.menu.header.content_top.home',
-                 }
-             }
-         }}
- * */

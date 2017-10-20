@@ -11,10 +11,12 @@ import { ScclGlobalState } from '../../../../../../scclGlobalState';
 export class ScclPageContentTopComponent {
   private activePageTitle = '';
 
-  constructor(
-          private _scclState: ScclGlobalState, private translate: TranslateService) {
+  @Input()
+  private contentTopITems;
+
+  constructor(private _scclState: ScclGlobalState, private translate: TranslateService) {
       this._scclState.subscribe('menu.activeLink', (res) => {
-          setTimeout(() => this.activePageTitle = res.title);
+          this.activePageTitle = res.title;
          });
   }
 }

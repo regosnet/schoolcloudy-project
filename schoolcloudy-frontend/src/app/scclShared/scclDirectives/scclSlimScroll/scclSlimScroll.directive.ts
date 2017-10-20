@@ -27,6 +27,4 @@ export class ScclSlimScrollDirective implements OnChanges {
   private _destroy() {
     jQuery(this._elementRef.nativeElement).slimScroll({ destroy: true });
   }
-  
-
 }

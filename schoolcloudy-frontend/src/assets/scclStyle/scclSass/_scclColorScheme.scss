@@ -15,7 +15,7 @@ $sccl-lighter-red: tint($sccl-normal-red, 40%);
 $sccl-normal-green: rgb(0, 255, 0);
 $sccl-light-green: tint($sccl-normal-green, 15%);
 
-
+/*
 $disabled: rgba(255, 255, 255, 0.4); // color for disabled state
 $disabled-bg: tint($disabled, 15%); // background color for disable state
 $border: rgba(255, 255, 255, 0.5); // border color
@@ -146,3 +146,4 @@ $theme-colors: (
   light: $gray-100,
   dark: $gray-800
 ) !default;
+*/

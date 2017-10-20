@@ -1,21 +1,20 @@
-<li *ngIf="!menuItem.hidden" [ngClass]="{'al-sidebar-list-item': !child, 'ba-sidebar-sublist-item': child, 'selected': menuItem.selected && !menuItem.expanded, 'with-sub-menu': menuItem.children, 'ba-sidebar-item-expanded': menuItem.expanded}">
+<li *ngIf="!menuItem.hidden" [ngClass]="{'sccl-left-sidebar-list-item': !child, 'sccl-left-sidebar-sublist-item': child, 'selected': menuItem.selected && !menuItem.expanded, 'with-sub-menu': menuItem.children, 'ba-sidebar-item-expanded': menuItem.expanded}">
 
-  <a *ngIf="!menuItem.children && !menuItem.url" (mouseenter)="onHoverItem($event, item)" [routerLink]="menuItem.route.paths" class="al-sidebar-list-link">
-    <i *ngIf="menuItem.icon" class="{{ menuItem.icon }}"></i>
-    <div class="menu-title">
-    	<span class="mini-title" translate>{{ menuItem.title }}</span>
-    </div>
+  <a *ngIf="!menuItem.children && !menuItem.url" (mouseenter)="onHoverItem($event, item)" [routerLink]="menuItem.route.paths" class="sccl-left-sidebar-list-link">
+    <i *ngIf="menuItem.icon" class="{{ menuItem.icon }}"><span class="dash-line"></span></i>
+    <div class="menu-title" translate>{{ menuItem.title }}</div>
   </a>
 
-  <a *ngIf="menuItem.children" (mouseenter)="onHoverItem($event, item)" href (click)="onToggleSubMenu($event, menuItem)" class="al-sidebar-list-link">
-    	<i *ngIf="menuItem.icon" class="{{ menuItem.icon }}"></i>
-    	<div class="menu-title">
-    		<span translate>{{ menuItem.title }}</span>
+  <a *ngIf="menuItem.children" (mouseenter)="onHoverItem($event, item)" scclMenuItemDirective
+  	href (click)="onToggleSubMenu($event, menuItem)" class="sccl-left-sidebar-list-link">
+    	<i *ngIf="menuItem.icon" class="{{ menuItem.icon }}"><span class="dash-line"></span></i>
+    	<div class="menu-title" translate>
+    		{{ menuItem.title }}
     	</div>
-    	<b class="fa fa-angle-down" [ngClass]="{'fa-angle-up': menuItem.expanded}"></b>
+    	<b class="ion-android-more-horizontal"></b>
   </a>
 
-  <ul *ngIf="menuItem.children" class="al-sidebar-sublist" [ngClass]="{'slide-right': menuItem.slideRight}">
+  <ul *ngIf="menuItem.children" class="sccl-left-sidebar-sublist" [ngClass]="{'slide-right': menuItem.slideRight}">
     <sccl-menu-item [menuItem]="subItem"
                   [child]="true"
                   (itemHover)="onHoverItem($event)"
@@ -23,3 +22,4 @@
                   *ngFor="let subItem of menuItem.children"></sccl-menu-item>
   </ul>
 </li>
+

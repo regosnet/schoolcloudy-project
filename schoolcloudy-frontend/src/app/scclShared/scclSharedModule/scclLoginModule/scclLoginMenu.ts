@@ -20,7 +20,6 @@ export const SCCL_HEADER_MENU =
                                           icon: 'ion-ios-search-strong',
                                           placeHolder: 'sccl.menu.header.main_header.search'
                                       }
-
                                 }// main ends
                             } // menu end
                       }// data ends

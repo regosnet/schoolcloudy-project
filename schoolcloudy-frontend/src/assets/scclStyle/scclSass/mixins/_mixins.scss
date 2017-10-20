@@ -16,49 +16,6 @@
   @return mix(black, $color, $percentage);
 }
 
-@mixin default-sublist() {
-  padding-top: 10px;
-  list-style: none;
-  position: relative;
-  top: -7px;
-  left: 50px;
-  display: none;
-  border-left: $sccl-sky-blue dashed 1px;
-  width: 130px;
-  &.expanded {
-    display: block;
-  }
-  > sccl-menu-item > li {
-    display: block;
-    float: none;
-    padding: 0;
-    position: relative;
-    a {
-      display: block;
-      text-shadow: none;
-      font-size: 12px;
-      text-decoration: none;
-      color: $sccl-bright-white;
-      margin: -15px 0 0 -75px;
-      &:hover {
-        color: $sccl-sky-blue; 
-      }
-    }
-    i {
-    	font-size: 8px;
-    	position: absolute;
-    	left: -44px;
-    }
-    &.selected:not(.with-sub-menu) > a {
-      border: none;
-      background-color: $sccl-sky-blue;
-      &:hover {
-        color: $sccl-bright-white;
-      }
-    }
-
-  }
-}
 
 @mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white, 50%)) {
   ::-webkit-scrollbar {

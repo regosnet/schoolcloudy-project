@@ -15,18 +15,19 @@ import {MatIconModule} from '@angular/material';
 
 import {DndModule} from 'ng2-dnd';
 import 'hammerjs';
-
-import { ScclSlimScrollDirective } from './scclDirectives/scclSlimScroll/scclSlimScroll.directive';
-import { ScclScrollPositionDirective } from './scclDirectives/scclScrollPosition/scclScrollPosition.directive';
-import { ScclRightSidebarDirective } from './scclDirectives/scclSidebarDirectives/scclRightSidebar.directive';
 import { ScclPngExtPipe, ScclObjectPipe, ScclItemKey } from './scclPipes/scclPngExt.pipe';
 
 import { ScclMsgCenterService } from './scclSharedModule/scclLayoutModule/scclOuterLayout/scclMsgCenter/scclMsgCenter.service';
 import { ScclMenuService, ScclPreloaderService } from './scclSharedService';
 import { TranslateService } from '@ngx-translate/core';
-import { ScclLayoutDirective } from './scclDirectives/scclLayoutDirectives/scclLayout.directive';
-import { ScclTableDirective } from './scclDirectives/scclTableDirectives/scclTable.directive';
 import { ScclGlobalState } from '../scclGlobalState';
+import {
+    ScclMenuItemDirective,
+    ScclRightSidebarDirective,
+    ScclScrollPositionDirective,
+    ScclSlimScrollDirective,
+    ScclTableDirective,
+    ScclLayoutDirective} from './scclDirectives';
 
 
 
@@ -42,7 +43,8 @@ const SCCL_DIRECTIVES = [
     ScclRightSidebarDirective,
     ScclSlimScrollDirective,
     ScclLayoutDirective,
-    ScclTableDirective
+    ScclTableDirective,
+    ScclMenuItemDirective
 ];
 
 const SCCL_COMPONENTS = [

@@ -39,7 +39,6 @@ export class ScclTableService {
 
 
     public setTableResponsiveLayout() {
-        console.log('table responsive working hard');
         let sumColumnWidths = 0;
         const newTableColumns: Array<Object> = [];
         const windowWidth = $('.sccl-table').width() - 100;
@@ -70,7 +69,6 @@ export class ScclTableService {
             sumColumnWidths += column['width'];
         });
         this.setTableSchema(newTableColumns);
-        console.log(newTableColumns);
         //this.setTableData(this.getDataSource()[0]['data']);
     }
 

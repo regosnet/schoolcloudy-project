@@ -55,7 +55,6 @@ submitUserForm(userFormData, event) {
                                 this._route.navigate(['/administrator']);
                                document.cookie = 'username=' + response.json().credential.username + ';'
                                + 'expires=Mon, 18 Sep 2017 20:00:11 UTC';
-                                this._scclState.loggedIn.next(true);
                                 sessionStorage.setItem('int_id', response.json().internalId);
                                 sessionStorage.setItem('ext_id', response.json().externalId);
                                 Cookie.set('internalId', '12', 0.126000);

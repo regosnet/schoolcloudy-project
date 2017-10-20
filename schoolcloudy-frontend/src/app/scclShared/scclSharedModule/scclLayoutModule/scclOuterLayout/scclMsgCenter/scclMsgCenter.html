@@ -1,4 +1,4 @@
-<ul class="al-msg-center clearfix" *ngFor="let item of msgCenter; let i = index">
+<ul class="sccl-msg-center clearfix" *ngFor="let item of msgCenter; let i = index">
   <li class="dropdown">
     <a href class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
       <i class="{{item.class}}"></i><span>{{ item.data.length }}</span>
@@ -25,70 +25,9 @@
           </div>
         </a>
       </div>
-      <a href [routerLink]="actions[i].path" translate>{{actions[i].bottomMsg}}</a>
+      <span>
+      	<a href [routerLink]="actions[i].path" translate>{{actions[i].bottomMsg}}</a>
+      </span>
     </div>
   </li>
 </ul>
-
-
-
-
-<!-- 
-
-
-
-<ul class="al-msg-center clearfix">
-  <li class="dropdown msg-notification">
-    <a href class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-      <i class="ion-earth"></i><span>{{ notifications.length }}</span>
-      <div class="notification-ring"></div>
-    </a>
-
-    <div class="top-dropdown-menu dropdown-menu" aria-labelledby="msg-dd1">
-      <i class="dropdown-arr"></i>
-
-      <div class="header clearfix">
-        <strong>Notifications</strong>
-        <a href>Mark All Read</a>
-        <a href>Settings</a>
-      </div>
-      <div class="msg-list">
-        <a *ngFor="let msg of notifications" href class="clearfix">
-          <div class="img-area"><img [ngClass]="{'photo-msg-item': !msg.image}"
-                                     src="{{ ( msg.image ||  ('profile/' + msg.name | scclPngExt)) }}"></div>
-          <div class="msg-area">
-            <div>{{ msg.text }}</div>
-            <span>{{ msg.time }}</span>
-          </div>
-        </a>
-      </div>
-      <a href>See all notifications</a>
-    </div>
-  </li>
-  <li class="dropdown">
-    <a href class="msg dropdown-toggle" id="msg-dd2" data-toggle="dropdown" aria-expanded="false">
-      <i class="fa fa-commenting"></i><span>{{ messages.length }}</span>
-      <div class="notification-ring"></div>
-    </a>
-    <div class="top-dropdown-menu dropdown-menu" aria-labelledby="msg-dd2">
-      <i class="dropdown-arr"></i>
-      <div class="header clearfix">
-        <strong>Messages</strong>
-        <a href>Mark All Read</a>
-        <a href>New Message</a>
-      </div>
-      <div class="msg-list">
-        <a *ngFor="let msg of messages" href class="clearfix">
-          <div class="img-area"><img [ngClass]="{'photo-msg-item': !msg.image}"
-                                     src="{{ ( msg.image ||  ('profile/' +  msg.name | scclPngExt)) }}"></div>
-          <div class="msg-area">
-            <div>{{ msg.text }}</div>
-            <span>{{ msg.time }}</span>
-          </div>
-        </a>
-      </div>
-      <a href>See all messages</a>
-    </div>
-  </li>
-</ul>
--->

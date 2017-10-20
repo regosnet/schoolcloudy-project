@@ -7,7 +7,6 @@ export class ScclGlobalState {
 
   private _data = new Subject<Object>();
   private _dataStream$ = this._data.asObservable();
-  public loggedIn = new BehaviorSubject<Boolean>(false);
 
   private _subscriptions: Map<string, Array<Function>> = new Map<string, Array<Function>>();
 

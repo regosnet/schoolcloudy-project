@@ -63,7 +63,7 @@
 						<i class="ion-arrow-down-b"></i>
 					</a>
 					<sccl-dropdown-menu class="dropdown-menu top-dropdown-menu profile-dropdown" aria-labelledby="user-profile-dd" 
-					[dropDownMenuItems]=" menuItems.main.userInfo.children"></sccl-dropdown-menu>
+					[dropDownMenuItems]="menuItems.main.userInfo.children"></sccl-dropdown-menu>
 				</div>
 
 				<div class="msg-notification-box">
@@ -74,6 +74,6 @@
 	</div>
 	
 	<div *ngIf="menuItems.main.contentTop">
-		<sccl-content-top></sccl-content-top>
+		<sccl-content-top [contentTopITems]="menuItems.main.contentTop"></sccl-content-top>
 	</div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit, OnDestroy, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, OnDestroy, AfterViewInit, ChangeDetectorRef} from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 import * as $ from 'jquery';
@@ -73,16 +73,16 @@ export class ScclMenuComponent implements OnInit, OnDestroy {
   public toggleSubMenu($event): boolean {
     const submenu = $($event.currentTarget).next();
     // checks sub-items will not dropped down when the side is collapsed
-    if (this.sidebarCollapsed) {
-      this.expandMenu.emit(null);
-      if (!$event.item.expanded) {
-        $event.item.expanded = true;
-      }
-    } else {
-      $event.item.expanded = !$event.item.expanded;
+    //if (this.sidebarCollapsed) {
+      //this.expandMenu.emit(null);
+      //if (!$event.item.expanded) {
+       // $event.item.expanded = true;
+     // }
+    //} else {
+      //$event.item.expanded = !$event.item.expanded;
       submenu.slideToggle();
-    }
-
+      console.log($event.currentTarget.getBoundingClientRect().top)
+    //}
     return false;
   }
 }
