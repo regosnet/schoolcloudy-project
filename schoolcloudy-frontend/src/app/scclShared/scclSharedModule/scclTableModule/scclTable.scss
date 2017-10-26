@@ -65,7 +65,7 @@
     bottom: -5px;
     margin-bottom: 15px;  
     &::after {
-    	content: "$fa-caret-up";
+    	content: $fa-caret-down;
     	font-family: FontAwesome;
     	font-size: 20px;
     	color: rgba(45, 54, 53, 0.4); 

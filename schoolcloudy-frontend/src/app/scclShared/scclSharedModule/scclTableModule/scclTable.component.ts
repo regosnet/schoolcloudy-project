@@ -39,8 +39,6 @@ export class ScclTableComponent implements OnInit, AfterViewInit {
             layout: 'fitDataFill',
             addRowPos: 'bottom',
             resizableColumns: false,
-            //responsiveLayout: true,
-            //footerElement: $(`<div class='tabulator-footer' (click)="setCellIcon()"><button>Custom Button</button></div>`),
             columns: this._scclTableService.getTableSchema()
         };
     }

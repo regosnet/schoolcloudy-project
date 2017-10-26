@@ -10,8 +10,8 @@ export class ScclRightSidebarDirective {
     @HostListener('click')
     public collapesSidebar() {
        const rightSidebar = $('.sccl-right-sidebar-hidden');
-       const bodyRightside = $('.al-main');
+       //const bodyRightside = $('.al-main');
        rightSidebar.toggleClass('sccl-right-sidebar');
-       bodyRightside.toggleClass('al-main-resize');
+       //bodyRightside.toggleClass('al-main-resize');
     }
 }

@@ -1,4 +1,181 @@
- @mixin sublist-link($left) {
+@mixin sccl-left-sidebar($width, $font-size, $margin-top, $margin-left,
+						 $left, $text-align, $display, $font-color
+						 ) {
+	width: $width; 
+	box-shadow: 2px -2px 0px #888888;
+	top: $top-height + 25;
+	border-top-right-radius: $border-radius;
+	left: 0;
+	z-index: 30;
+	display: inline-block;
+	min-height: 100%;
+	background-color: $sccl-dark-gray; 
+	height: 100%;
+	position: fixed;
+  	transition: width 0.5s ease;
+  	
+  	// sccl-left-sidebar-list class wraps the all the elements for the menu list items
+    ul.sccl-left-sidebar-list {
+    	overflow: hidden;
+    	padding: 7px 0 0 0;
+    	margin: 0;
+    	padding: 0;
+    	list-style: none;
+    	> sccl-menu-item > li{
+    		position: relative;
+    		border-bottom: 1px solid $sccl-light-gray;
+    		border-bottom-right-radius: 0.5em;
+    		z-index: 900;
+    		> a {
+    			display: block;
+    			margin: 0;
+    			text-shadow: none;
+    			font-size: $font-size;
+   				text-decoration: none;
+    			color: $sccl-off-white;
+    			padding: 10px 0 10px 5px;
+    			text-align: $text-align;
+    			> i{
+    				position: absolute;
+     				float: left;
+     				font-size: 26px;
+     				top: 1px;
+     				text-align: center;
+     				left: $left;
+    			}
+    			> b {
+    				display: $display;
+      				opacity: 1;
+      				transition: opacity 0.2s 0 ease;
+      				width: 14px;
+      				height: 14px;
+      				line-height: 14px;
+      				text-shadow: none;
+      				font-size: 18px;
+      				position: absolute;
+      				right: 10px;
+      				top: 18px;
+      				padding: 0 20px 0 10px;
+      				text-align: center;
+      				color: $sccl-off-white;
+    			}
+    			> div {
+    				text-align: $text-align;
+    				margin-left: $margin-left;
+    				margin-top: $margin-top;
+    			}
+    		}// a **
+    	} //sccl-menu-item ends **
+  	}//ul.sccl-left-sidebar-list ends **
+    
+    .left-side-footer {
+    	z-index: 1000;
+    	background: $sccl-darken-gray;
+    	text-align: center;
+    	width:100%;
+    	height: 55px;
+    	margin-top: -20px;
+    	i{
+    		font-size: 30px;
+    		color: $sccl-light-gray;
+    	}
+    	i.ion-android-settings {
+    		float: left;
+    		font-size: 25px;
+    		padding-left: 15px;
+    	}
+    	i.ion-android-exit {
+    		float: right;
+    		font-size: 25px;
+    		padding-right: 15px;
+    	}
+    }
+  	
+  		//.sidebar-hover-elem, .sidebar-select-elem {
+    	//	left: 55px;
+  		//}
+  }
+
+
+@mixin sccl-left-sidebar-sublist(
+				$position,
+				$display,
+				$left,
+				$margin-top,
+				$content, $right, 
+				$i-left, $background,
+				$dd-width) { // dd-width is the width of dropdown menu box at left sidebar collapsed
+				
+  	list-style: none;
+  	position: $position;
+  	padding: 0;
+  	margin: $margin-top 0 0 0;
+  	border-radius: $border-radius;
+  	background: $background;
+  	display: none;
+  	width: $dd-width;
+  	left: $left;
+  	> div {
+  		> sccl-menu-item > li {
+  			@include dropdown-toggle($display, $right, $i-left);
+  		}
+  	}// div **
+  	&::before {
+  	 	content: $content;
+  	 	color: $background;
+  	 	font-family: FontAwesome;
+    	font-size: 30px;
+    	position: absolute;
+    	left: -11px;
+  	 }
+}
+
+
+@mixin dropdown-toggle($display, $right, $i-left) {
+	display: $display;
+	float: none;
+	padding: 0;
+	position: relative;
+	@include sublist-link($i-left);
+	&.selected:not(.with-sub-menu) > a {
+	ul.sccl-left-sidebar-list {
+    	
+    		> sccl-menu-item > li{
+    			border: red 1px solid;
+    		}
+   		}
+	border: none;
+	border-radius: $border-radius;
+	background-color: $sccl-sky-blue;
+	color: shade($sccl-dark-gray, 50%);
+	transition: .1s;
+	line-height: 34px;
+	position: relative;
+	right: $right;
+	width: 146px;
+	div {
+		margin-left: 27.5px;
+	}
+	i {
+		font-size: 8px;
+		position: absolute;
+		left: 8px;
+		color: $sccl-dark-gray;
+	span {
+		height: 100%;
+		border-left: 1px $sccl-dark-gray dotted;
+		width: 100%;
+		position: absolute;
+		left: 3px; 
+		}
+	}
+	&:hover {
+		color: $sccl-bright-white;
+		}
+	}
+}
+
+@mixin sublist-link($i-left) {
 	a {
 		height: 35px;
 		line-height: 34px;
@@ -8,127 +185,30 @@
       	text-shadow: none;
       	font-size: $font-size;
       	text-decoration: none;
-      	color: $sccl-light-gray;
-      &:hover {
-        color: $sccl-sky-blue; 
+      	color: $sccl-bright-white;
+      	&:hover {
+        	color: $sccl-sky-blue; 
+      	}
       }
-    }
     i {
     	font-size: 8px;
     	position: absolute;
-     	left: $left;
+     	left: $i-left;
     	color: $sccl-dark-gray;
-    	.dash-line {
-     		height: 100%;
-     		border-left: 1px $sccl-dark-gray dotted;
-     		width: 100%;
-     		position: absolute;
-     		left: 3px; 
-     	}
-    	
-    }
-}
-
-@mixin default-sublist($display) {
-  list-style: none;
-  position: relative;
-  padding: 0;
-  margin: 0;
-  background: shade($sccl-dark-gray, 20%);
-  display: none;
-  top: -10px;
-  &.expanded {
-    display: $display;
-  }
-  > sccl-menu-item > li {
-    display: $display;
-    float: none;
-    padding: 0;
-    margin:  0  0 0 10px;
-    position: relative;
-    @include sublist-link(30px);
-    &.selected:not(.with-sub-menu) > a {
-      border: none;
-      border-radius: 5px;
-      background-color: $sccl-sky-blue;
-      color: shade($sccl-dark-gray, 50%);
-      transition: .2s;
-      line-height: 34px;
-      position: relative;
-      right: -32px;
-      width: 156px;
-      div {
-      	margin-left: 8px;
-      }
-      i {
-    	font-size: 8px;
-    	position: absolute;
-     	left: -2px;
-    	color: $sccl-dark-gray;
-    	.dash-line {
+    	span {
      		height: 100%;
      		border-left: 1px $sccl-dark-gray dotted;
      		width: 100%;
      		position: absolute;
      		left: 3px; 
      		}
-     	}
-      &:hover {
-        	color: $sccl-bright-white;
-      }
-    }
-
-  }
+    	}
+    	div {
+    		margin-left: $i-left + 20;
+    	}
 }
  
- @mixin sidebar-collapsed() {
-    .sccl-left-sidebar {
-     	width: 60px;
-      	transition: width 0.5s ease;
-      	.fa-angle-down, .fa-angle-up {
-        	opacity: 0;
-      	}
-      	.sccl-left-sidebar-sublist {
-       		@include sccl-sublist-on-collapsed()
-       }
-    	a.sccl-left-sidebar-list-link {
-    		display: block;
-    		text-shadow: none;
-    		text-align: center;
-    		font-size: 11px;
-    margin: 5px 0 5px -50px;
-    transition: margin 0.5s ease;
-    text-decoration: none;
-    color:$sccl-off-white;
-    line-height: 42px;
-    white-space: nowrap;
-    overflow: hidden;
-    cursor: pointer;
-    &:hover {
-      color: $sccl-sky-blue;
-      b {
-        color: $sccl-sky-blue;
-      }
-    }
-    i {
-     	position: absolute;
-     	font-size: 30px;
-     	left: 19px;
-     	top: 2px;
-    }
-    b {
-      display: none;
-    }
-    div {
-    	position:relative;
-    	top: 12px;
-    }
-  }
-      .sidebar-hover-elem, .sidebar-select-elem {
-        left: 55px;
-      }
-    }
-  }
+ 
 
   @mixin sidebar-overlap() {
     .sccl-left-sidebar {
@@ -136,7 +216,7 @@
       //@include bg-translucent-dark(0.75);
       transition: width 0.5s ease;
       .sccl-left-sidebar-sublist {
-        @include default-sublist(block);
+        //@include default-sublist(block);
         top: auto;
         left: auto;
         background: none;
@@ -161,7 +241,7 @@
     }
   }
   
-  @mixin sccl-sublist-on-collapsed() {
+  @mixin sccl-left-sidebar-collapsed() {
   	list-style: none;
   	position: fixed;
   	z-index: 1500;
@@ -219,6 +299,7 @@
       &:hover {
         	color: $sccl-bright-white;
       }
+      
     }
 
   }

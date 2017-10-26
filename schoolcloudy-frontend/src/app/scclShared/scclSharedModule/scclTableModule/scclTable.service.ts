@@ -40,7 +40,7 @@ export class ScclTableService {
 
     public setTableResponsiveLayout() {
         let sumColumnWidths = 0;
-        const newTableColumns: Array<Object> = [];
+        let newTableColumns: Array<Object> = [];
         const windowWidth = $('.sccl-table').width() - 100;
         const tableColumn: Array<Object> = Array.from(this.getDataSource()[1]['tableSchema']);
         let newWidth = 0;
@@ -61,6 +61,13 @@ export class ScclTableService {
                    column['width'] = (column['width'] - expandColumnWidths);
                 });
             }
+        }else {
+            const expandColumnWidths = (windowWidth - sumColumnWidths ) / tableColumn.length;
+            console.log(expandColumnWidths);
+            tableColumn.forEach((column) => {
+               column['width'] = (column['width'] + expandColumnWidths);
+            });
+            newTableColumns = tableColumn;
         }
         newTableColumns.unshift(this.setTableRowDropDownBtn());
         newTableColumns.push(this.setRowEditAndDeleteBtn());
@@ -69,7 +76,6 @@ export class ScclTableService {
             sumColumnWidths += column['width'];
         });
         this.setTableSchema(newTableColumns);
-        //this.setTableData(this.getDataSource()[0]['data']);
     }
 
     private setTableRowDropDownBtn() {

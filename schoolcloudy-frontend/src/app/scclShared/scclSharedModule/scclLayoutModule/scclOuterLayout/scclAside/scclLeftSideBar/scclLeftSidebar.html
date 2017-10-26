@@ -1,10 +1,21 @@
-<aside class="sccl-left-sidebar" sidebarResize>
-  <sccl-menu [menuHeight]="menuHeight"
-           [sidebarCollapsed]="isMenuCollapsed"
-           (expandMenu)="menuExpand()"></sccl-menu> 
-           <div class="left-side-footer">
-				<i *ngIf="isMenuCollapsed" class="ion-android-menu"></i>  
-				<i *ngIf="!isMenuCollapsed"class="ion-android-settings"></i>  
-				<i *ngIf="!isMenuCollapsed"class="ion-android-exit"></i>           	
-           </div>
+<aside class="sccl-left-sidebar" 
+		[ngClass]="{'sccl-left-sidebar-collapsed': isMenuCollapsed}">
+	<sccl-menu 
+  	[menuHeight]="menuHeight"
+  	[sidebarCollapsed]="isMenuCollapsed" 
+  	(expandMenu)="menuExpand()">
+	</sccl-menu> 
+  	<div class="left-side-footer clearfix">
+		<i *ngIf="isMenuCollapsed" class="ion-android-menu"></i>  
+		<i *ngIf="!isMenuCollapsed"class="ion-android-settings"></i>  
+		<i *ngIf="!isMenuCollapsed"class="ion-android-exit"></i>           	
+ 	</div>
 </aside>
+
+<!-- 
+	sccl-left-sidebar is the class of the parent tag element that contains all the elements for the left side bar.
+	sccl-left-sidebar-collapsed overrides some of the sccl-left-sidebar class to fit the collapsed need.
+	
+	sccl-menu tag is an angular custom tag that holds elements of the menu list items. The menuHeight property on this tag is
+	used to set the height sccl-menu 
+ -->

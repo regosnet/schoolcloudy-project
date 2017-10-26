@@ -1,162 +1,90 @@
 @import '../../../../../../../scclStyles';
 
+$margin-left: 1px;
+$margin-top: 1px;
+$none: none;
+$left: 0px;
+$block: block;
+$relative: relative;
+$content: '';
+$right: 1px;
+$i-left: $left;
+$background: $sccl-dark-gray;
+
 :host /deep/ {
+/*
+when left side bar is not collapsed
+*/
   .sccl-left-sidebar {
-    width: $sidebar-width + 10;
-    box-shadow: 2px -2px 0px #888888;
-    transition: width 0.5s ease;
-    top: $top-height + 25;
-    border-top-right-radius: 0.5em;
-    left: 0;
-    z-index: 30;
-    display: block;
-    min-height: 100%;
-    background-color: $sccl-dark-gray;
-    height: 100%;
-    position: fixed;
-    .left-side-footer {
-    	z-index: 1000;
-    	position: relative;
-    	background: $sccl-darken-gray;
-    	margin-top: -55px;
-    	text-align: center;
-    	width:100%;
-    	height: 140px;
-    	i{
-    		font-size: 30px;
-    		color: $sccl-light-gray;
+    @include sccl-left-sidebar(
+    	$sidebar-width + 10, 
+    	$font-size + 0.1, 
+    	$margin-top - 2,
+    	$margin-left + 46,
+    	($left + 7),
+    	$none, $block, $sccl-off-white);
+    	
+    ul.sccl-left-sidebar-list {
+    	> sccl-menu-item > li {
+    		// sublist
+    		> ul { 
+    			@include sccl-left-sidebar-sublist(
+    			$relative,
+    			$block,
+    			$left,
+    			$margin-top,
+    			 $content,
+    			 $right - 33,
+    			 $i-left + 40,
+    			 shade($sccl-dark-gray, 20%),
+    			 $full-d
+    			);
+    		}
     	}
-    	i.ion-android-settings {
-    		float: left;
-    		font-size: 25px;
-    		padding-left: 15px;
+    }//ul.sccl-left-sidebar-list**
+  }//sccl-left-sidebar **
+  
+
+/*
+sccl-left-sidebar-collapsed override some properties of the above class once the left side bar is collapsed.	
+*/
+  .sccl-left-sidebar-collapsed {
+  		$i-left: $left;
+  		$text-align: center;
+  		
+  		@include sccl-left-sidebar(
+  			($sidebar-width - 125), 
+  			11px, 23px, -1px, ($left + 25),
+  			$text-align, $none, $sccl-bright-white);
+		
+		ul.sccl-left-sidebar-list {
+    	> sccl-menu-item > li {
+    		// sublist
+    		> ul {
+    			display: block;
+    			@include sccl-left-sidebar-sublist(
+    			fixed, $block, 
+    			($left + 73),
+    			($margin-left - 60),
+    			 $fa-caret-left,
+    			 $right,
+    			 $i-left + 7,
+    			 rgba(45,54,53, 0.8),
+    			 145.5px
+    			);
+    		}
     	}
-    	i.ion-android-exit {
-    		float: right;
-    		font-size: 25px;
-    		padding-right: 15px;
-    	}
-    }
-  }//sccl-left-sidebar ends
-
-  .sccl-left-sidebar-list {
-    margin: 0 0 20px 0;
-    overflow: hidden;
-    padding: 2px 0 0 0;
-    list-style: none;
-  }
-
-  .sccl-left-sidebar-list-item {
-    display: block;
-    position: relative;
-    float: none;
-    padding: 4px 0;
-    border-bottom: 1px solid $sccl-light-gray;
-    border-bottom-right-radius: 0.5em;
-    &.selected:not(.with-sub-menu) {
-      background-color: $sccl-sky-blue;
-      border-top-right-radius: 0.5em;
-      margin-right: 1px;
-      a.sccl-left-sidebar-list-link {
-        color: $sccl-dark-gray;
-        font-weight: bold;
-        b {
-          color: $sccl-bright-white;
-        }
-      }
-    }
-  }
-  .sccl-left-sidebar-list-item, .sccl-left-sidebar-sublist-item {
-    &.sccl-left-sidebar-item-expanded {
-      > .sccl-left-sidebar-list-link {
-        b {
-          transform: rotate(180deg);
-        }
-      }
-
-      > .sccl-left-sidebar-sublist {
-        display: block;
-      }
-    }
-  }
-
-// Styles the texts inside the left side bar menu when is not collapsed
-  a.sccl-left-sidebar-list-link {
-    display: block;
-    padding-left: 10px;
-    text-shadow: none;
-    font-size: $font-size + 0.1;
-    text-decoration: none;
-    color:$sccl-off-white;
-    z-index: 50;
-    line-height: 42px;
-    white-space: nowrap;
-    overflow: hidden;
-    cursor: pointer;
-    &:hover {
-      color: $sccl-sky-blue;
-      b {
-        color: $sccl-sky-blue;
-      }
-    }
-    i {
-     	position: absolute;
-     	float: left;
-     	font-size: 26px;
-    }
-    b {
-      display: block;
-      opacity: 1;
-      transition: opacity 0.2s 0 ease;
-      width: 14px;
-      height: 14px;
-      line-height: 14px;
-      text-shadow: none;
-      font-size: 18px;
-      position: absolute;
-      right: 10px;
-      top: 18px;
-      padding: 0 20px 0 10px;
-      text-align: center;
-      color: $sccl-off-white;
-    }
-    div {
-    	margin-left: 40px;
-    }
-  } // ends
-
-  .slimScrollBar, .slimScrollRail {
-    border-radius: 0 !important;
-    width: $sidebar-scroll-width !important;
-    left: $sidebar-width - $sidebar-scroll-width;
-  }
-
-  .sccl-left-sidebar-sublist {
-   	@include default-sublist(block);
-  }
-
-  .sidebar-hover-elem {
-    width: $sidebar-scroll-width;
-    background: $sccl-sky-blue;
-    position: absolute;
-    top: -150px;
-    margin-top: -17px;
-    left: $sidebar-width - $sidebar-scroll-width;
-    transition: all 0.5s ease;
-    transition-property: top, height;
-    height: 42px;
-    display: block;
-  }
-
-  .sidebar-select-elem {
-    display: block;
-    top: 94px;
-  }
-
-  .menu-collapsed {
-   @include sidebar-overlap();
-    .slimScrollBar, .slimScrollRail {
-      display: none !important;
-    }
+    }//ul.sccl-left-sidebar-list**	
+  }// sccl-left-sidebar-collapsed **
+  
+  .sccl-left-sidebar-sub-menu-toggle {
+		display: block;
+		> div {
+			background: red;
+		}
+		
   }
 }
+
+
+	 

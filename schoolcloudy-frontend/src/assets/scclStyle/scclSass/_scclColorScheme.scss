@@ -1,7 +1,7 @@
 //  colors
 $sccl-bright-white: #fff;
 $sccl-off-white: shade($sccl-bright-white, 20%);
-$sccl-dark-gray: #2D3635 !default;
+$sccl-dark-gray: #2D3635 !default; //rgb(45,54,53)
 $sccl-darken-gray: shade($sccl-dark-gray, 10%);
 $sccl-light-gray: tint($sccl-dark-gray, 50%);
 $sccl-dark-yellow: #ffcc33;	//rgb(255,204,51)

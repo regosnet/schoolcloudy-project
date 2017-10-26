@@ -2,6 +2,9 @@
 @import '/scclShared/scclSharedModule/scclLayoutModule/scclOuterLayout/scclAside/scclLeftSideBar/scclLeftSidebar';
 
 :host /deep/ {
+	.tryClass {
+		display:block;
+	}
   @mixin layout-collapsed() {
     .al-main {
       margin-left: 50px;
@@ -24,7 +27,7 @@
 
   @media (min-width: $resXS + 1) {
     .menu-collapsed {
-      @include sidebar-collapsed();
+      //@include sidebar-collapsed();
     }
   }
 

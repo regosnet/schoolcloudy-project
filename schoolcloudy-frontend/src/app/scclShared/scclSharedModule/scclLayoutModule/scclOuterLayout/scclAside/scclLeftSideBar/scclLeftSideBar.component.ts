@@ -10,7 +10,7 @@ import { scclLayoutSizes } from "../../../scclLayout.constants";
 })
 export class ScclLeftSidebarComponent implements OnInit, AfterViewInit{
     public menuHeight: number;
-    public isMenuCollapsed: boolean = false;
+    public isMenuCollapsed: boolean;
     public isMenuShouldCollapsed: boolean = false;
 
 constructor(private _elementRef: ElementRef, private _scclState: ScclGlobalState) {
@@ -18,6 +18,13 @@ constructor(private _elementRef: ElementRef, private _scclState: ScclGlobalState
     this._scclState.subscribe('menu.isCollapsed', (isCollapsed) => {
         this.isMenuCollapsed = isCollapsed;
     })
+    
+    $('html').click(() => {
+        if(this.isMenuCollapsed) {
+            //console.log($('.sccl-left-sidebar-list > sccl-menu-item > li'))
+         $('.sccl-left-sidebar-list > sccl-menu-item > li > ul').removeAttr('style');
+        }
+    });
 }
 
 public ngOnInit(): void {
@@ -55,7 +62,7 @@ public menuCollapseStateChange(isCollapsed: boolean): void {
 
 public updateSidebarHeight(): void {
     // TODO: get rid of magic 84 constant
-    this.menuHeight = this._elementRef.nativeElement.childNodes[0].clientHeight - 84;
+    this.menuHeight = this._elementRef.nativeElement.childNodes[0].clientHeight - 120;
 }
 
 private _shouldMenuCollapse(): boolean {

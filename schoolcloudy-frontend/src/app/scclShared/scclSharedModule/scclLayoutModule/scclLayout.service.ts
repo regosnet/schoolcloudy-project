@@ -5,6 +5,9 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 @Injectable()
 export class ScclLayoutService {
     private width = new BehaviorSubject<number>(0);
+    constructor() {
+        
+    }
 
     public windowResizer(dimension: number): void {
         let width: number;

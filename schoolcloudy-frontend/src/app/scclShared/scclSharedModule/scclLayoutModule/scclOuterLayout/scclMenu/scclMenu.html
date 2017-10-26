@@ -1,11 +1,14 @@
-<ul id="sccl-left-sidebar-list" class="sccl-left-sidebar-list" scclSlimScroll [scclSlimScrollOptions]="{height: menuHeight}"
+ <ul class="sccl-left-sidebar-list" scclSlimScroll [scclSlimScrollOptions]="{height: menuHeight}"
     (mouseleave)="hoverElemTop=outOfArea">
   <sccl-menu-item
     [menuItem]="item"
     (itemHover)="hoverItem($event)"
+    [isCollapsed]="isCollapsed"
     (toggleSubMenu)="toggleSubMenu($event)"
     *ngFor="let item of menuItems"></sccl-menu-item>
 </ul>
+<!--  
 <div class="sidebar-hover-elem" [ngStyle]="{top: hoverElemTop + 'px', height: hoverElemHeight + 'px'}"
      [ngClass]="{'show-hover-elem': showHoverElem }">
 </div>
+-->

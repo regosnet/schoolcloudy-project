@@ -14,6 +14,7 @@ export class ScclMenuComponent implements OnInit, OnDestroy {
 
   @Input() sidebarCollapsed = false;
   @Input() menuHeight: number;
+  private isCollapsed = false;
 
   @Output() expandMenu = new EventEmitter<any>();
 
@@ -71,18 +72,17 @@ export class ScclMenuComponent implements OnInit, OnDestroy {
   }
 
   public toggleSubMenu($event): boolean {
+      this.isCollapsed = this.sidebarCollapsed;
+
     const submenu = $($event.currentTarget).next();
     // checks sub-items will not dropped down when the side is collapsed
-    //if (this.sidebarCollapsed) {
-      //this.expandMenu.emit(null);
-      //if (!$event.item.expanded) {
-       // $event.item.expanded = true;
-     // }
-    //} else {
+    if (this.sidebarCollapsed) {
+        console.log($($event.currentTarget).parent().parent().siblings())
+        setTimeout(() => submenu.slideToggle(100));
+    } else {
       //$event.item.expanded = !$event.item.expanded;
-      submenu.slideToggle();
-      console.log($event.currentTarget.getBoundingClientRect().top)
-    //}
+        submenu.slideToggle();
+    }
     return false;
   }
 }

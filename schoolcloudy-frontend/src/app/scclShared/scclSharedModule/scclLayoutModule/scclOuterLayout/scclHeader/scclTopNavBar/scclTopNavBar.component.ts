@@ -20,9 +20,9 @@ export class ScclTopNavBarComponent implements OnInit {
             private translate: TranslateService,
             private cdRef: ChangeDetectorRef,
             private _scclState: ScclGlobalState) {
-       /* this._scclState.subscribe('menu.isCollapsed', (isCollapsed) => {
+       this._scclState.subscribe('menu.isCollapsed', (isCollapsed) => {
             this.isMenuCollapsed = isCollapsed;
-          });*/
+          });
     }
 
     public scrolledChanged(isScrolled) {
