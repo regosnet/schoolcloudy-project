@@ -4,6 +4,8 @@
 	color: $sccl-light-gray;
 	left: 13px;
 	top: 5px;
+	border-top-left-radius: $border-radius;
+	border-top-right-radius: $border-radius;
 	background: $sccl-dark-gray;
 	border: 2px solid $sccl-dark-gray;
 	width: 100%;
@@ -17,6 +19,8 @@
 		right: 3px;
 		top: 3px;
 		width: 30%;
+		padding: 0;
+		margin: 0;
 		i {
 			padding: 0 10px;
 			border: 0.5px solid $sccl-light-gray;
@@ -35,15 +39,6 @@
 			&:hover {
 				background: $sccl-light-gray;
 				color: $sccl-light-green;
-			}
-		}
-		input {
-			background: $sccl-dark-gray;
-			border: 0.5px solid $sccl-light-gray;
-			border-radius: 5px;
-			&:focus {
-				background: $sccl-light-gray;
-				color: $sccl-bright-white;
 			}
 		}
 	}

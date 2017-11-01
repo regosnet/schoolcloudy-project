@@ -5,21 +5,17 @@ import { ScclSubTableComponent } from './scclSubTable/scclSubTable.component';
 
 @Injectable()
 export class ScclTableService {
-    private dataSource;
-    private tableData;
-    private tableSchema;
+    private tableLocalStorage;
     private _dataStream$;
+    public _$newDataStream;
 
     constructor(private resolver: ComponentFactoryResolver,
             private injector: Injector,
             private app: ApplicationRef) {
-        this.dataSource = [];
-        this.tableData = [];
-        this.tableSchema = [];
+        this.tableLocalStorage = [];
         this._dataStream$ = new BehaviorSubject([]);
-        if (this.getDataSource().length === 0) {
-            this.setTablePack();
-        }
+        this._$newDataStream = new BehaviorSubject([]);
+        this.setTablePack();
     }
 
     public getTableStream() {
@@ -29,30 +25,24 @@ export class ScclTableService {
     public setTablePack() {
        this.getTableStream().subscribe((tableConfig) => {
            tableConfig.forEach((data) => {
-               this.getDataSource().push(data);
+               this.getTableLoacalStorage().push(data);
            });
        });
-       setTimeout(() => {
-           this.setTableResponsiveLayout();
-}, 700);
     }
 
 
-    public setTableResponsiveLayout() {
-        let sumColumnWidths = 0;
+    public setTableColumnLayout(tableSchema: Array<Object>): Array<Object> {
+
         let newTableColumns: Array<Object> = [];
         const windowWidth = $('.sccl-table').width() - 100;
-        const tableColumn: Array<Object> = Array.from(this.getDataSource()[1]['tableSchema']);
         let newWidth = 0;
         let index = 0;
-        tableColumn.forEach((column) => {
-            sumColumnWidths += column['width'];
-        });
-        if (Math.floor(sumColumnWidths) > windowWidth) {
+
+        if (this.sumColumnsWidth(tableSchema) > windowWidth) {
 
             while (newWidth < windowWidth) {
-                newTableColumns.push(tableColumn[index]);
-                newWidth += tableColumn[index]['width'];
+                newTableColumns.push(tableSchema[index]);
+                newWidth += tableSchema[index]['width'];
                 index++;
             }
             if (newWidth % windowWidth !== 0) {
@@ -62,20 +52,27 @@ export class ScclTableService {
                 });
             }
         }else {
-            const expandColumnWidths = (windowWidth - sumColumnWidths ) / tableColumn.length;
-            console.log(expandColumnWidths);
-            tableColumn.forEach((column) => {
+            const expandColumnWidths = (windowWidth - this.sumColumnsWidth(tableSchema) ) / tableSchema.length;
+            tableSchema.forEach((column) => {
                column['width'] = (column['width'] + expandColumnWidths);
             });
-            newTableColumns = tableColumn;
+            newTableColumns = tableSchema;
         }
         newTableColumns.unshift(this.setTableRowDropDownBtn());
         newTableColumns.push(this.setRowEditAndDeleteBtn());
-        sumColumnWidths = 0;
+        /*sumColumnWidths = 0;
         newTableColumns.forEach((column) => {
             sumColumnWidths += column['width'];
+        });*/
+        return newTableColumns;
+    }
+
+    private sumColumnsWidth(tableSchema: Array<Object>): number {
+        let sumColumnWidths = 0;
+        tableSchema.forEach((column) => {
+            sumColumnWidths += column['width'];
         });
-        this.setTableSchema(newTableColumns);
+        return Math.floor(sumColumnWidths);
     }
 
     private setTableRowDropDownBtn() {
@@ -107,22 +104,10 @@ export class ScclTableService {
          }
      }
 
-     public getDataSource() {
-         return this.dataSource;
+     public getTableLoacalStorage() {
+         return this.tableLocalStorage;
      }
-     public setDataSource(dataSource: Array<object>) {
-         this.dataSource = dataSource;
-     }
-     public getTableData() {
-         return this.tableData;
-     }
-     public setTableData(tableData: Array<object>) {
-         this.tableData = tableData;
-     }
-     public getTableSchema() {
-         return this.tableSchema;
-     }
-     public setTableSchema(tableSchema: Array<object>) {
-         this.tableSchema = tableSchema;
+     public setTableLocalStorage(data: Array<object>) {
+         this.tableLocalStorage = data;
      }
 }

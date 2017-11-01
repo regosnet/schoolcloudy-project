@@ -23,7 +23,7 @@ export const SCCL_ADMINISTRATOR_MENU =
                      data: {
                          menu: {
                              title: 'sccl.menu.left_side_bar.mailbox',
-                             icon: 'ion-email',
+                             icon: 'ion-ios-email-outline',
                              selected: false,
                              expanded: false,
                              order: 0
@@ -35,7 +35,7 @@ export const SCCL_ADMINISTRATOR_MENU =
                      data: {
                          menu: {
                              title: 'sccl.menu.left_side_bar.academics',
-                             icon: 'ion-university',
+                             icon: 'ion-ios-book-outline',
                              selected: false,
                              expanded: false,
                              order: 1
@@ -122,7 +122,7 @@ export const SCCL_ADMINISTRATOR_MENU =
                      data: {
                          menu: {
                              title: 'sccl.menu.left_side_bar.staffs',
-                             icon: 'ion-android-people',
+                             icon: 'ion-ios-people-outline',
                              selected: false,
                              expanded: false,
                              order: 5

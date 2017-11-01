@@ -7,6 +7,7 @@ import { ScclMainRouter } from './scclMain.router';
 import { ScclAdministratorModule } from './scclAdministratorModule/scclAdministrator.module';
 import { ScclLoginModule } from './scclShared/scclSharedModule/scclLoginModule/scclLogin.module';
 import { AppTranslationModule } from './scclTranslatingModule';
+import { NbThemeModule } from '@nebular/theme';
 
 
 
@@ -19,7 +20,8 @@ import { AppTranslationModule } from './scclTranslatingModule';
     ScclMainRouter,
     ScclAdministratorModule,
     BrowserAnimationsModule,
-    AppTranslationModule
+    AppTranslationModule,
+    NbThemeModule.forRoot({ name: 'default' })
   ],
 
   bootstrap: [ScclMainComponent]

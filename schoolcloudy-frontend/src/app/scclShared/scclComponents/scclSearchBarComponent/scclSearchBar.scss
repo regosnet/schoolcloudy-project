@@ -1,0 +1,16 @@
+@import '../../../../scclStyles';
+
+ div.input-group {
+	width: 100%;
+	float: right;
+	input {
+		background: $sccl-dark-gray;
+		border: 0.5px solid $sccl-light-gray;
+		border-radius: $border-radius;
+		width: 100%;
+		&:focus {
+			background: $sccl-light-gray;
+			color: $sccl-bright-white;
+		}
+	}
+}

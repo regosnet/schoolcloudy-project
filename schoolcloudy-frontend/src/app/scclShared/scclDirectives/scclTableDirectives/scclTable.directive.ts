@@ -16,7 +16,7 @@ export class ScclTableDirective {
 
     @HostListener('window:resize')
     getCurrentWindowSize() {
-        this._scclTableService.setTableResponsiveLayout();
+        //this._scclTableService.setTableResponsiveLayout();
         $('.sccl-table').tabulator('redraw', true);
         //$("#example-table").tabulator("deleteColumn", "name");
     }

@@ -24,7 +24,6 @@ export class ScclPreloaderService {
         setTimeout(() => {
           Promise.all(ScclPreloaderService._loaders).then((values) => {
             done.call(null, values);
-
           }).catch((error) => {
             console.error(error);
           });

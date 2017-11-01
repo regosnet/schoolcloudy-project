@@ -1,4 +1,15 @@
-import { Component, Input, OnInit, AfterViewInit, Output, Injector, ApplicationRef, ComponentFactoryResolver } from '@angular/core';
+import {
+        Component,
+        Input,
+        OnInit,
+        AfterViewInit,
+        Output,
+        Injector,
+        ApplicationRef,
+        ComponentFactoryResolver,
+        EventEmitter
+    } from '@angular/core';
+
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { ScclTableService } from './scclTable.service';
@@ -13,6 +24,18 @@ export class ScclTableComponent implements OnInit, AfterViewInit {
 
     @Input()
     private tableTitle;
+
+    @Input()
+    private tableSchema;
+
+    @Output()
+    private addItemToTable = new EventEmitter<any>();
+    private searchColumns = [];
+
+    public items: Array<string>;
+
+    private searchBarPorperties = {background: '#2D3635', width: '150%'};
+
     showExtraClass = true;
     toolTipActive = false;
 
@@ -20,45 +43,62 @@ export class ScclTableComponent implements OnInit, AfterViewInit {
     }
 
     ngOnInit() {
-        this.getTableDataAndSchema();
-        $( window ).resize(() => $('.sccl-table').tabulator('redraw', true));
+        $('.sccl-table').tabulator(this.getTableProperties());
     }
-    ngAfterViewInit() {}
-
-    getDocumentBody() {
-        $('#addItemModal').appendTo('body');
+    ngAfterViewInit() {
+        $('.sccl-table').tabulator('setColumns', this.tableSchema);
+        if (this._scclTableService.getTableLoacalStorage().length === 0) {
+            setTimeout(() => {
+                $('.sccl-table').tabulator('setData', this._scclTableService.getTableLoacalStorage());
+            }, 1000);
+        }else {
+            $('.sccl-table').tabulator('setData', this._scclTableService.getTableLoacalStorage());
+        }
     }
 
-    private getTableProperties(data: any, columns: any) {
+    private getTableProperties() {
         return {
             height: () => $(window).height() - 120,
-            data: data,
-            placeholder: 'No Data Available',
+            placeholder: 'No data found',
             pagination: 'local',
             paginationSize: 40,
             layout: 'fitDataFill',
             addRowPos: 'bottom',
             resizableColumns: false,
-            columns: this._scclTableService.getTableSchema()
+            columns: []
         };
     }
 
-    private initializeTable(tableConfig: Array<object>) {
-        if (tableConfig.length !== 0) {
-            const data = tableConfig[0]['data'];
-            const columns: Array<object> = tableConfig[1]['tableSchema'];
-            $('.sccl-table').tabulator(this.getTableProperties(data, columns));
-        }
+    private addNewItemToTable(value) {
+        this.addItemToTable.emit(value);
     }
 
+    private openTableModal() {
+        $('#add-new').modal({
+            backdrop: 'static'
+        }).appendTo('body');
+    }
 
-    private getTableDataAndSchema() {
-        if (this._scclTableService.getDataSource().length === 0) {
-            setTimeout(() => {
-               this.initializeTable(this._scclTableService.getDataSource());
-            }, 1000);
-        }else {
-            this.initializeTable(this._scclTableService.getDataSource());
-        }
+    private tableSearchFilter(searchStr) {
+        this.setSearchColumns(searchStr);
+      $('.sccl-table').tabulator('setFilter', this.searchColumns);
+    }
+
+    private setSearchColumns(searchStr) {
+        const s_col = [];
+        const data = $('.sccl-table').tabulator('getData')[0];
+        const columns = $('.sccl-table').tabulator('getColumns').filter((col) => col.getField() !== undefined);
+        columns.forEach((col) => {
+            const created_cols = {};
+            if (typeof data[col.getField()] !== 'object') {
+                if (data[col.getField()] !== undefined) {
+                created_cols['field'] = col.getField();
+                created_cols['type'] = 'like';
+                created_cols['value'] = searchStr;
+                s_col.push(created_cols);
+                }
+            }
+        });
+        this.searchColumns = s_col;
     }
 }

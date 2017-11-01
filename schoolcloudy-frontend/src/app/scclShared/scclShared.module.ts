@@ -5,37 +5,85 @@ import { RouterModule } from '@angular/router';
 import { AppTranslationModule } from '../scclTranslatingModule';
 
 //Modules from https://material.angular.io/
-import {MatTooltipModule} from '@angular/material';
-import {MatTabsModule} from '@angular/material';
-import {MatCardModule} from '@angular/material';
-import {MatButtonModule} from '@angular/material';
-import {MatMenuModule} from '@angular/material';
-import {MatIconModule} from '@angular/material';
+import {
+    MatTooltipModule,
+    MatCheckboxModule,
+    MatTabsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
+    MatAutocompleteModule,
+    MatInputModule
+    } from '@angular/material';
+
+import {
+    NbActionsModule,
+    NbCardModule,
+    NbLayoutModule,
+    NbMenuModule,
+    NbRouteTabsetModule,
+    NbSearchModule,
+    NbSidebarModule,
+    NbTabsetModule,
+    NbThemeModule,
+    NbUserModule,
+    NbCheckboxModule,
+  } from '@nebular/theme';
 
 
 import {DndModule} from 'ng2-dnd';
 import 'hammerjs';
-import { ScclPngExtPipe, ScclObjectPipe, ScclItemKey } from './scclPipes/scclPngExt.pipe';
+import { ScclPngExtPipe} from './scclPipes/scclPngExt.pipe';
 
 import { ScclMsgCenterService } from './scclSharedModule/scclLayoutModule/scclOuterLayout/scclMsgCenter/scclMsgCenter.service';
 import { ScclMenuService, ScclPreloaderService } from './scclSharedService';
 import { TranslateService } from '@ngx-translate/core';
 import { ScclGlobalState } from '../scclGlobalState';
+import { ScclSearchBarComponent } from './scclComponents';
 import {
     ScclMenuItemDirective,
     ScclRightSidebarDirective,
     ScclScrollPositionDirective,
     ScclSlimScrollDirective,
     ScclTableDirective,
-    ScclLayoutDirective} from './scclDirectives';
+    ScclLayoutDirective
+    } from './scclDirectives';
 
+const NB_MODULES = [
+    NbCardModule,
+    NbLayoutModule,
+    NbTabsetModule,
+    NbRouteTabsetModule,
+    NbMenuModule,
+    NbUserModule,
+    NbActionsModule,
+    NbSearchModule,
+    NbSidebarModule,
+    NbCheckboxModule
+    ];
 
+const MAT_MODULES = [
+    MatTooltipModule,
+    MatCheckboxModule,
+    MatTabsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatIconModule,
+    MatAutocompleteModule,
+    MatProgressSpinnerModule,
+    MatInputModule
+                    ];
 
 const SCCL_SHARED_SERVICE = [
     ScclMenuService,
     ScclPreloaderService,
     ScclMsgCenterService,
-    ScclGlobalState
+    ScclGlobalState,
+    ...NbSidebarModule.forRoot().providers,
+    ...NbMenuModule.forRoot().providers,
 ];
 
 const SCCL_DIRECTIVES = [
@@ -48,12 +96,11 @@ const SCCL_DIRECTIVES = [
 ];
 
 const SCCL_COMPONENTS = [
+    ScclSearchBarComponent
 ];
 
 const SCCL_PIPES = [
-    ScclPngExtPipe,
-    ScclObjectPipe,
-    ScclItemKey
+    ScclPngExtPipe
 ];
 
 @NgModule({
@@ -66,11 +113,8 @@ const SCCL_PIPES = [
       DndModule.forRoot(),
       ReactiveFormsModule,
       FormsModule,
-      MatTooltipModule,
-      MatTabsModule,
-      MatCardModule,
-      MatMenuModule,
-      MatIconModule
+      ...MAT_MODULES,
+      ...NB_MODULES
     ],
     declarations: [
       ...SCCL_PIPES,
@@ -84,17 +128,14 @@ const SCCL_PIPES = [
          ...SCCL_PIPES,
          ...SCCL_DIRECTIVES,
          ...SCCL_COMPONENTS,
+         ...NB_MODULES,
          DndModule,
          RouterModule,
          AppTranslationModule,
          CommonModule,
          ReactiveFormsModule,
          FormsModule,
-         MatTooltipModule,
-         MatTabsModule,
-         MatCardModule,
-         MatMenuModule,
-         MatIconModule
+         ...MAT_MODULES
     ]
 })
 export class ScclSharedModule {
@@ -102,8 +143,8 @@ export class ScclSharedModule {
         return <ModuleWithProviders> {
           ngModule: ScclSharedModule,
           providers: [
-                      TranslateService,
-                      SCCL_SHARED_SERVICE
+               TranslateService,
+               SCCL_SHARED_SERVICE
           ],
         };
       }

@@ -159,7 +159,7 @@ div.header {
     	top: 3px;
   	}
        
-    .al-user-profile {
+    .sccl-user-profile {
     	float: right;
    	 	transition: all .15s ease-in-out;
     	padding: 0;
@@ -185,7 +185,7 @@ div.header {
     	.profile-toggle-link {
     		cursor: pointer;
     		span, i{
-    			color: $sccl-bright-white;
+    			color: $sccl-light-gray;
     		}
   		}
   		
@@ -197,13 +197,13 @@ div.header {
     	display: block;
     	text-decoration: none;
     	line-height: 42px;
-    	color: $sccl-bright-white;
+    	color: $sccl-light-gray;
     	padding: 0;
     	float: right;
     	margin: 6px 70px 0 0;
     	&:hover {
       		text-decoration: none;
-      		color: $warning;
+      		color: $sccl-off-white;;
     	}
    	}
    	.profile-dropdown {
@@ -264,7 +264,7 @@ div.header {
    .user-profile {
       min-width: 70px;
       position: relative;
-      .al-user-profile {
+      .sccl-user-profile {
       	width: 50px;
       	height: 50px;
      	a > span, .msg-notification-box  {

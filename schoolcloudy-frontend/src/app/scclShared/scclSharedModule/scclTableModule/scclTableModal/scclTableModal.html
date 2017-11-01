@@ -1,0 +1,26 @@
+<!-- Modal HTML -->
+<div id="add-new" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div>
+                	<div></div>
+                	<sccl-search-bar (searchVarNotif)="onSearchVariable($event)" [properties]="searchBarProperties"></sccl-search-bar>
+                </div>
+            </div> 
+            <div class="modal-body">
+            	<div *ngFor="let new_d of data">
+            		<mat-checkbox class="example-margin" [(ngModel)]="checked" value>
+            			<span>{{new_d.firstName}}</span>
+            		</mat-checkbox>
+            		
+            	</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+ 

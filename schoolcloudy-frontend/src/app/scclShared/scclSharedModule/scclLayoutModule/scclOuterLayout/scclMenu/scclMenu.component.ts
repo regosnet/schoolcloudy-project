@@ -77,7 +77,6 @@ export class ScclMenuComponent implements OnInit, OnDestroy {
     const submenu = $($event.currentTarget).next();
     // checks sub-items will not dropped down when the side is collapsed
     if (this.sidebarCollapsed) {
-        console.log($($event.currentTarget).parent().parent().siblings())
         setTimeout(() => submenu.slideToggle(100));
     } else {
       //$event.item.expanded = !$event.item.expanded;

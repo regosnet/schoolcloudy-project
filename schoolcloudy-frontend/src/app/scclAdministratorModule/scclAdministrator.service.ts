@@ -27,7 +27,11 @@ export class ScclAdmininstratorService {
     public getStudents() {
         const headers = new Headers();
         headers.append('Content-Type', 'application/json' );
-        return this._http.get('http://localhost:8080/schoolcloudy/school/administrator/get/all/students', {headers: this.getHeaders()});
+        return this._http.get('http://localhost:8080/schoolcloudy/school/administrator/get/all/students', {headers: this.getHeaders()})
+        ._catch((err) => {
+            console.log('SERVER IS DOWN' + err);
+            return Observable.throw(err);
+        });
     }
 
     private getHeaders() {
