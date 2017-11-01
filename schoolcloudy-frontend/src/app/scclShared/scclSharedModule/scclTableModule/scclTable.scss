@@ -11,22 +11,8 @@
 	width: 100%;
 	padding-top: 1.5px;
 	padding-bottom: 0;
-	div.bar-title {
-		float: left;
-	}
 	div.table-controls {
-		position: absolute;
-		right: 3px;
-		top: 3px;
-		width: 30%;
-		padding: 0;
-		margin: 0;
-		i {
-			padding: 0 10px;
-			border: 0.5px solid $sccl-light-gray;
-			margin-right: 5px;
-			border-radius: 5px;
-		}
+		
 		i.ion-trash-a {
 			color: $sccl-light-red;
 			&:hover {
@@ -49,24 +35,5 @@
 	left: 13px;
 	top: 3px;
 	width: 100%;
-}
-
-/deep/ .mat-tooltip {
-    background-color: rgba(45, 54, 53, 0.4); 
-    width: 60px;
-    position: relative;
-    border-radius: 15px;
-    text-align: center;
-    bottom: -5px;
-    margin-bottom: 15px;  
-    &::after {
-    	content: $fa-caret-down;
-    	font-family: FontAwesome;
-    	font-size: 20px;
-    	color: rgba(45, 54, 53, 0.4); 
-    	position: absolute;
-    	bottom: -16px;
-    	left: 20px;
-    }
 }
 	

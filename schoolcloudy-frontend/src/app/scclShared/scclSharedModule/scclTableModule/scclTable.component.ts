@@ -32,9 +32,11 @@ export class ScclTableComponent implements OnInit, AfterViewInit {
     private addItemToTable = new EventEmitter<any>();
     private searchColumns = [];
 
+    private tableControlButtons = [];
+
     public items: Array<string>;
 
-    private searchBarPorperties = {background: '#2D3635', width: '150%'};
+    private searchBarPorperties = {background: '#2D3635', width: '100%'};
 
     showExtraClass = true;
     toolTipActive = false;
@@ -44,6 +46,7 @@ export class ScclTableComponent implements OnInit, AfterViewInit {
 
     ngOnInit() {
         $('.sccl-table').tabulator(this.getTableProperties());
+        this.tableControlButtons = this.setTableControlButtons();
     }
     ngAfterViewInit() {
         $('.sccl-table').tabulator('setColumns', this.tableSchema);
@@ -81,7 +84,7 @@ export class ScclTableComponent implements OnInit, AfterViewInit {
 
     private tableSearchFilter(searchStr) {
         this.setSearchColumns(searchStr);
-      $('.sccl-table').tabulator('setFilter', this.searchColumns);
+      //$('.sccl-table').tabulator('setFilter', this.searchColumns);
     }
 
     private setSearchColumns(searchStr) {
@@ -100,5 +103,17 @@ export class ScclTableComponent implements OnInit, AfterViewInit {
             }
         });
         this.searchColumns = s_col;
+    }
+
+    private setTableControlButtons() {
+        return [
+                    {class: 'ion-plus-round', toolTipLabel: 'Add New', action: this.openTableModal},
+                    {class: 'ion-refresh', toolTipLabel: 'Refresh', action: this.refreshTable},
+                    {class: 'ion-ios-trash', toolTipLabel: 'Delete All', action: this.refreshTable}
+                ];
+    }
+
+    private refreshTable() {
+        
     }
 }

@@ -1,13 +1,14 @@
-<div class="input-group input-group-sm">
-  <input 
-  	type="text"
-  	class="form-control"
-  	placeholder="Search For...."
-  	aria-describedby="sccl search bar"
-  	[ngStyle]="{
-  			background: properties.background,
-  			width: properties.width
-  			}"
-  			
-  	(keyup)="getSearchVariable(searchVariable.value)" #searchVariable>
-</div>
+ 	
+  	<div class="row">
+  		<div class="col input-base"> 
+  			<input 
+  				type="search"
+  				(keyup)="getSearchVariable(searchVariable.value)"
+  				#searchVariable
+  				placeholder="Search For...."
+  				aria-describedby="sccl search bar"
+  				[ngStyle]="{
+  					background: properties.background
+  					}">
+  		</div>
+  	</div>

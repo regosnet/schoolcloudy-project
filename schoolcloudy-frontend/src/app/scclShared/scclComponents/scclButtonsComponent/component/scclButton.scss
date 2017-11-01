@@ -1,0 +1,50 @@
+@import '../../../../../scclStyles';
+
+i {
+     padding: 1px 10px;
+     border: 0.5px solid $sccl-light-gray;
+     margin-right: 5px;
+     border-radius: 5px;
+     font-size: 21px;
+     }
+     
+i.ion-ios-trash {
+	color: $sccl-light-red;
+	&:hover {
+		background: $sccl-light-gray;
+		color: $sccl-light-red;
+		}
+	}
+i.ion-refresh {
+
+	&:hover {
+		background: $sccl-light-gray;
+		color: $sccl-light-red;
+		}
+	}
+i.ion-plus-round {
+	color: $sccl-light-green;
+	&:hover {
+		background: $sccl-light-gray;
+		color: $sccl-light-green;
+		}
+	}
+
+/deep/ .mat-tooltip {
+    background-color: rgba(45, 54, 53, 0.4);
+    width: 60px;
+    position: relative;
+    border-radius: 15px;
+    text-align: center;
+    bottom: -5px;
+    margin-bottom: 15px;  
+    &::after {
+        content: $fa-caret-down;
+        font-family: FontAwesome;
+        font-size: 20px;
+        color: rgba(45, 54, 53, 0.4); 
+        position: absolute;
+        bottom: -16px;
+        left: 20px;
+    }
+}

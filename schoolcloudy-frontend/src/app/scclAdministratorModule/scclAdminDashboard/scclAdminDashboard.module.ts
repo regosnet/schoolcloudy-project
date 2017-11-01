@@ -4,16 +4,19 @@ import { ScclAdminDashboardRouter } from './scclAdminDashboard.router';
 import { ScclSharedModule } from '../../scclShared/scclShared.module';
 import { ScclTrafficChartComponent } from './scclTrafficChart/scclTrafficChart.component';
 import { NbSidebarModule, NbLayoutModule, NbSidebarService } from '@nebular/theme';
+import { ScclWeatherWidComponent } from './scclWeather/scclWeatherWid.component';
 
 
 
 @NgModule({
     imports: [ScclAdminDashboardRouter,
-              ScclSharedModule.forRoot(),
+              ScclSharedModule.forRoot(), 
               NbLayoutModule,
               NbSidebarModule,
               ],
-    declarations: [ScclAdminDashboardComponent, ScclTrafficChartComponent],
+    declarations: [ScclAdminDashboardComponent,
+                   ScclTrafficChartComponent,
+                   ScclWeatherWidComponent],
     providers: [NbSidebarService]
 })
 export class ScclAdminDashboardModule {

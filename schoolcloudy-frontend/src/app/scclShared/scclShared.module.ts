@@ -41,7 +41,11 @@ import { ScclMsgCenterService } from './scclSharedModule/scclLayoutModule/scclOu
 import { ScclMenuService, ScclPreloaderService } from './scclSharedService';
 import { TranslateService } from '@ngx-translate/core';
 import { ScclGlobalState } from '../scclGlobalState';
-import { ScclSearchBarComponent } from './scclComponents';
+import {
+         ScclButtonComponent,
+         ScclSearchBarComponent
+        } from './scclComponents';
+
 import {
     ScclMenuItemDirective,
     ScclRightSidebarDirective,
@@ -96,6 +100,7 @@ const SCCL_DIRECTIVES = [
 ];
 
 const SCCL_COMPONENTS = [
+    ScclButtonComponent,
     ScclSearchBarComponent
 ];
 

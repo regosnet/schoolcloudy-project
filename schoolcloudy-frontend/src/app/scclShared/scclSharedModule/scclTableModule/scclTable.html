@@ -1,26 +1,30 @@
 <nav class="navbar navbar-inverse">
-  <div class="bar-title">
-  	<h4>{{'sccl.menu.left_side_bar.students' | translate}}</h4>
-  </div>
-  	<div class="table-controls">
-  		<div class="input-group">
-			<i class="ion-plus-round" matTooltip="Add New" [matTooltipDisabled]="toolTipActive" (click)="openTableModal()"  
-			[matTooltipPosition]="'above'" [matTooltipHideDelay]="1" [matTooltipClass]="{'mat-tooltip': showExtraClass}"></i>
-			
-			<i class="ion-refresh" matTooltip="Refresh" [matTooltipDisabled]="toolTipActive"  
-			[matTooltipPosition]="'above'" [matTooltipHideDelay]="1" [matTooltipClass]="{'mat-tooltip': showExtraClass}"></i>
-			
-			<i class="ion-trash-a" matTooltip="Delete all"  [matTooltipDisabled]="toolTipActive"  
-			[matTooltipPosition]="'above'" [matTooltipHideDelay]="1" [matTooltipClass]="{'mat-tooltip': showExtraClass}"></i>
-			
-			<sccl-search-bar [properties]="searchBarPorperties" (searchVarNotif)="tableSearchFilter($event)"></sccl-search-bar>
+	<div class="row">
+		<div class="col-md-7">
+			<div class="bar-title">
+  				<h4>{{'sccl.menu.left_side_bar.students' | translate}}</h4>
+  			</div>
+		</div>
+		<div class="col">
+			<div class="table-controls">
+				<sccl-button
+					*ngFor="let btnControl of tableControlButtons"
+					[btnClass]="btnControl.class"
+					[toolTipLabel]="btnControl.toolTipLabel"
+					(actions)="btnControl.action()"
+					>
+				</sccl-button>
+			 </div>
+		</div>
+		<div class="col-md-3">
+			<sccl-search-bar
+				[properties]="searchBarPorperties"
+				(searchVarNotif)="tableSearchFilter($event)">
+			</sccl-search-bar>
 		</div>
 	</div>
-	
 </nav>
 <div class="sccl-table table-bordered"></div>
-<sccl-table-modal (notifyWithSearchVar)="addNewItemToTable($event)"></sccl-table-modal>
-<!-- 
-
-	https://valor-software.com/ng2-select/
- -->
+<sccl-table-modal
+	(notifyWithSearchVar)="addNewItemToTable($event)">
+</sccl-table-modal>
