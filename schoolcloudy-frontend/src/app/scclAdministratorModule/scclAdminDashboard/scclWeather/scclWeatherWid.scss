@@ -2,7 +2,7 @@
 @import '~@nebular/theme/styles/global/bootstrap/breakpoints';
 @import '~bootstrap/scss/mixins/breakpoints';
 
-//@include nb-install-component() {
+@include nb-install-component() {
 
   nb-card {
     background-image: nb-theme(radial-gradient);
@@ -125,4 +125,4 @@
       padding-right: 1rem;
     }
   }
-//}
+}

@@ -33,6 +33,7 @@ import {
   } from '@nebular/theme';
 
 
+
 import {DndModule} from 'ng2-dnd';
 import 'hammerjs';
 import { ScclPngExtPipe} from './scclPipes/scclPngExt.pipe';
@@ -54,6 +55,9 @@ import {
     ScclTableDirective,
     ScclLayoutDirective
     } from './scclDirectives';
+
+import { DEFAULT_THEME } from '../@theme/styles/theme.default';
+import { COSMIC_THEME } from '../@theme/styles/theme.cosmic';
 
 const NB_MODULES = [
     NbCardModule,
@@ -108,6 +112,17 @@ const SCCL_PIPES = [
     ScclPngExtPipe
 ];
 
+const NB_THEME_PROVIDERS = [
+    ...NbThemeModule.forRoot(
+      {
+        name: 'cosmic',
+      },
+      [ DEFAULT_THEME, COSMIC_THEME ],
+    ).providers,
+    ...NbSidebarModule.forRoot().providers,
+    ...NbMenuModule.forRoot().providers,
+];
+
 @NgModule({
     imports: [
       CommonModule,
@@ -149,7 +164,8 @@ export class ScclSharedModule {
           ngModule: ScclSharedModule,
           providers: [
                TranslateService,
-               SCCL_SHARED_SERVICE
+               SCCL_SHARED_SERVICE,
+               ...NB_THEME_PROVIDERS
           ],
         };
       }

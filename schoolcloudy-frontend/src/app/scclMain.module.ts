@@ -8,6 +8,8 @@ import { ScclAdministratorModule } from './scclAdministratorModule/scclAdministr
 import { ScclLoginModule } from './scclShared/scclSharedModule/scclLoginModule/scclLogin.module';
 import { AppTranslationModule } from './scclTranslatingModule';
 import { NbThemeModule } from '@nebular/theme';
+import { APP_BASE_HREF } from '@angular/common';
+import { ScclSharedModule } from './scclShared/scclShared.module';
 
 
 
@@ -21,9 +23,12 @@ import { NbThemeModule } from '@nebular/theme';
     ScclAdministratorModule,
     BrowserAnimationsModule,
     AppTranslationModule,
-    NbThemeModule.forRoot({ name: 'default' })
+    ScclSharedModule.forRoot()
   ],
 
-  bootstrap: [ScclMainComponent]
+  bootstrap: [ScclMainComponent],
+  providers: [
+     { provide: APP_BASE_HREF, useValue: '/' },
+  ],
 })
 export class ScclMainModule { }

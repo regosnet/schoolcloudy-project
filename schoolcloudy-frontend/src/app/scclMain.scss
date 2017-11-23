@@ -2,9 +2,9 @@
 @import '/scclShared/scclSharedModule/scclLayoutModule/scclOuterLayout/scclAside/scclLeftSideBar/scclLeftSidebar';
 
 :host /deep/ {
-	.tryClass {
-		display:block;
-	}
+.sccl-main {
+	background: red;
+}
   @mixin layout-collapsed() {
     .al-main {
       margin-left: 50px;

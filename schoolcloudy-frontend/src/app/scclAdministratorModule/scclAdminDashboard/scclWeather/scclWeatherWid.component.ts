@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NbThemeService } from '@nebular/theme';
+import { NbJSThemeOptions } from '@nebular/theme/services/js-themes/theme.options';
 
 @Component({
   selector: 'sccl-weather-wid',
@@ -7,4 +9,8 @@ import { Component } from '@angular/core';
 })
 
 export class ScclWeatherWidComponent {
+    constructor(private themeService: NbThemeService) {
+        this.themeService.getJsTheme()
+        .subscribe((theme: NbJSThemeOptions) => console.log(theme));
+    }
 }
